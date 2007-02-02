@@ -1,0 +1,539 @@
+#
+newmtl Metal_Chrome
+Ka  0.0 0.0 0.0
+Kd  0.4 0.4 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  5.0
+illum 2
+#
+newmtl basemap
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd basediff.png
+bump basebump.png
+#
+newmtl Material__7
+Ka  0.1 0.2 0.2
+Kd  0.9 0.8 0.3
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl standard
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl Material__8
+Ka  0.2 0.1 0.2
+Kd  0.2 0.2 0.2
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl Material__3
+Ka  0.1 0.1 0.2
+Kd  0.4 0.3 0.2
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl barel02
+Ka  0.1 0.1 0.3
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff02.png
+#
+newmtl barel03
+Ka  0.2 0.2 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff03.png
+#
+newmtl Material__13
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 0.9
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+# Multi/Sub Material__981 done 
+#
+# Multi/Sub Material__263 (9) to come 
+#
+newmtl Metal_Chrome
+Ka  0.0 0.0 0.0
+Kd  0.4 0.4 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  5.0
+illum 2
+#
+newmtl Material__3
+Ka  0.1 0.1 0.2
+Kd  0.4 0.3 0.2
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl standard
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl conemap
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd conediff.png
+#
+newmtl barel01a
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff01.png
+#
+newmtl barel04
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff04.png
+#
+newmtl Material__8
+Ka  0.2 0.1 0.2
+Kd  0.2 0.2 0.2
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl Material__7
+Ka  0.1 0.2 0.2
+Kd  0.9 0.8 0.3
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl shellmap
+Ka  0.1 0.1 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd shelldiff.png
+bump shellbump.png
+#
+# Multi/Sub Material__263 done 
+#
+# Multi/Sub Material__2837 (7) to come 
+#
+newmtl Metal_Chrome
+Ka  0.0 0.0 0.0
+Kd  0.4 0.4 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  5.0
+illum 2
+#
+newmtl sidearmgun
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd sidearmgundiff.png
+bump sidearmgunbump.png
+#
+newmtl barel02
+Ka  0.1 0.1 0.3
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff02.png
+#
+newmtl barel03
+Ka  0.2 0.2 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff03.png
+#
+newmtl barel01
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff01.png
+#
+newmtl barrelblack01
+Ka  0.1 0.1 0.1
+Kd  0.2 0.2 0.2
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barrelblackdiff03.png
+bump bump03.png
+#
+newmtl barrelblack02
+Ka  0.1 0.1 0.1
+Kd  0.1 0.1 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barrelblackdiff02.png
+#
+# Multi/Sub Material__2837 done 
+#
+# Multi/Sub Material__2671 (7) to come 
+#
+newmtl Metal_Chrome
+Ka  0.0 0.0 0.0
+Kd  0.4 0.4 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  5.0
+illum 2
+#
+newmtl sidearmgun
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd sidearmgundiff.png
+bump sidearmgunbump.png
+#
+newmtl barel02
+Ka  0.1 0.1 0.3
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff02.png
+#
+newmtl barel03
+Ka  0.2 0.2 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff03.png
+#
+newmtl barel01
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff01.png
+#
+newmtl barrelblack01
+Ka  0.1 0.1 0.1
+Kd  0.2 0.2 0.2
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barrelblackdiff03.png
+bump bump03.png
+#
+newmtl barrelblack02
+Ka  0.1 0.1 0.1
+Kd  0.1 0.1 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barrelblackdiff02.png
+#
+# Multi/Sub Material__2671 done 
+#
+# Multi/Sub Material__2981 (5) to come 
+#
+newmtl door02map
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd door02diff.png
+bump door02bump.png
+#
+newmtl barel03
+Ka  0.2 0.2 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff03.png
+#
+newmtl barel01
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff01.png
+#
+newmtl barel02
+Ka  0.1 0.1 0.3
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff02.png
+#
+newmtl doormap
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd doordiff.png
+bump doorbump.png
+#
+# Multi/Sub Material__2981 done 
+#
+# Multi/Sub Material__2565 (20) to come 
+#
+newmtl bodypart02
+Ka  0.3 0.1 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd bodypart02diff.png
+bump bodypart02bump.png
+#
+newmtl body01
+Ka  0.1 0.1 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd bodypart01diff.png
+bump bodypart01bump.png
+#
+newmtl standard
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl domelrg
+Ka  0.0 0.1 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd -o 0.0 0.0 0.0 domelrgdiff.png
+bump -o 0.0 0.0 0.0 domelrgbump.png
+#
+newmtl Metal_Chrome
+Ka  0.0 0.0 0.0
+Kd  0.4 0.4 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  5.0
+illum 2
+#
+newmtl Material__8
+Ka  0.2 0.1 0.2
+Kd  0.2 0.2 0.2
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+#
+newmtl barel03
+Ka  0.2 0.2 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff03.png
+#
+newmtl barel03a
+Ka  0.2 0.2 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff03.png
+#
+newmtl blackbarrel
+Ka  0.0 0.0 0.0
+Kd  0.2 0.2 0.2
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd -o 0.0 -0.0 0.0 -s 1.4 1.0 1.0 barrelblackdiff03.png
+bump -o 0.0 0.0 0.0 -s 1.6 1.6 1.0 bump01.png
+#
+newmtl barel01a
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff01.png
+#
+newmtl metalbar
+Ka  0.1 0.2 0.3
+Kd  0.5 0.5 0.5
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  8.0
+illum 2
+map_Kd barrelmetal02.png
+#
+newmtl barel04
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff04.png
+#
+newmtl barel01
+Ka  0.2 0.2 0.2
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff01.png
+#
+newmtl barel02
+Ka  0.1 0.1 0.3
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd barreldiff02.png
+#
+newmtl domemap
+Ka  0.1 0.1 0.1
+Kd  0.4 0.4 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd domediff.png
+bump domebump.png
+#
+newmtl exhaustmap
+Ka  0.1 0.2 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd exhaustdiff.png
+bump exhaustbump.png
+#
+newmtl hood
+Ka  0.2 0.2 0.3
+Kd  0.9 0.8 0.4
+Ks  0.6 1.0 1.0
+d  1.0
+Ns  0.5
+illum 2
+map_Kd hooddiff-dust02.png
+bump hoodbump.png
+#
+newmtl sidearmmap
+Ka  0.3 0.1 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd sidearmdiff.png
+bump sidearmbump.png
+#
+newmtl sideenginemap
+Ka  0.0 0.0 0.0
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd sideenginediff.png
+bump -o 0.0 0.0 0.0 sideenginebump.png
+#
+newmtl ventmap
+Ka  0.1 0.1 0.1
+Kd  0.9 0.8 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.5
+illum 2
+map_Kd ventdiff.png
+bump ventbump.png
+#
+# Multi/Sub Material__2565 done 
+#
+# EOF
