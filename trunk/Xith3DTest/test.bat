@@ -1,0 +1,2 @@
+echo file:%1%
+java -cp lib\whoola_collada_jaxb.jar;lib\whoola_collada_xith.jar;lib\jaxb\jaxb-api.jar;lib\jaxb\jaxb-impl.jar;lib\xith3d.jar;lib\xith-tk.jar;lib\vecmath.jar     com.whoola.core.media.xith.loaders.dae.whoola.DaeLoader %1%
