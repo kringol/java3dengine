@@ -2,30 +2,42 @@
 = Links =
 
 ==Xith3D==
-* http://www.xith3d.org
-* http://www.mobilefish.com/developer/xith3d/xith3d_quickguide_explained.html
-* http://www.mobilefish.com/developer/xith3d/xith3d_quickguide_faq.html
+http://www.xith3d.org
+
+http://www.mobilefish.com/developer/xith3d/xith3d_quickguide_explained.html
+
+http://www.mobilefish.com/developer/xith3d/xith3d_quickguide_faq.html
 
 ==JOGL==
-* https://jogl.dev.java.net/
-* [http://ak.kiet.le.googlepages.com/theredbookinjava.html The Red Book Examples using JOGL]
-* [https://joglutils.dev.java.net/ JOGLUtils]
+https://jogl.dev.java.net/
+
+[http://ak.kiet.le.googlepages.com/theredbookinjava.html The Red Book Examples using JOGL]
+
+[https://joglutils.dev.java.net/ JOGLUtils]
 
 ==LWJGL==
-* http://lwjgl.org/
+http://lwjgl.org/
 
 ==OpenGL==
-* [http://nehe.gamedev.net/ NeHe Tutorials]
-* [http://www.eecs.tulane.edu/www/Terry/OpenGL/Introduction.html OpenGL Tutorial]
+[http://nehe.gamedev.net/ NeHe Tutorials]
+
+http://www.eecs.tulane.edu/www/Terry/OpenGL/Introduction.html OpenGL Tutorial]
 
 ==Game development==
-* http://www.javagaming.org/forums/index.php
-* [http://gpwiki.org/ The game programming wiki]
-* [http://fivedots.coe.psu.ac.th/~ad/jg/ Killer game programming]
-* [http://gpwiki.org/index.php/Tutorials_and_Source_Code Tutorials and source code]
+http://www.javagaming.org/forums/index.php
+
+[http://gpwiki.org/ The game programming wiki]
+
+[http://fivedots.coe.psu.ac.th/~ad/jg/ Killer game programming]
+
+[http://gpwiki.org/index.php/Tutorials_and_Source_Code Tutorials and source code]
 
 ==Engines==
-* http://jmonkeyengine.com/
+http://jmonkeyengine.com/
 
 ==Misc==
-* [http://www.hardcode.de/jxinput/ JXInput]
+[http://www.hardcode.de/jxinput/ JXInput]
+
+
+
+
