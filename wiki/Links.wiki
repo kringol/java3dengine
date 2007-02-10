@@ -32,6 +32,8 @@ http://www.javagaming.org/forums/index.php
 
 [http://gpwiki.org/index.php/Tutorials_and_Source_Code Tutorials and source code]
 
+http://community.java.net/projects/community/games
+
 ==Engines==
 http://jmonkeyengine.com/
 
@@ -49,4 +51,3 @@ http://jmonkeyengine.com/
 [http://www.hardcode.de/jxinput/ JXInput]
 
 [http://www.openscenegraph.org OpenSceneGraph]
-
