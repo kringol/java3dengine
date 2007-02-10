@@ -8,6 +8,14 @@ http://www.mobilefish.com/developer/xith3d/xith3d_quickguide_explained.html
 
 http://www.mobilefish.com/developer/xith3d/xith3d_quickguide_faq.html
 
+==Multithreading==
+http://www.jmonkeyengine.com/wiki/doku.php?id=concurrency_and_multithreading_in_game_design
+
+==Physics==
+http://jme-physics.sourceforge.net/
+[http://www.ode.org/ Open Dynamics Engine]
+[http://odejava.org/OdejavaIntro ODEJava]
+
 ==JOGL==
 https://jogl.dev.java.net/
 
