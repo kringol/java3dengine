@@ -35,9 +35,18 @@ http://www.javagaming.org/forums/index.php
 ==Engines==
 http://jmonkeyengine.com/
 
+==Loaders and Resources==
+
+[http://www.collada.org/owl/ Collada test models bank]
+
+[http://whoola.sourceforge.net/ Whoola project - Collada-to-Xith3D loader w/ JAXB2.0]
+
+[http://www.newdawnsoftware.com/resources/xith3d/ Xith3D resources (eg: 3ds loader)]
+
+
+
 ==Misc==
 [http://www.hardcode.de/jxinput/ JXInput]
 
-
-
+[http://www.openscenegraph.org OpenSceneGraph]
 
