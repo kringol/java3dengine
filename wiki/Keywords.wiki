@@ -2,3 +2,4 @@ Temas a recordar para el desarrollo del engine y la presentación.
 
 
 [http://en.wikipedia.org/wiki/Gimbal_lock Gimbal Lock]
+* Ver también el libro: _3D Game Engine Programming_
