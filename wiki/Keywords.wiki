@@ -1,4 +1,4 @@
-= Keywords =
 Temas a recordar para el desarrollo del engine y la presentación.
 
-* [http://en.wikipedia.org/wiki/Gimbal_lock Gimbal Lock]
+
+[http://en.wikipedia.org/wiki/Gimbal_lock Gimbal Lock]
