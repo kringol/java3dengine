@@ -47,6 +47,8 @@ http://community.java.net/projects/community/games
 ==Engines==
 http://jmonkeyengine.com/
 
+http://www.agency9.se/products/agentfx/
+
 ==Loaders and Resources==
 
 [http://www.collada.org/owl/ Collada test models bank]
@@ -58,6 +60,8 @@ http://jmonkeyengine.com/
 
 
 ==Misc==
+[https://jinput.dev.java.net/ JInput -> Es el que usa AgentFX]
+
 [http://www.hardcode.de/jxinput/ JXInput]
 
 [http://www.openscenegraph.org OpenSceneGraph]
