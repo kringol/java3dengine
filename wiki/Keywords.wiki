@@ -3,8 +3,9 @@ Temas a recordar para el desarrollo del engine y la presentación.
 
 [http://en.wikipedia.org/wiki/Gimbal_lock Gimbal Lock]
 
- * Ver también el libro: _3D Game Engine Programming_
+ * Ver también el libro: _3D Game Engine Programming: Chapter 4_
+ * Está relacionado con el uso de quaternions
 
 [http://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation Quaternions, spatial rotation]
 
- * Ver también el libro: _3D Game Engine Programming_
+ * Ver también el libro: _3D Game Engine Programming: Chapter 4_
