@@ -1,0 +1,5 @@
+#Temas a recordar para el desarrollo del engine y la presentación.
+
+= Introduction =
+
+* [http://en.wikipedia.org/wiki/Gimbal_lock Gimbal Lock]
