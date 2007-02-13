@@ -11,4 +11,4 @@ Temas a recordar para el desarrollo del engine y la presentación.
  * Ver también el libro: _3D Game Engine Programming: Chapter 4_
 
 
-Para buscar explicaciones teóricas, usar el libro _3D Game Programming, All In One_
+*Para buscar explicaciones teóricas, usar el libro _3D Game Programming, All In One_*
