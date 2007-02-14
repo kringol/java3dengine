@@ -1,7 +1,9 @@
-Temas a recordar para el desarrollo del engine y la presentación
+# Temas a recordar para el desarrollo del engine y la presentación
 
 
-[http://en.wikipedia.org/wiki/Gimbal_lock Gimbal Lock]
+ * Concepto de tiempo e intervalo de tiempo (x loop ?)
+
+ * [http://en.wikipedia.org/wiki/Gimbal_lock Gimbal Lock]
 
  * Ver también el libro: _3D Game Engine Programming: Chapter 4_
  * Está relacionado con el uso de quaternions
@@ -12,3 +14,6 @@ Temas a recordar para el desarrollo del engine y la presentación
 
 
 *Para buscar explicaciones teóricas, usar el libro _3D Game Programming, All In One_*
+
+
+
