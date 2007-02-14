@@ -4,16 +4,15 @@
  * Concepto de tiempo e intervalo de tiempo (x loop ?)
 
  * [http://en.wikipedia.org/wiki/Gimbal_lock Gimbal Lock]
+  * Ver también el libro: _3D Game Engine Programming: Chapter 4_
+  * Está relacionado con el uso de quaternions
 
- * Ver también el libro: _3D Game Engine Programming: Chapter 4_
- * Está relacionado con el uso de quaternions
-
-[http://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation Quaternions, spatial rotation]
-
- * Ver también el libro: _3D Game Engine Programming: Chapter 4_
+ * [http://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation Quaternions, spatial rotation]
+  * Ver también el libro: _3D Game Engine Programming: Chapter 4_
 
 
 *Para buscar explicaciones teóricas, usar el libro _3D Game Programming, All In One_*
+
 
 
 
