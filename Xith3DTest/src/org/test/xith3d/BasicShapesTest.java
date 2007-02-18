@@ -75,6 +75,18 @@ public class BasicShapesTest {
         setDirectionalLight(bg);
 
         TransformGroup firstTG = addSphere(bg);
+
+
+        loadColladaModel(firstTG);
+
+
+
+        startRenderLoop();
+
+
+    }
+
+    private void loadColladaModel(TransformGroup firstTG) {
         TransformGroup spaceTG = new TransformGroup();
         Transform3D t3d = new Transform3D();
         t3d.setTranslation(300, 0, 0);
@@ -88,22 +100,16 @@ public class BasicShapesTest {
 
             spaceTG.addChild(model);
             firstTG.addChild(spaceTG);
+
+            //set reference to the spaceship transform group so it can be translated
             tgReference = spaceTG;
+
         } catch (Exception e) {
             throw new RuntimeException("Cancelling scene loading", e);
         }
 
-
         SceneGraphObject object = model.getNamedObjects().get("spaceship");
-        Group node = (Group)object;
-        
-        System.out.println("object collidable = " + node.isCollidable());
-
-
-
-        startRenderLoop();
-
-
+        System.out.println("object = " + object);
     }
 
 
