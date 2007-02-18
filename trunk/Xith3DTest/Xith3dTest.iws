@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java" afterPath="$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Xith3dTest.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Xith3dTest.ipr" afterPath="$PROJECT_DIR$/Xith3dTest.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/models/collada/shuttle/shuttle.dae" afterPath="$PROJECT_DIR$/resources/models/collada/shuttle/shuttle.dae" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$" afterPath="$PROJECT_DIR$" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Xith3dTest.iws" afterPath="$PROJECT_DIR$/Xith3dTest.iws" />
     </list>
   </component>
   <component name="ChangeListSynchronizer" />
@@ -174,19 +171,6 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java" line="278" class="org.test.xith3d.BasicShapesTest" package="org.test.xith3d">
-        <option name="ENABLED" value="true" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -245,7 +229,7 @@
       <file leaf-file-name="BasicShapesTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="298" column="77" selection-start="9664" selection-end="9664" vertical-scroll-proportion="0.39078498">
+            <state line="103" column="84" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.41979522">
               <folding />
             </state>
           </provider>
@@ -1358,7 +1342,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="298" column="77" selection-start="9664" selection-end="9664" vertical-scroll-proportion="0.39078498">
+        <state line="103" column="84" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.41979522">
           <folding />
         </state>
       </provider>
