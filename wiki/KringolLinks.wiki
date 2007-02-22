@@ -1,9 +1,8 @@
 = Unsorted links =
-http://www.jmonkeyengine.com/jmeforum/index.php?topic=2913.0
-http://www.jmonkeyengine.com/jmeforum/index.php?topic=111.0
-http://www.jmonkeyengine.com/jmeforum/index.php?topic=4470.0
-http://www.jmonkeyengine.com/wiki/doku.php?id=standardgame_gamestates_and_multithreading_a_new_way_of_thinking
-http://www.jmonkeyengine.com/wiki/doku.php?id=application_abstractgame_and_subclasses
-http://www.jmonkeyengine.com/wiki/doku.php?id=simplegame_to_standardgame
-
+*http://www.jmonkeyengine.com/jmeforum/index.php?topic=2913.0
+*http://www.jmonkeyengine.com/jmeforum/index.php?topic=111.0
+*http://www.jmonkeyengine.com/jmeforum/index.php?topic=4470.0
+*http://www.jmonkeyengine.com/wiki/doku.php?id=standardgame_gamestates_and_multithreading_a_new_way_of_thinking
+*http://www.jmonkeyengine.com/wiki/doku.php?id=application_abstractgame_and_subclasses
+*http://www.jmonkeyengine.com/wiki/doku.php?id=simplegame_to_standardgame
 
