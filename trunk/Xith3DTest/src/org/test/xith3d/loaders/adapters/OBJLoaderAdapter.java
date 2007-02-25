@@ -33,7 +33,7 @@ public class OBJLoaderAdapter implements ModelLoader {
         URL modelResource = null;
 
         try {
-            modelResource = file.toURL();
+            modelResource = file.toURI().toURL();
         } catch (MalformedURLException e) {
             throw new ModelLoadingException(e);
         }
