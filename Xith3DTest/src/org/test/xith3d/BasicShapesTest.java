@@ -2,18 +2,16 @@ package org.test.xith3d;
 
 import org.xith3d.geometry.GeoSphere;
 import org.xith3d.render.CanvasPeer;
-import org.xith3d.render.Option;
 import org.xith3d.render.base.Xith3DEnvironment;
 import org.xith3d.render.canvas.Canvas3DWrapper;
 import org.xith3d.render.loop.RenderLoop;
 import org.xith3d.scenegraph.*;
 import org.xith3d.spatial.bounds.Frustum;
-import org.xith3d.loaders.models.impl.obj.OBJLoader;
-import org.xith3d.loaders.models.impl.obj.OBJScene;
-import org.xith3d.loaders.models.impl.dae.collada.ColladaLoader;
 import org.xith3d.loaders.models.impl.dae.DaeLoader;
 import org.xith3d.loaders.models.impl.dae.DaeModel;
-import org.collada._2005._11.colladaschema.COLLADA;
+import org.test.xith3d.movement.MovementController;
+import org.test.xith3d.movement.VelocityMovementController;
+import org.test.xith3d.movement.RotationMovementController;
 
 import javax.vecmath.Color3f;
 import javax.vecmath.Vector3f;
@@ -23,7 +21,6 @@ import javax.swing.*;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseEvent;
 import java.awt.*;
-import java.io.IOException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,6 +30,9 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 public class BasicShapesTest {
+
+    public String visibleText;
+
     private static final int MAX_FPS = 100;
 
     private Xith3DEnvironment environment;
@@ -88,18 +88,20 @@ public class BasicShapesTest {
 
     private void loadColladaModel(TransformGroup firstTG) {
         TransformGroup spaceTG = new TransformGroup();
+        TransformGroup translateGroup = new TransformGroup();
         Transform3D t3d = new Transform3D();
-        t3d.setTranslation(300, 0, 0);
-        spaceTG.setTransform(t3d);
-
+        t3d.setTranslation(1500, 0, 1000);
+        translateGroup.setTransform(t3d);
+        
 
         DaeModel model = null;
         try {
             model = DaeLoader.getInstance().loadModel("C:\\Documents and Settings\\Pablo\\IdeaProjects\\java3dengine\\Xith3DTest\\resources\\models\\collada\\shuttle\\shuttle.dae");
             assert model != null : "Scene should not be null!";
 
+            translateGroup.addChild(spaceTG);
             spaceTG.addChild(model);
-            firstTG.addChild(spaceTG);
+            firstTG.addChild(translateGroup);
 
             //set reference to the spaceship transform group so it can be translated
             tgReference = spaceTG;
@@ -108,8 +110,40 @@ public class BasicShapesTest {
             throw new RuntimeException("Cancelling scene loading", e);
         }
 
-        SceneGraphObject object = model.getNamedObjects().get("spaceship");
-        System.out.println("object = " + object);
+        final String objectName = "spaceship";
+        SceneGraphObject object = model.getNamedObjects().get(objectName);
+        //System.out.println("object = " + object);
+
+        final MovementController mC = VelocityMovementController.create(tgReference, objectName);
+        ((VelocityMovementController)mC).setDirection(new Vector3f(-50, 25, 50));
+        ((VelocityMovementController)mC).setSpeed(50);
+        final MovementController mC2 = RotationMovementController.create(tgReference, objectName);
+        ((RotationMovementController)mC2).setRotationAxis(new Vector3f(0,1,0));
+        ((RotationMovementController)mC2).setRotationSpeed(25);
+
+        Thread mover = new Thread(){
+
+            public void run() {
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    //ignore
+                }
+                while(!rendering){
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        //ignore
+                    }
+                }
+
+                while(rendering){
+                    mC.update();
+                    mC2.update();
+                }
+            }
+        };
+        mover.start();
     }
 
 
@@ -154,7 +188,8 @@ public class BasicShapesTest {
 
         GeoSphere sph = new GeoSphere(8, GeometryArray.NORMALS, 15f);
         sph.setAppearance(appearance);
-
+        String sphereName = "mysphere";
+        sph.setName(sphereName);
         TransformGroup transformGroup = new TransformGroup();
         transformGroup.addChild(sph);
         Transform3D t3d = new Transform3D();
@@ -299,12 +334,12 @@ public class BasicShapesTest {
             doZoom(wheelRotation);
 
 
-            if (tgReference != null){
-                despCount += wheelRotation * -10; 
-                Transform3D t3d = new Transform3D();
-                t3d.setTranslation(despCount, despCount /2 , despCount * 3.2f);
-                tgReference.setTransform(t3d);
-            }
+//            if (tgReference != null){
+//                despCount += wheelRotation * -10;
+//                Transform3D t3d = new Transform3D();
+//                t3d.setTranslation(despCount, despCount /2 , despCount * 3.2f);
+//                tgReference.setTransform(t3d);
+//            }
 
         }
 
