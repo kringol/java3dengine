@@ -19,17 +19,7 @@
     <option name="USER" value="" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/test/xith3d/movement/RotationMovementController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java" afterPath="$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/test/xith3d/loaders/adapters/DaeLoaderAdapter.java" afterPath="$PROJECT_DIR$/src/org/test/xith3d/loaders/adapters/DaeLoaderAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/test/xith3d/movement/VelocityMovementController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/test/xith3d/movement/Utils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/test/xith3d/movement" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/test/xith3d/movement/MovementController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Xith3dTest.iws" afterPath="$PROJECT_DIR$/Xith3dTest.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/test/xith3d/loaders/adapters/OBJLoaderAdapter.java" afterPath="$PROJECT_DIR$/src/org/test/xith3d/loaders/adapters/OBJLoaderAdapter.java" />
-    </list>
+    <list default="true" name="Default" comment="" />
   </component>
   <component name="ChangeListSynchronizer" />
   <component name="ChangesViewManager" flattened_view="true" />
