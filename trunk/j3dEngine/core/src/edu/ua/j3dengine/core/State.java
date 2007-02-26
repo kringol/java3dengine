@@ -8,12 +8,12 @@ import java.util.*;
 public abstract class State {
 
     private String name;
-    private Map<String, StateAttribute> attributes;
+    private Map<String, Attribute> attributes;
 
     protected State(String name) {
         assertNotEmpty(name);
         this.name = name;
-        this.attributes = new HashMap<String, StateAttribute>();
+        this.attributes = new HashMap<String, Attribute>();
     }
 
     public String getName() {
@@ -24,15 +24,15 @@ public abstract class State {
         return Collections.unmodifiableSet(attributes.keySet());
     }
 
-    public Collection<StateAttribute> getAllAttributes(){
+    public Collection<Attribute> getAllAttributes(){
         return Collections.unmodifiableCollection(attributes.values());
     }
 
-    public StateAttribute getAttribute(String attributeName){
+    public Attribute getAttribute(String attributeName){
         return attributes.get(attributeName);
     }
 
-    public void putAttribute(StateAttribute attribute){
+    public void putAttribute(Attribute attribute){
         assertNotNull(attribute);
         attributes.put(attribute.getName(), attribute);
     }
@@ -62,49 +62,4 @@ public abstract class State {
         return name.hashCode();
     }
 
-    public static class StateAttribute<T> {
-        private String name;
-        private T value;
-
-
-        public StateAttribute(String name, T value) {
-            assertNotEmpty(name);
-            this.name = name;
-            this.value = value;
-        }
-
-        public String getName() {
-            return "[StateAttribute]: '"+name+"'";
-        }
-
-
-        public T getValue() {
-            return value;
-        }
-
-        public void setValue(T value) {
-            this.value = value;
-        }
-
-
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            StateAttribute that = (StateAttribute) o;
-
-            if (!name.equals(that.name)) return false;
-
-            return true;
-        }
-
-        public int hashCode() {
-            return name.hashCode();
-        }
-
-
-        public String toString() {
-            return name;
-        }
-    }
 }
