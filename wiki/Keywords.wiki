@@ -16,5 +16,7 @@
 
 
 *HIAL:*
-[http://input.jtank.net/hial-diagram2.png]
 
+
+
+[http://input.jtank.net/hial-diagram2.png]
