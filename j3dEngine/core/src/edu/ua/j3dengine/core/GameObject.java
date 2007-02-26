@@ -8,11 +8,13 @@ public abstract class GameObject {
     private String name;
     private State currentState;
     private Map<String, State> gameObjectStates;
+    private Map<String, Attribute> attributes;
 
 
     protected GameObject(String name) {
         assertNotEmpty(name);
         this.gameObjectStates = new HashMap<String, State>();
+        this.attributes = new HashMap<String, Attribute>();
         this.name = name;
     }
 
@@ -52,6 +54,22 @@ public abstract class GameObject {
     }
 
 
+    public Set<String> getAllAttributeNames(){
+        return Collections.unmodifiableSet(attributes.keySet());
+    }
+
+    public Collection<Attribute> getAllAttributes(){
+        return Collections.unmodifiableCollection(attributes.values());
+    }
+
+    public Attribute getAttribute(String attributeName){
+        return attributes.get(attributeName);
+    }
+
+    public void putAttribute(Attribute attribute){
+        assertNotNull(attribute);
+        attributes.put(attribute.getName(), attribute);
+    }
 
     public String getName() {
         return name;
