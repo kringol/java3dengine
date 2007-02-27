@@ -3,8 +3,8 @@
 == Introducción ==
 
 === Desarrollo y Estado actual de la Industria de Video Games ===
-* Mercado
-* Presupuesto de un proyecto de Video Game _fuente: 3D Game Engine Programming - page 21_
+ * Mercado
+ * Presupuesto de un proyecto de Video Game _fuente: 3D Game Engine Programming - page 21_
 
 === Engines 3D - Intro ===
  * Qué es un Engine 3D? Qué tipos hay? (real time, nrt)
