@@ -34,6 +34,42 @@
  * Java
   * JNI -> jogl, lwgjl
 
+=== 2.d) Renderización de Escenarios ===
+ * Scene Management
+  * Culling (occlusion culling, backface culling, view frustum culling)
+  * LOD
+  * Quadtrees
+  * BSP
+  * Portals
+
+== 3) 3D Game Engine ==
+ * Funcionalidad que debe brindar un 3D Game Engine
+ * Arquitectura básica de un 3D Game Engine
+
+== 4) Nuestro 3D Game Engine ==
+=== 4.a) Alcance ===
+ * Objetivos y Presunciones (Extensibilidad, Ease of use, Portabilidad, ...)
+ * Elementos no considerados (Performance, Audio, Physics, AI, Networking, ...)
+
+=== 4.b) Arquitectura e Implementación ===
+ * Scenegraph, Java3D
+ * Thirdparty libs
+  * Xith3D
+  * JInput (HIAL ? )
+ * Arquitectura
+  * Modulos y dependencias
+  * Diseño de clases, explicación de cada módulo
+  * Diagramas de secuencia básicos
+
+=== 4.c) Ciclo de vida de creación de un 'World' ===
+ * Configuración y ejecución
+ * Demo
+
+=== 4.d) 
+ * Conclusiones
+ * Pendientes
+
+
 = --------------------------------- =
 
 == Fuentes ==
