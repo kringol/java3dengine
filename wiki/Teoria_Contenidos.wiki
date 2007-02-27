@@ -1,38 +1,43 @@
 #summary Contenidos de la parte teórica
 
-== Introducción ==
+== 1) Introducción ==
 
-=== Desarrollo y Estado actual de la Industria de Video Games ===
+=== 1.a) Desarrollo y Estado actual de la Industria de Video Games ===
  * Mercado
  * Presupuesto de un proyecto de Video Game (_fuente: 3D Game Engine Programming - page 21_)
 
-=== Engines 3D - Intro ===
+=== 1.b) Engines 3D - Intro ===
  * Qué es un Engine 3D? Qué tipos hay? (real time, nrt)
  * Aplicaciones
  * Ejemplos de Engines (Comerciales y Open Source)
 
-== Conceptos básicos de 3D Game Programming ==
+== 2) Conceptos básicos de 3D Game Programming ==
 _fuentes:_
  * _Teória de la materia Computación Gráfica_
  * _3D Game Engine Programming - Chapters 3, 12, 18_
  * _3D Game Engine Architecture_
 
-
+=== 2.a) Introducción ===
  * Concepto de 3D Model
  * Qué es Rendering?
  * Sistemas de Coordenadas
  * 3D Shapes (vertices, polygons, mesh, faces, backface...)
 
-=== Display de un modelo ===
+=== 2.b) Display de un modelo ===
  * Transformaciones, Rendering, Raster
  * View Frustum, Camaras
  * Luces, shading
  * Rendering pipeline
+ * Qué son los GPUs?
  * Texture mapping
  * Skyboxes
  * Scenegraph y Java3D Scenegraph
- * Librerias para renderización
- 
 
+=== 2.c) Librerías gráficas ===
+ * OpenGL, DirectX
+ * Java
+  * JNI -> jogl, lwgjl
+
+ 
 
 
