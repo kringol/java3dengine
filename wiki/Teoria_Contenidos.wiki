@@ -74,9 +74,9 @@
 = --------------------------------- =
 
 == Fuentes ==
- * _Teória de la materia Computación Gráfica_
- * _Finney, 3D Game Programming (All in One), Thomson -> Chapters 3, 12, 18_
- * _Zerbst, 3D Game Engine Programming, Thomson_
- * _Eberly, 3D Game Engine Architecture, Morgan Kauffman_
- * _Davison, Killer Game Programming in Java, O'Reilly_
- * _David Brackeen, Bret Barker, Laurence Vanhelsuwé, Developing Games in Java, New Riders_
+ * Teoria de la materia Computación Gráfica
+ * Finney, _3D Game Programming (All in One)_, Thomson (Chapters 3, 12, 18)
+ * Zerbst, _3D Game Engine Programming_, Thomson
+ * Eberly, _3D Game Engine Architecture_, Morgan Kauffman
+ * Davison, _Killer Game Programming in Java_, O'Reilly
+ * David Brackeen, Bret Barker, Laurence Vanhelsuwé, _Developing Games in Java_, New Riders
