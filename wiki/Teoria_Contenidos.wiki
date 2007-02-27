@@ -65,7 +65,8 @@
  * Configuración y ejecución
  * Demo
 
-=== 4.d) 
+== 5) Conclusión ==
+ * Lecciones aprendidas
  * Conclusiones
  * Pendientes
 
@@ -74,5 +75,8 @@
 
 == Fuentes ==
  * _Teória de la materia Computación Gráfica_
- * _3D Game Engine Programming - Chapters 3, 12, 18_
- * _3D Game Engine Architecture_
+ * _Finney, 3D Game Programming (All in One), Thomson -> Chapters 3, 12, 18_
+ * _Zerbst, 3D Game Engine Programming, Thomson_
+ * _Eberly, 3D Game Engine Architecture, Morgan Kauffman_
+ * _Davison, Killer Game Programming in Java, O'Reilly_
+ * _David Brackeen, Bret Barker, Laurence Vanhelsuwé, Developing Games in Java, New Riders_
