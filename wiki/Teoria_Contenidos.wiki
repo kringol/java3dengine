@@ -1,0 +1,22 @@
+#summary Contenidos de la parte teórica
+
+= Introducción =
+* Desarrollo y Estado actual de la Industria de Video Games
+ * Mercado
+ * Presupuesto de un proyecto de Video Game _fuente: 3D Game Engine Programming - page 21_
+* Engine 3D
+ * Qué es?
+ * Aplicaciones
+ * Ejemplos de Engines (Comerciales y Open Source)
+
+
+
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
