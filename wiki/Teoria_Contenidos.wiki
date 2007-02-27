@@ -36,7 +36,7 @@
 
 = --------------------------------- =
 
-_fuentes:_
+== Fuentes ==
  * _Teória de la materia Computación Gráfica_
  * _3D Game Engine Programming - Chapters 3, 12, 18_
  * _3D Game Engine Architecture_
