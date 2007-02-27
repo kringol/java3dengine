@@ -19,7 +19,7 @@
  * Sistemas de Coordenadas
  * 3D Shapes (vertices, polygons, mesh, faces, backface...)
 
-=== 2.b) Display de un modelo ===
+=== 2.b) Display de un modelo ===             ^NO ME ZARPARIA CON ESTO, OJO PORQUE NO ES LO QUE DESARROLLAMOS. SOLO UNA INTRO^
  * Transformaciones, Rendering, Raster
  * View Frustum, Camaras
  * Luces, shading
@@ -34,7 +34,7 @@
  * Java
   * JNI -> jogl, lwgjl
 
-=== 2.d) Renderización de Escenarios ===
+=== 2.d) Renderización de Escenarios === ^IDEM 2.b^
  * Scene Management
   * Culling (occlusion culling, backface culling, view frustum culling)
   * LOD
@@ -42,14 +42,14 @@
   * BSP
   * Portals
 
-== 3) 3D Game Engine ==
+== 3) 3D Game Engine ==  ^ACA DEBERIAMOS PONER UNA MUY BUENA EXPLICACION CON GRAFOS Y MAS COSAS^
  * Funcionalidad que debe brindar un 3D Game Engine
  * Arquitectura básica de un 3D Game Engine
 
 == 4) Nuestro 3D Game Engine ==
 === 4.a) Alcance ===
  * Objetivos y Presunciones (Extensibilidad, Ease of use, Portabilidad, ...)
- * Elementos no considerados (Performance, Audio, Physics, AI, Networking, ...)
+ * Elementos no considerados (Performance, Audio, Physics, AI, Networking, ...) ^CON TODO LO QUE ENCONTRAMOS O LEI DE MULTITHREADING Y MULTICORE, AGREGARIA UNA SECCION PARA CONTARLO^
 
 === 4.b) Arquitectura e Implementación ===
  * Scenegraph, Java3D
