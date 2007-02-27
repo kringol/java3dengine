@@ -1,14 +1,23 @@
 #summary Contenidos de la parte teórica
 
 = Introducción =
- * Desarrollo y Estado actual de la Industria de Video Games
-  * Mercado
-  * Presupuesto de un proyecto de Video Game _fuente: 3D Game Engine Programming - page 21_
- * Engine 3D
-  * Qué es?
-  * Aplicaciones
-  * Ejemplos de Engines (Comerciales y Open Source)
 
+==Desarrollo y Estado actual de la Industria de Video Games==
+* Mercado
+* Presupuesto de un proyecto de Video Game _fuente: 3D Game Engine Programming - page 21_
+
+==Engines 3D - Intro==
+ * Qué es un Engine 3D? Qué tipos hay? (real time, nrt)
+ * Aplicaciones
+ * Ejemplos de Engines (Comerciales y Open Source)
+
+=Conceptos básicos de 3D Game Programming=
+_fuentes:_
+ * _Teória de la materia Computación Gráfica_
+ * _3D Game Engine Programming - Chapters 3, 12, 18_
+ * _3D Game Engine Architecture_
+
+==
 
 
 
