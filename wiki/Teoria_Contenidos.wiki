@@ -4,7 +4,7 @@
 
 === Desarrollo y Estado actual de la Industria de Video Games ===
  * Mercado
- * Presupuesto de un proyecto de Video Game _fuente: 3D Game Engine Programming - page 21_
+ * Presupuesto de un proyecto de Video Game (_fuente: 3D Game Engine Programming - page 21_)
 
 === Engines 3D - Intro ===
  * Qué es un Engine 3D? Qué tipos hay? (real time, nrt)
@@ -18,13 +18,21 @@ _fuentes:_
  * _3D Game Engine Architecture_
 
 
+ * Concepto de 3D Model
+ * Qué es Rendering?
+ * Sistemas de Coordenadas
+ * 3D Shapes (vertices, polygons, mesh, faces, backface...)
+
+=== Display de un modelo ===
+ * Transformaciones, Rendering, Raster
+ * View Frustum, Camaras
+ * Luces, shading
+ * Rendering pipeline
+ * Texture mapping
+ * Skyboxes
+ * Scenegraph y Java3D Scenegraph
+ * Librerias para renderización
+ 
 
 
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
