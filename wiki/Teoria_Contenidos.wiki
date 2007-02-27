@@ -7,7 +7,7 @@
  * Presupuesto de un proyecto de Video Game (_3D Game Engine Programming - page 21_)
 
 === 1.b) Engines 3D - Intro ===
- * Qué es un Engine 3D? Qué tipos hay? (real time, nrt)
+ * Qué es un Engine 3D?
  * Aplicaciones
  * Ejemplos de Engines (Comerciales y Open Source)
 
