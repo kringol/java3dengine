@@ -4,7 +4,7 @@
 
 === 1.a) Desarrollo y Estado actual de la Industria de Video Games ===
  * Mercado
- * Presupuesto de un proyecto de Video Game (_fuente: 3D Game Engine Programming - page 21_)
+ * Presupuesto de un proyecto de Video Game (_3D Game Engine Programming - page 21_)
 
 === 1.b) Engines 3D - Intro ===
  * Qué es un Engine 3D? Qué tipos hay? (real time, nrt)
@@ -12,10 +12,6 @@
  * Ejemplos de Engines (Comerciales y Open Source)
 
 == 2) Conceptos básicos de 3D Game Programming ==
-_fuentes:_
- * _Teória de la materia Computación Gráfica_
- * _3D Game Engine Programming - Chapters 3, 12, 18_
- * _3D Game Engine Architecture_
 
 === 2.a) Introducción ===
  * Concepto de 3D Model
@@ -38,6 +34,8 @@ _fuentes:_
  * Java
   * JNI -> jogl, lwgjl
 
- 
-
-
+--------------------------------- 
+_fuentes:_
+ * _Teória de la materia Computación Gráfica_
+ * _3D Game Engine Programming - Chapters 3, 12, 18_
+ * _3D Game Engine Architecture_
