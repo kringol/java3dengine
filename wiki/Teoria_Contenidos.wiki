@@ -34,7 +34,8 @@
  * Java
   * JNI -> jogl, lwgjl
 
---------------------------------- 
+= --------------------------------- =
+
 _fuentes:_
  * _Teória de la materia Computación Gráfica_
  * _3D Game Engine Programming - Chapters 3, 12, 18_
