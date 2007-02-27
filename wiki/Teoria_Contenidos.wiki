@@ -74,7 +74,7 @@
 = --------------------------------- =
 
 == Fuentes ==
- * Teoria de la materia Computación Gráfica
+ * Gonzales Clua, Bittencourt, _Desenvolvimiento de Jogos 3D_,PUC Rio
  * Finney, _3D Game Programming (All in One)_, Thomson (Chapters 3, 12, 18)
  * Zerbst, _3D Game Engine Programming_, Thomson
  * Eberly, _3D Game Engine Architecture_, Morgan Kauffman
