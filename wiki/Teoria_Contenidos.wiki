@@ -19,7 +19,8 @@
  * Sistemas de Coordenadas
  * 3D Shapes (vertices, polygons, mesh, faces, backface...)
 
-=== 2.b) Introducción al Display de un modelo ===             
+=== 2.b) Introducción al Display de un modelo ===
+
  * Transformaciones, Rendering, Raster
  * View Frustum, Camaras
  * Luces, shading
