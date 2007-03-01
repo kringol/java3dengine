@@ -65,6 +65,7 @@
  * Arquitectura
   * Modulos y dependencias
   * Diseño de clases, explicación de cada módulo
+  * Design Patterns aplicados
   * Diagramas de secuencia básicos
 
 === 4.c) Ciclo de vida de creación de un 'World' ===
