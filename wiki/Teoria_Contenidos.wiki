@@ -53,6 +53,7 @@
  * Objetivos y Presunciones (Extensibilidad, Ease of use, Portabilidad, ...)
  * Multithreading aplicado a Engines 3D
  * Modelo flexible para configurar los threads de procesamiento
+ * Beneficios de Java en la programación 3D
  * Elementos no considerados (Performance, Audio, Physics, AI, Networking, ...) 
 
 
