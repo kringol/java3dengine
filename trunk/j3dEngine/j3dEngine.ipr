@@ -356,6 +356,19 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="jaxb 1.0.6">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/1.0.6/jax-qname__V1_0_6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/1.0.6/jaxb-api__V1_0_6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/1.0.6/jaxb-impl__V1_0_6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/1.0.6/jaxb-libs__V1_0_6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/1.0.6/namespace__V1_0_6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/1.0.6/relaxngDatatype__V1_0_6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/1.0.6/xsdlib__V1_0_6.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
   </component>
   <component name="uidesigner-configuration">
     <option name="INSTRUMENT_CLASSES" value="true" />
