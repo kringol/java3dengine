@@ -227,6 +227,13 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="junit-4.2" level="project" />
+    <orderEntry type="library" name="xith3d" level="project" />
+    <orderEntry type="library" name="xith-tk" level="project" />
+    <orderEntry type="library" name="whoola_collada_jaxb" level="project" />
+    <orderEntry type="library" name="hial" level="project" />
+    <orderEntry type="library" name="openmali" level="project" />
+    <orderEntry type="library" name="commons-logging" level="project" />
+    <orderEntry type="library" name="log4j" level="project" />
     <orderEntryProperties />
   </component>
 </module>
