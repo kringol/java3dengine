@@ -5,13 +5,16 @@ import junit.framework.TestCase;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 import edu.ua.j3dengine.core.*;
+import edu.ua.j3dengine.core.behavior.InertBehavior;
 import edu.ua.j3dengine.core.state.*;
 
 import java.util.List;
 import java.util.ArrayList;
-
+import java.io.StringWriter;
+import java.io.StringReader;
 
 
 public class BasicStructureMarshallingTest extends TestCase {
@@ -23,6 +26,34 @@ public class BasicStructureMarshallingTest extends TestCase {
 
     public void testBasicWorldSerialization() throws JAXBException {
 
+        World world = createStructure();
+
+
+        JAXBContext ctx = JAXBContext.newInstance("edu.ua.j3dengine.core:" +
+                "edu.ua.j3dengine.core.state:" +
+                "edu.ua.j3dengine.core.geometry:" +
+                "edu.ua.j3dengine.core.behavior");
+
+        Marshaller m =  ctx.createMarshaller();
+
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+        StringWriter writer = new StringWriter();
+
+        m.marshal(world, writer);
+
+        System.out.println("Result:\n" + writer.toString());
+
+        StringReader reader = new StringReader(writer.toString());
+
+        Unmarshaller um = ctx.createUnmarshaller();
+        Object o = um.unmarshal(reader);
+
+        assertEquals(o, world);
+
+    }
+
+    private World createStructure() {
         GameObject go1 = new StaticGameObject("sObject1");
         go1.addAttribute(new Attribute<String>("object_Attr1", "object_Attr1_value"));
         StaticObjectState state = new StaticObjectState("sObject1_state1");
@@ -36,20 +67,13 @@ public class BasicStructureMarshallingTest extends TestCase {
         GameObject go2 = new StaticGameObject("sObject2");
         go2.addAttribute(new Attribute<String>("sObject2_attr1", "sObject2_attr1_value"));
 
-        List<GameObject> list = new ArrayList<GameObject>();
-        list.add(go1);
-        list.add(go2);
+        DynamicGameObject do1 = new DynamicGameObject("dObject1");
+        do1.addAttribute(new Attribute<Long>("dObject1_attr1", 2000000L));
+        DynamicObjectState state2 = new DynamicObjectState("dObject1_state1", null, null, new InertBehavior("dObject1_behavior1"));
+        do1.addState(state2);
 
-        World world = World.create("MyWorld", list);
 
-
-        JAXBContext ctx = JAXBContext.newInstance("edu.ua.j3dengine.core:edu.ua.j3dengine.core.state:edu.ua.j3dengine.core.geometry");
-
-        Marshaller m =  ctx.createMarshaller();
-
-        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-        m.marshal(world, System.out);
-
+        World world = World.create("MyWorld", go1, go2, do1);
+        return world;
     }
 }

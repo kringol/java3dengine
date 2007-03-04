@@ -10,6 +10,7 @@ public class StaticObjectState extends State {
     public StaticObjectState(String name) {
         super(name);
     }
+    
 
     private StaticObjectState(){}
 

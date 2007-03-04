@@ -4,18 +4,25 @@ import static edu.ua.j3dengine.utils.AssertionUtils.*;
 import edu.ua.j3dengine.core.behavior.Behavior;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 
 @XmlRootElement
 public class DynamicObjectState extends State {
 
 
     private boolean activated = false;
+
+    @XmlElement
     private Behavior activationBehavior;
+    
+    @XmlElement
     private Behavior deactivationBehavior;
+
+    @XmlElement
     private Behavior normalBehavior;
 
 
-    private DynamicObjectState(String name, Behavior activationBehavior, Behavior deactivationBehavior, Behavior normalBehavior) {
+    public DynamicObjectState(String name, Behavior activationBehavior, Behavior deactivationBehavior, Behavior normalBehavior) {
         super(name);
         assertNotNull(normalBehavior, "DynamicObjectStates must have a normal behavior.");
         this.activationBehavior = activationBehavior;
@@ -25,22 +32,20 @@ public class DynamicObjectState extends State {
 
     private DynamicObjectState(){}
 
-    public static DynamicObjectState create(String name, Behavior activationBehavior, Behavior deactivationBehavior, Behavior normalBehavior) {
-        return new DynamicObjectState(name, activationBehavior, deactivationBehavior, normalBehavior);
-    }
+    
 
     public void activate() {
         if (activationBehavior != null){
             activationBehavior.execute();
-            activated = true;
         }
+        activated = true;
     }
 
     public void deactivate() {
         if (deactivationBehavior != null){
             deactivationBehavior.execute();
-            activated = false;
         }
+        activated = false;
     }
 
 

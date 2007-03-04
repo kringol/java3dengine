@@ -103,4 +103,20 @@ public abstract class GameObject<S extends State> {
     public enum GameObjectType {
         STATIC, DYNAMIC;
     }
+
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        GameObject that = (GameObject) o;
+
+        if (!name.equals(that.name)) return false;
+
+        return true;
+    }
+
+    public int hashCode() {
+        return name.hashCode();
+    }
 }
