@@ -18,16 +18,13 @@
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/State.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/State.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior/Behavior.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior/Behavior.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior/jaxb.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior/InertBehavior.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior/InertBehavior.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/World.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/World.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/DynamicGameObject.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/DynamicGameObject.java" />
+      <change type="DELETED" beforePath="C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\j3dEngine\core\src\edu\ua\j3dengine\utils\AssertionUtils.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/utils/ValidationUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/GameObject.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/GameObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Attribute.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Attribute.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/test/src/edu/ua/j3dengine/core/test/BasicStructureMarshallingTest.java" afterPath="$PROJECT_DIR$/core/test/src/edu/ua/j3dengine/core/test/BasicStructureMarshallingTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/StaticGameObject.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/StaticGameObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/DynamicObjectState.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/DynamicObjectState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/StaticObjectState.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/StaticObjectState.java" />
     </list>
   </component>
   <component name="ChangeListSynchronizer" />
@@ -152,19 +149,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Behavior.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior/Behavior.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="23" selection-start="135" selection-end="135" vertical-scroll-proportion="0.08485857">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicStructureMarshallingTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BasicStructureMarshallingTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/test/src/edu/ua/j3dengine/core/test/BasicStructureMarshallingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="14" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.78327644">
+            <state line="53" column="0" selection-start="1381" selection-end="1381" vertical-scroll-proportion="1.0580205">
               <folding />
             </state>
           </provider>
@@ -173,7 +161,7 @@
       <file leaf-file-name="World.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="29" selection-start="191" selection-end="191" vertical-scroll-proportion="0.14143094">
+            <state line="9" column="29" selection-start="192" selection-end="192" vertical-scroll-proportion="0.14143094">
               <folding />
             </state>
           </provider>
@@ -218,7 +206,7 @@
       <file leaf-file-name="DynamicGameObject.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/DynamicGameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="40" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.7820299">
+            <state line="12" column="44" selection-start="406" selection-end="406" vertical-scroll-proportion="0.14143094">
               <folding />
             </state>
           </provider>
@@ -233,10 +221,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameObject.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameObject.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="37" selection-start="2862" selection-end="2862" vertical-scroll-proportion="0.51913476">
+            <state line="52" column="0" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.17138103">
               <folding />
             </state>
           </provider>
@@ -627,7 +615,7 @@
       <option name="MAIN_CLASS_NAME" value="edu.ua.j3dengine.core.test.BasicStructureMarshallingTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-Djava.endorsed.dirs=core\lib\jaxb" />
+      <option name="VM_PARAMETERS" value="-Djava.endorsed.dirs=core\lib\jaxb -ea" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ADDITIONAL_CLASS_PATH" />
@@ -721,7 +709,7 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22384427" order="0" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="1" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979724" order="1" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3276923" order="9" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="6" />
@@ -730,10 +718,10 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="4" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="11" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.96153843" order="2" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8230769" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979724" order="2" />
       <window_info id="File View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="5" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="4" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8630769" order="4" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998378" order="0" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="12" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
@@ -873,20 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/DynamicGameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="40" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.7820299">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/StaticGameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="40" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.7820299">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/jaxb.index">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -901,23 +875,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/test/src/edu/ua/j3dengine/core/test/BasicStructureMarshallingTest.java">
+    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="14" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.78327644">
+        <state line="9" column="29" selection-start="192" selection-end="192" vertical-scroll-proportion="0.14143094">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/World.java">
+    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/StaticGameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="29" selection-start="191" selection-end="191" vertical-scroll-proportion="0.14143094">
+        <state line="45" column="40" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.7820299">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/utils/ValidationUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="24" selection-start="267" selection-end="267" vertical-scroll-proportion="0.22628951">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/DynamicGameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="44" selection-start="406" selection-end="406" vertical-scroll-proportion="0.14143094">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="37" selection-start="2862" selection-end="2862" vertical-scroll-proportion="0.51913476">
+        <state line="52" column="0" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.17138103">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/test/src/edu/ua/j3dengine/core/test/BasicStructureMarshallingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="0" selection-start="1381" selection-end="1381" vertical-scroll-proportion="1.0580205">
           <folding />
         </state>
       </provider>

@@ -1,6 +1,6 @@
 package edu.ua.j3dengine.core;
 
-import edu.ua.j3dengine.utils.AssertionUtils;
+import edu.ua.j3dengine.utils.ValidationUtils;
 
 
 import javax.xml.bind.annotation.*;
@@ -17,7 +17,7 @@ public class Attribute<T> {
 
 
     public Attribute(String name, T value) {
-        AssertionUtils.assertNotEmpty(name);
+        ValidationUtils.validateNotEmpty(name);
         this.name = name;
         this.value = value;
     }

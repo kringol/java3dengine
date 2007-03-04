@@ -1,7 +1,7 @@
 package edu.ua.j3dengine.core;
 
 import edu.ua.j3dengine.core.state.State;
-import static edu.ua.j3dengine.utils.AssertionUtils.*;
+import static edu.ua.j3dengine.utils.ValidationUtils.*;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -16,6 +16,7 @@ public abstract class GameObject<S extends State> {
     //@XmlElement(name = "currentState")
     private S currentState;
 
+
     @XmlElementWrapper
     private Map<String, S> gameObjectStates;
     
@@ -25,7 +26,7 @@ public abstract class GameObject<S extends State> {
     private static final String DEFAULT_GAME_OBJECT_NAME = "Unnamed";
    
     protected GameObject(String name) {
-        assertNotEmpty(name);
+        validateNotEmpty(name);
         this.gameObjectStates = new HashMap<String, S>();
         this.attributes = new HashMap<String, Attribute>();
         this.name = name;
@@ -37,19 +38,36 @@ public abstract class GameObject<S extends State> {
 
     public abstract boolean isDynamic();
 
+
+
+    @XmlElement
+    public String getInitialState(){
+        return getCurrentState() != null ? getCurrentState().getName() : null;
+    }
+
+    public void setInitialState(String stateName){
+        validateNotEmpty(stateName);
+        S state = getState(stateName);
+        assert state != null;
+
+        setCurrentState(state);
+    }
+
     public S getCurrentState() {
         return currentState;
     }
 
     public void setCurrentState(S newState) {
         State storedState = gameObjectStates.get(newState.getName());
-        assertNotNull(storedState, "State is invalid.");
-        assertEquals(storedState, newState, "State is invalid.");
-        //assertSameObject(storedState, newState, "State is invalid.");
+        validateNotNull(storedState, "State is invalid.");
+        validateEquals(storedState, newState, "State is invalid.");
+        //validateSameObject(storedState, newState, "State is invalid.");
 
         //if the state has changed, activate the new state
-        if (currentState != newState){
-            currentState.deactivate();
+        if (currentState == null || currentState != newState){
+            if (currentState != null){
+                currentState.deactivate();
+            }
             newState.activate();
             currentState = newState;
         }
@@ -63,12 +81,12 @@ public abstract class GameObject<S extends State> {
         return Collections.unmodifiableCollection(gameObjectStates.values());
     }
 
-    public State getState(String stateName){
+    public S getState(String stateName){
         return gameObjectStates.get(stateName);
     }
 
     public void addState(S state){
-        assertNotNull(state);
+        validateNotNull(state);
         gameObjectStates.put(state.getName(), state);
     }
 
@@ -86,7 +104,7 @@ public abstract class GameObject<S extends State> {
     }
 
     public void addAttribute(Attribute attribute){
-        assertNotNull(attribute);
+        validateNotNull(attribute);
         attributes.put(attribute.getName(), attribute);
     }
 
