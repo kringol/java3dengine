@@ -17,63 +17,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/xsdlib.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/test/src/edu" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jaxb-xjc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/istack-commons-tools.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior/Behavior.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/msv.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jaxb-api-doc.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/xsom-src.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/DynamicGameObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jaxb-impl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/activation.jar" />
-      <change type="DELETED" beforePath="C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\j3dEngine\core\src\edu\ua\j3dengine\core\State.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Attribute.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Attribute.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/jaxb.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/xsom.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jaxb1-impl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/geometry/Geometry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Camera.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jaxb-api-src.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/txw2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/resolver.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/codemodel.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/test/src" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/State.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/test/src/edu/ua/j3dengine/core/test/BasicStructureMarshallingTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/GameObject.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/GameObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/isorelax.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jaxb-api.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/DynamicObjectState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/test/src/edu/ua/j3dengine/core/test" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/relaxngDatatype.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jsr173_1.0_api.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/jaxb.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/test/src/edu/ua/j3dengine" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jaxb-xjc.src.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/test" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/rngom.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/geometry/jaxb.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/StaticGameObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/StaticObjectState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/utils/Utils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/dtd-parser-1.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/test/src/edu/ua/j3dengine/core" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/World.java" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/World.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/behavior/InertBehavior.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/geometry" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Test.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/istack-commons-runtime.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/geometry/EmptyGeometry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/geometry/SpatialObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/test/src/edu/ua" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/lib/jaxb/jaxb-impl.src.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/core.iml" afterPath="$PROJECT_DIR$/core/core.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/package-info.java" />
     </list>
   </component>
   <component name="ChangeListSynchronizer" />
@@ -261,10 +205,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameObject.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameObject.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="22" selection-start="271" selection-end="271" vertical-scroll-proportion="0.2828619">
+            <state line="10" column="22" selection-start="271" selection-end="271" vertical-scroll-proportion="0.113144755">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -276,6 +220,17 @@
         <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Attribute.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="15" selection-start="220" selection-end="220" vertical-scroll-proportion="0.39600664">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package-info.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/package-info.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -323,15 +278,6 @@
         <entry file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.6.0/src.zip!/java/util/Map.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="99" column="17" selection-start="5203" selection-end="5203" vertical-scroll-proportion="0.34276205">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XmlElementWrapper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.6.0/src.zip!/javax/xml/bind/annotation/XmlElementWrapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="14" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.4559068">
               <folding />
             </state>
           </provider>
@@ -889,13 +835,6 @@
     <option name="myLastEditedConfigurable" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/geometry/Geometry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="36" selection-start="300" selection-end="300" vertical-scroll-proportion="0.36772045">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/state/DynamicObjectState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="34" selection-start="862" selection-end="862" vertical-scroll-proportion="0.4641638">
@@ -967,15 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Attribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="15" selection-start="220" selection-end="220" vertical-scroll-proportion="0.39600664">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/StaticGameObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="281" selection-end="281" vertical-scroll-proportion="0.06655574">
@@ -999,7 +929,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="22" selection-start="271" selection-end="271" vertical-scroll-proportion="0.2828619">
+        <state line="10" column="22" selection-start="271" selection-end="271" vertical-scroll-proportion="0.113144755">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/Attribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="15" selection-start="220" selection-end="220" vertical-scroll-proportion="0.39600664">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/edu/ua/j3dengine/core/package-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
