@@ -62,7 +62,7 @@ http://www.agency9.se/products/agentfx/
 ==Misc==
 
 [http://input.jtank.net/ HIAL - Input Abstraction Layer > Muy bueno! (Parte de Xith3D Toolkit)]
-
+[http://www.xith.org/articles/using_an_input_abstraction_layer.html HIAL Tutorial]
 
 [https://jinput.dev.java.net/ JInput -> Es el que usa AgentFX]
 
