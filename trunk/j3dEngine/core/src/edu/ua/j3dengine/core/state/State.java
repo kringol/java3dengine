@@ -4,11 +4,18 @@ import static edu.ua.j3dengine.utils.AssertionUtils.assertNotEmpty;
 import static edu.ua.j3dengine.utils.AssertionUtils.assertNotNull;
 import edu.ua.j3dengine.core.Attribute;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.*;
 
+@XmlRootElement
 public abstract class State {
 
+    @XmlElement
     private String name;
+
+    @XmlElementWrapper
     private Map<String, Attribute> attributes;
 
     private static final String DEFAULT_STATE_NAME = "State:Unnamed";

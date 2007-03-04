@@ -32,6 +32,14 @@ public class World extends GameObject {
         return world;
     }
 
+    public static World create(String name, GameObject... worldObjects){
+        List<GameObject> list = new ArrayList<GameObject>();
+        for (GameObject gameObject : worldObjects) {
+            list.add(gameObject);
+        }
+        return create(name, list);
+    }
+
     public Set<String> getAllGameObjectNames(){
         return Collections.unmodifiableSet(worldObjects.keySet());
     }
@@ -57,4 +65,6 @@ public class World extends GameObject {
     public GameObjectType getGameObjectType() {
         return GameObjectType.STATIC;
     }
+
+
 }

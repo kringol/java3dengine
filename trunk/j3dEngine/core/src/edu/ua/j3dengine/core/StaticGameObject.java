@@ -6,11 +6,13 @@ import edu.ua.j3dengine.core.geometry.Geometry;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
+import javax.xml.bind.annotation.XmlElement;
+import java.util.Collection;
 
 
 public class StaticGameObject extends GameObject<StaticObjectState>  implements SpatialObject {
 
+    @XmlElement
     private Geometry geometry;
 
     public StaticGameObject(String name) {
@@ -36,5 +38,11 @@ public class StaticGameObject extends GameObject<StaticObjectState>  implements 
 
     public GameObjectType getGameObjectType() {
         return GameObjectType.STATIC;
+    }
+
+
+    @Override
+    public Collection<StaticObjectState> getAllStates() {
+        return super.getAllStates();    
     }
 }

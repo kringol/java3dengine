@@ -9,6 +9,8 @@ public class InertBehavior extends Behavior {
         super(name);
     }
 
+    private InertBehavior(){}
+
 
     public void execute() {
         //do nothing! (it's inert)
