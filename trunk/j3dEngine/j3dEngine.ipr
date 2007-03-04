@@ -281,12 +281,80 @@
   <component name="libraryTable">
     <library name="junit-4.2">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/junit-4.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/junit/junit-4.2.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/lib/junit-4.2-src.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/junit/junit-4.2-src.jar!/" />
       </SOURCES>
+    </library>
+    <library name="xith3d">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/xith3d/xith3d.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/xith3d/xith3d-source.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="xith-tk">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/xith3d/xith-tk.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/xith3d/xith-tk-source.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="whoola_collada_jaxb">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/collada/whoola_collada_jaxb.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="hial">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/hial/hial.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="joal">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/joal/windows/joal.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="openmali">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/math/openmali.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="commons-logging">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/misc/commons-logging.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/misc/commons-logging-optional.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="log4j">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/misc/log4j.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="vorbis">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/misc/vorbis.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
     </library>
   </component>
   <component name="uidesigner-configuration">
