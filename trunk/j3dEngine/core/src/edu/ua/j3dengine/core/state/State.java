@@ -1,7 +1,7 @@
 package edu.ua.j3dengine.core.state;
 
-import static edu.ua.j3dengine.utils.AssertionUtils.assertNotEmpty;
-import static edu.ua.j3dengine.utils.AssertionUtils.assertNotNull;
+import static edu.ua.j3dengine.utils.ValidationUtils.validateNotEmpty;
+import static edu.ua.j3dengine.utils.ValidationUtils.validateNotNull;
 import edu.ua.j3dengine.core.Attribute;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -21,7 +21,7 @@ public abstract class State {
     private static final String DEFAULT_STATE_NAME = "State:Unnamed";
     
     protected State(String name) {
-        assertNotEmpty(name);
+        validateNotEmpty(name);
         this.name = name;
         this.attributes = new HashMap<String, Attribute>();
     }
@@ -47,7 +47,7 @@ public abstract class State {
     }
 
     public void addAttribute(Attribute attribute){
-        assertNotNull(attribute);
+        validateNotNull(attribute);
         attributes.put(attribute.getName(), attribute);
     }
 

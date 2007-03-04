@@ -1,6 +1,6 @@
 package edu.ua.j3dengine.core.state;
 
-import static edu.ua.j3dengine.utils.AssertionUtils.*;
+import static edu.ua.j3dengine.utils.ValidationUtils.*;
 import edu.ua.j3dengine.core.behavior.Behavior;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -24,7 +24,7 @@ public class DynamicObjectState extends State {
 
     public DynamicObjectState(String name, Behavior activationBehavior, Behavior deactivationBehavior, Behavior normalBehavior) {
         super(name);
-        assertNotNull(normalBehavior, "DynamicObjectStates must have a normal behavior.");
+        validateNotNull(normalBehavior, "DynamicObjectStates must have a normal behavior.");
         this.activationBehavior = activationBehavior;
         this.deactivationBehavior = deactivationBehavior;
         this.normalBehavior = normalBehavior;

@@ -2,7 +2,7 @@ package edu.ua.j3dengine.core;
 
 import java.util.*;
 
-import static edu.ua.j3dengine.utils.AssertionUtils.*;
+import static edu.ua.j3dengine.utils.ValidationUtils.*;
 
 import javax.xml.bind.annotation.*;
 
@@ -53,7 +53,7 @@ public class World extends GameObject {
     }
 
     public void addGameObject(GameObject gameObject){
-        assertNotNull(gameObject);
+        validateNotNull(gameObject);
         worldObjects.put(gameObject.getName(), gameObject);
     }
 

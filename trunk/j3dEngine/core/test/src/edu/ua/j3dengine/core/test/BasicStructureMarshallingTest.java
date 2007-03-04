@@ -24,6 +24,8 @@ public class BasicStructureMarshallingTest extends TestCase {
         super("BasicStructureMarshallingTest");
     }
 
+
+
     public void testBasicWorldSerialization() throws JAXBException {
 
         World world = createStructure();
@@ -51,6 +53,17 @@ public class BasicStructureMarshallingTest extends TestCase {
 
         assertEquals(o, world);
 
+        String name = "dObject1";
+        DynamicGameObject dgo = (DynamicGameObject)world.getGameObject(name);
+        assertNotNull("There should be a DynamicObject named after '"+name+"'", dgo);
+
+        String behaviorName = "dObject1_behavior1";
+        assertEquals("DynamicObject should have a behavior named '"+ behaviorName +"'",dgo.getBehavior().getName(), behaviorName);
+
+        assertTrue("Behavior should be of type '"+InertBehavior.class+"'",dgo.getBehavior().getClass() == InertBehavior.class);
+
+
+
     }
 
     private World createStructure() {
@@ -71,6 +84,7 @@ public class BasicStructureMarshallingTest extends TestCase {
         do1.addAttribute(new Attribute<Long>("dObject1_attr1", 2000000L));
         DynamicObjectState state2 = new DynamicObjectState("dObject1_state1", null, null, new InertBehavior("dObject1_behavior1"));
         do1.addState(state2);
+        do1.setInitialState(state2.getName());
 
 
         World world = World.create("MyWorld", go1, go2, do1);
