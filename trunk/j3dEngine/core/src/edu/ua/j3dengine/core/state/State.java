@@ -1,7 +1,8 @@
-package edu.ua.j3dengine.core;
+package edu.ua.j3dengine.core.state;
 
 import static edu.ua.j3dengine.utils.AssertionUtils.assertNotEmpty;
 import static edu.ua.j3dengine.utils.AssertionUtils.assertNotNull;
+import edu.ua.j3dengine.core.Attribute;
 
 import java.util.*;
 
@@ -10,10 +11,16 @@ public abstract class State {
     private String name;
     private Map<String, Attribute> attributes;
 
+    private static final String DEFAULT_STATE_NAME = "State:Unnamed";
+    
     protected State(String name) {
         assertNotEmpty(name);
         this.name = name;
         this.attributes = new HashMap<String, Attribute>();
+    }
+
+    protected State() {
+        this(DEFAULT_STATE_NAME);
     }
 
     public String getName() {
@@ -32,7 +39,7 @@ public abstract class State {
         return attributes.get(attributeName);
     }
 
-    public void putAttribute(Attribute attribute){
+    public void addAttribute(Attribute attribute){
         assertNotNull(attribute);
         attributes.put(attribute.getName(), attribute);
     }

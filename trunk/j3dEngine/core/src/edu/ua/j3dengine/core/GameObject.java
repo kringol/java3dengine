@@ -1,32 +1,51 @@
 package edu.ua.j3dengine.core;
 
+import edu.ua.j3dengine.core.state.State;
 import static edu.ua.j3dengine.utils.AssertionUtils.*;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.*;
 
-public abstract class GameObject {
+
+public abstract class GameObject<S extends State> {
+
+    @XmlElement
     private String name;
-    private State currentState;
-    private Map<String, State> gameObjectStates;
+
+    //@XmlElement(name = "currentState")
+    private S currentState;
+
+    @XmlElementWrapper
+    private Map<String, S> gameObjectStates;
+    
+    @XmlElementWrapper
     private Map<String, Attribute> attributes;
 
-
+    private static final String DEFAULT_GAME_OBJECT_NAME = "Unnamed";
+   
     protected GameObject(String name) {
         assertNotEmpty(name);
-        this.gameObjectStates = new HashMap<String, State>();
+        this.gameObjectStates = new HashMap<String, S>();
         this.attributes = new HashMap<String, Attribute>();
         this.name = name;
     }
 
+    protected GameObject() {
+        this(DEFAULT_GAME_OBJECT_NAME);    
+    }
 
-    public State getCurrentState() {
+    public abstract boolean isDynamic();
+
+    public S getCurrentState() {
         return currentState;
     }
 
-    public void setCurrentState(State newState) {
+    public void setCurrentState(S newState) {
         State storedState = gameObjectStates.get(newState.getName());
         assertNotNull(storedState, "State is invalid.");
-        assertSameObject(storedState, newState, "State is invalid.");
+        assertEquals(storedState, newState, "State is invalid.");
+        //assertSameObject(storedState, newState, "State is invalid.");
 
         //if the state has changed, activate the new state
         if (currentState != newState){
@@ -40,7 +59,7 @@ public abstract class GameObject {
         return Collections.unmodifiableSet(gameObjectStates.keySet());
     }
 
-    public Collection<State> getAllStates(){
+    public Collection<S> getAllStates(){
         return Collections.unmodifiableCollection(gameObjectStates.values());
     }
 
@@ -48,7 +67,7 @@ public abstract class GameObject {
         return gameObjectStates.get(stateName);
     }
 
-    public void putState(State state){
+    public void addState(S state){
         assertNotNull(state);
         gameObjectStates.put(state.getName(), state);
     }
@@ -66,7 +85,7 @@ public abstract class GameObject {
         return attributes.get(attributeName);
     }
 
-    public void putAttribute(Attribute attribute){
+    public void addAttribute(Attribute attribute){
         assertNotNull(attribute);
         attributes.put(attribute.getName(), attribute);
     }
@@ -75,12 +94,13 @@ public abstract class GameObject {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    public abstract GameObjectType getGameObjectType();
 
     public String toString() {
         return "[GameObject]: '"+name+"'";
+    }
+
+    public enum GameObjectType {
+        STATIC, DYNAMIC;
     }
 }
