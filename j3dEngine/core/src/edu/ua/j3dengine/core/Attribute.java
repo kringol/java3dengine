@@ -3,8 +3,16 @@ package edu.ua.j3dengine.core;
 import edu.ua.j3dengine.utils.AssertionUtils;
 
 
+import javax.xml.bind.annotation.*;
+
+
+@XmlRootElement
 public class Attribute<T> {
+
+    @XmlElement
     private String name;
+
+    @XmlElement
     private T value;
 
 
@@ -14,8 +22,12 @@ public class Attribute<T> {
         this.value = value;
     }
 
+    private Attribute(){
+    }
+
+
     public String getName() {
-        return "[Attribute]: '"+name+"'";
+        return name;
     }
 
 
@@ -23,10 +35,10 @@ public class Attribute<T> {
         return value;
     }
 
+
     public void setValue(T value) {
         this.value = value;
     }
-
 
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,12 +51,12 @@ public class Attribute<T> {
         return true;
     }
 
+
     public int hashCode() {
         return name.hashCode();
     }
 
-
     public String toString() {
-        return name;
+        return "[Attribute]: '"+name+"'";
     }
 }

@@ -4,10 +4,15 @@ import java.util.*;
 
 import static edu.ua.j3dengine.utils.AssertionUtils.*;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement
 public class World extends GameObject {
 
     private static final String DEFAULT_WORLD_NAME = "World";
 
+
+    @XmlElementWrapper
     private Map<String, GameObject> worldObjects;
 
     private World(String name) {
@@ -17,6 +22,14 @@ public class World extends GameObject {
 
     private World(){
         this(DEFAULT_WORLD_NAME);
+    }
+
+    public static World create(String name, Collection<GameObject> worldObjects){
+        World world = new World(name);
+        for (GameObject worldObject : worldObjects) {
+            world.addGameObject(worldObject);
+        }
+        return world;
     }
 
     public Set<String> getAllGameObjectNames(){
@@ -31,15 +44,17 @@ public class World extends GameObject {
         return worldObjects.get(name);
     }
 
-    public void putGameObject(GameObject gameObject){
+    public void addGameObject(GameObject gameObject){
         assertNotNull(gameObject);
         worldObjects.put(gameObject.getName(), gameObject);
     }
 
-    
 
+    public boolean isDynamic() {
+        return false;
+    }
 
-
-
-
+    public GameObjectType getGameObjectType() {
+        return GameObjectType.STATIC;
+    }
 }

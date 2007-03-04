@@ -31,6 +31,7 @@
       <entry name="?*.html" />
       <entry name="?*.dtd" />
       <entry name="?*.tld" />
+      <entry name="?*.index" />
     </wildcardResourcePatterns>
   </component>
   <component name="DataSourceManagerImpl" />
@@ -277,7 +278,17 @@
       </value>
     </option>
   </component>
-  <component name="libraryTable" />
+  <component name="libraryTable">
+    <library name="junit-4.2">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/junit-4.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/junit-4.2-src.jar!/" />
+      </SOURCES>
+    </library>
+  </component>
   <component name="uidesigner-configuration">
     <option name="INSTRUMENT_CLASSES" value="true" />
     <option name="COPY_FORMS_RUNTIME_TO_OUTPUT" value="true" />
