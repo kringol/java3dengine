@@ -1,10 +1,10 @@
 package edu.ua.j3dengine.core.state;
 
-import static edu.ua.j3dengine.utils.ValidationUtils.*;
 import edu.ua.j3dengine.core.behavior.Behavior;
+import static edu.ua.j3dengine.utils.ValidationUtils.validateNotNull;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class DynamicObjectState extends State {

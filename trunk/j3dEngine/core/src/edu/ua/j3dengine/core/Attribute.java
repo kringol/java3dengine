@@ -2,8 +2,8 @@ package edu.ua.j3dengine.core;
 
 import edu.ua.j3dengine.utils.ValidationUtils;
 
-
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement

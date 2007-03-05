@@ -1,6 +1,6 @@
 package edu.ua.j3dengine.core.behavior;
 
-import static edu.ua.j3dengine.utils.Utils.*;
+import static edu.ua.j3dengine.utils.Utils.logDebug;
 
 public class InertBehavior extends Behavior {
 

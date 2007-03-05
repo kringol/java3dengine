@@ -1,7 +1,7 @@
 package edu.ua.j3dengine.core.behavior;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement

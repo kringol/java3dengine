@@ -1,20 +1,21 @@
 package edu.ua.j3dengine.core.test;
 
+import edu.ua.j3dengine.core.*;
+import edu.ua.j3dengine.core.mgmt.GameObjectManager;
+import edu.ua.j3dengine.core.behavior.InertBehavior;
+import edu.ua.j3dengine.core.state.DynamicObjectState;
+import edu.ua.j3dengine.core.state.StaticObjectState;
+import static edu.ua.j3dengine.utils.Utils.logDebug;
 import junit.framework.TestCase;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-
-import edu.ua.j3dengine.core.*;
-import edu.ua.j3dengine.core.behavior.InertBehavior;
-import edu.ua.j3dengine.core.state.*;
-
-import java.util.List;
-import java.util.ArrayList;
-import java.io.StringWriter;
 import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
 public class BasicStructureMarshallingTest extends TestCase {
@@ -30,11 +31,7 @@ public class BasicStructureMarshallingTest extends TestCase {
 
         World world = createStructure();
 
-
-        JAXBContext ctx = JAXBContext.newInstance("edu.ua.j3dengine.core:" +
-                "edu.ua.j3dengine.core.state:" +
-                "edu.ua.j3dengine.core.geometry:" +
-                "edu.ua.j3dengine.core.behavior");
+        JAXBContext ctx = GameObjectManager.createJAXBContext();
 
         Marshaller m =  ctx.createMarshaller();
 
@@ -44,27 +41,42 @@ public class BasicStructureMarshallingTest extends TestCase {
 
         m.marshal(world, writer);
 
-        System.out.println("Result:\n" + writer.toString());
+        logDebug(writer.toString());
 
         StringReader reader = new StringReader(writer.toString());
 
         Unmarshaller um = ctx.createUnmarshaller();
         Object o = um.unmarshal(reader);
 
-        assertEquals(o, world);
-
-        String name = "dObject1";
-        DynamicGameObject dgo = (DynamicGameObject)world.getGameObject(name);
-        assertNotNull("There should be a DynamicObject named after '"+name+"'", dgo);
-
-        String behaviorName = "dObject1_behavior1";
-        assertEquals("DynamicObject should have a behavior named '"+ behaviorName +"'",dgo.getBehavior().getName(), behaviorName);
-
-        assertTrue("Behavior should be of type '"+InertBehavior.class+"'",dgo.getBehavior().getClass() == InertBehavior.class);
-
-
+        verifySimilarity(o, world);
 
     }
+
+
+
+    public void testWorldLoading() throws GameObjectManager.WorldInitializationException {
+
+        GameObjectManager manager = GameObjectManager.getInstance();
+        manager.loadWorld("core/test/testWorld.j3d");
+
+        World world = createStructure();
+        World loadedWorld = manager.getWorld();
+
+        verifySimilarity(world, loadedWorld);
+
+        boolean ok = false;
+        try {
+            manager.loadWorld("core/test/testWorld.j3d");
+        } catch (Exception e) {
+            ok = true;
+        }
+        assertTrue("Second world loading should have failed.", ok);
+
+        
+
+    }
+
+
 
     private World createStructure() {
         GameObject go1 = new StaticGameObject("sObject1");
@@ -89,5 +101,18 @@ public class BasicStructureMarshallingTest extends TestCase {
 
         World world = World.create("MyWorld", go1, go2, do1);
         return world;
+    }
+
+     private void verifySimilarity(Object o, World world) {
+        assertEquals(o, world);
+
+        String name = "dObject1";
+        DynamicGameObject dgo = (DynamicGameObject)world.getGameObject(name);
+        assertNotNull("There should be a DynamicObject named after '"+name+"'", dgo);
+
+        String behaviorName = "dObject1_behavior1";
+        assertEquals("DynamicObject should have a behavior named '"+ behaviorName +"'",dgo.getBehavior().getName(), behaviorName);
+
+        assertTrue("Behavior should be of type '"+ InertBehavior.class+"'",dgo.getBehavior().getClass() == InertBehavior.class);
     }
 }
