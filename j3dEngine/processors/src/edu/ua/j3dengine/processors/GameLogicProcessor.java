@@ -9,8 +9,6 @@ import java.util.Collection;
 
 public class GameLogicProcessor extends Processor {
 
-
-
     private GameLogicProcessor(){
         super("GameLogicProcessor");
     }
