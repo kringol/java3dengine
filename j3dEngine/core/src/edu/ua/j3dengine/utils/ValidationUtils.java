@@ -42,4 +42,19 @@ public class ValidationUtils {
         }
     }
 
+
+    public static <T extends Comparable> void validateInsideRange(T value, T minValue, T maxValue){
+        validateInsideRange(value, minValue, maxValue, null);
+    }
+
+    public static <T extends Comparable> void validateInsideRange(T value, T minValue, T maxValue, String msg){
+        validateNotNull(value);
+        validateNotNull(minValue);
+        validateNotNull(maxValue);
+
+        if (value.compareTo(minValue) < 0 || value.compareTo(maxValue) > 0){
+            throw new IllegalArgumentException(msg != null ? msg : "Value must be inside range. Value: '"+value+"', MinValue: '"+minValue+"', MaxValue: '"+maxValue+"'.");
+        }
+    }
+
 }

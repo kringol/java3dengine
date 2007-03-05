@@ -3,10 +3,58 @@ package edu.ua.j3dengine.processors;
 
 public abstract class Processor {
 
-    public abstract void initialize();
+    private String name;
+    private boolean initialized = false;
+    private boolean released = false;
 
-    public abstract void execute();
+    protected Processor(String name){
+        this.name = name;
+    }
 
-    public abstract void release();
+
+    public String getName() {
+        return name;
+    }
+
+
+    public boolean isInitialized() {
+        return initialized;
+    }
+
+    public boolean isReleased() {
+        return released;
+    }
+
+    public final void initialize() {
+        if (released){
+            throw new IllegalStateException("Processor '"+getName()+"' has been released.");
+        }
+        if (initialized){
+            throw new IllegalStateException("Processor '"+getName()+"' has already been initialized.");
+        }
+        initialized = true;
+    }
+
+    public abstract void performConcreteInitialize();
+
+    public final void execute(){
+        if (!initialized){
+            throw new IllegalStateException("Processor '"+getName()+"' is not initialized.");
+        }
+    }
+
+    public abstract void performConcreteExecute();
+
+    public final void release() {
+        if (!initialized){
+            throw new IllegalStateException("Processor '"+getName()+"' is not initialized.");
+        }
+        if (released){
+            throw new IllegalStateException("Processor '"+getName()+"' has already been released.");
+        }
+        released = true;
+    }
+
+    public abstract void performConcreteRelease();
 
 }

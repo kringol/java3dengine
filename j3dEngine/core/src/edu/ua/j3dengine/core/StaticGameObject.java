@@ -1,11 +1,9 @@
 package edu.ua.j3dengine.core;
 
-import edu.ua.j3dengine.core.state.StaticObjectState;
-import edu.ua.j3dengine.core.geometry.SpatialObject;
 import edu.ua.j3dengine.core.geometry.Geometry;
+import edu.ua.j3dengine.core.geometry.SpatialObject;
+import edu.ua.j3dengine.core.state.StaticObjectState;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.Collection;
 

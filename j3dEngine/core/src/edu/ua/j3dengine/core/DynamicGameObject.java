@@ -1,15 +1,15 @@
 package edu.ua.j3dengine.core;
 
-import edu.ua.j3dengine.core.state.DynamicObjectState;
-import edu.ua.j3dengine.core.geometry.SpatialObject;
-import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.behavior.Behavior;
+import edu.ua.j3dengine.core.geometry.Geometry;
+import edu.ua.j3dengine.core.geometry.SpatialObject;
+import edu.ua.j3dengine.core.state.DynamicObjectState;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Collection;
 
-
+@XmlRootElement
 public class DynamicGameObject extends GameObject<DynamicObjectState> implements SpatialObject {
 
     @XmlElement

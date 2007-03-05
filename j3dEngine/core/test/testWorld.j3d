@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<world>
+    <name>MyWorld</name>
+    <gameObjectStates/>
+    <attributes/>
+    <worldObjects>
+        <entry>
+            <key>dObject1</key>
+            <value xsi:type="dynamicGameObject" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <name>dObject1</name>
+                <currentState xsi:type="dynamicObjectState">
+                    <name>dObject1_state1</name>
+                    <attributes/>
+                    <normalBehavior xsi:type="inertBehavior">
+                        <name>dObject1_behavior1</name>
+                    </normalBehavior>
+                </currentState>
+                <gameObjectStates>
+                    <entry>
+                        <key>dObject1_state1</key>
+                        <value xsi:type="dynamicObjectState">
+                            <name>dObject1_state1</name>
+                            <attributes/>
+                            <normalBehavior xsi:type="inertBehavior">
+                                <name>dObject1_behavior1</name>
+                            </normalBehavior>
+                        </value>
+                    </entry>
+                </gameObjectStates>
+                <attributes>
+                    <entry>
+                        <key>dObject1_attr1</key>
+                        <value>
+                            <name>dObject1_attr1</name>
+                            <value xsi:type="xs:long" xmlns:xs="http://www.w3.org/2001/XMLSchema">2000000</value>
+                        </value>
+                    </entry>
+                </attributes>
+                <initialState>dObject1_state1</initialState>
+            </value>
+        </entry>
+        <entry>
+            <key>sObject1</key>
+            <value xsi:type="staticGameObject" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <name>sObject1</name>
+                <gameObjectStates>
+                    <entry>
+                        <key>sObject1_state2</key>
+                        <value xsi:type="staticObjectState">
+                            <name>sObject1_state2</name>
+                            <attributes>
+                                <entry>
+                                    <key>sObject1_state2_prop1</key>
+                                    <value>
+                                        <name>sObject1_state2_prop1</name>
+                                        <value xsi:type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema">5</value>
+                                    </value>
+                                </entry>
+                            </attributes>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>sObject1_state1</key>
+                        <value xsi:type="staticObjectState">
+                            <name>sObject1_state1</name>
+                            <attributes>
+                                <entry>
+                                    <key>sObject1_state1_prop2</key>
+                                    <value>
+                                        <name>sObject1_state1_prop2</name>
+                                        <value xsi:type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema">3.66</value>
+                                    </value>
+                                </entry>
+                                <entry>
+                                    <key>sObject1_state1_prop1</key>
+                                    <value>
+                                        <name>sObject1_state1_prop1</name>
+                                        <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">val1</value>
+                                    </value>
+                                </entry>
+                            </attributes>
+                        </value>
+                    </entry>
+                </gameObjectStates>
+                <attributes>
+                    <entry>
+                        <key>object_Attr1</key>
+                        <value>
+                            <name>object_Attr1</name>
+                            <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">object_Attr1_value</value>
+                        </value>
+                    </entry>
+                </attributes>
+            </value>
+        </entry>
+        <entry>
+            <key>sObject2</key>
+            <value xsi:type="staticGameObject" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <name>sObject2</name>
+                <gameObjectStates/>
+                <attributes>
+                    <entry>
+                        <key>sObject2_attr1</key>
+                        <value>
+                            <name>sObject2_attr1</name>
+                            <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">sObject2_attr1_value</value>
+                        </value>
+                    </entry>
+                </attributes>
+            </value>
+        </entry>
+    </worldObjects>
+</world>

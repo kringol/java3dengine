@@ -1,12 +1,12 @@
 package edu.ua.j3dengine.core.state;
 
+import edu.ua.j3dengine.core.Attribute;
 import static edu.ua.j3dengine.utils.ValidationUtils.validateNotEmpty;
 import static edu.ua.j3dengine.utils.ValidationUtils.validateNotNull;
-import edu.ua.j3dengine.core.Attribute;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 
 @XmlRootElement

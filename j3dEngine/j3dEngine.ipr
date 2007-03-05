@@ -369,6 +369,142 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="activation">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/activation.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="codemodel">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/codemodel.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="dtd-parser-1.0">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/dtd-parser-1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="isorelax">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/isorelax.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="istack-commons-runtime">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/istack-commons-runtime.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="istack-commons-tools">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/istack-commons-tools.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="jaxb-api">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb-api.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb-api-doc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb-api-src.zip!/" />
+      </SOURCES>
+    </library>
+    <library name="jaxb-impl">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb-impl.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb-impl.src.zip!/" />
+      </SOURCES>
+    </library>
+    <library name="jaxb-xjc">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb-xjc.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb-xjc.src.zip!/" />
+      </SOURCES>
+    </library>
+    <library name="jaxb1-impl">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb1-impl.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="jsr173_1.0_api">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jsr173_1.0_api.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="msv">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/msv.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="relaxngDatatype">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/relaxngDatatype.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="resolver">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/resolver.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="rngom">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/rngom.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="txw2">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/txw2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="xsdlib">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/xsdlib.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="xsom">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/xsom.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/xsom-src.zip!/" />
+      </SOURCES>
+    </library>
   </component>
   <component name="uidesigner-configuration">
     <option name="INSTRUMENT_CLASSES" value="true" />
