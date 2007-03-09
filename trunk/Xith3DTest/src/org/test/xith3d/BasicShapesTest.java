@@ -92,8 +92,7 @@ public class BasicShapesTest {
         Transform3D t3d = new Transform3D();
         t3d.setTranslation(1500, 0, 1000);
         translateGroup.setTransform(t3d);
-        
-
+  
         DaeModel model = null;
         try {
             model = DaeLoader.getInstance().loadModel("C:\\Documents and Settings\\Pablo\\IdeaProjects\\java3dengine\\Xith3DTest\\resources\\models\\collada\\shuttle\\shuttle.dae");

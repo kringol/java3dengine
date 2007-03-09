@@ -1,5 +1,9 @@
 package edu.ua.j3dengine.core.geometry;
 
+import javax.vecmath.Vector3f;
+import javax.vecmath.Tuple3f;
+import java.util.Collection;
+
 
 public abstract class Geometry {
 
@@ -19,5 +23,13 @@ public abstract class Geometry {
         return name;
     }
 
+    public abstract Tuple3f getLocation();
+
     
+    
+//    public abstract Geometry getParent();
+//
+//    public abstract Collection<? extends Geometry> getChildren();
+
+
 }
