@@ -13,7 +13,7 @@ import org.xith3d.scenegraph.SceneGraphObject;
 import org.xith3d.scenegraph.Node;
 
 @XmlRootElement
-public class ModelAdapterGeometry extends Geometry {
+public class ModelAdapterGeometry extends Geometry implements XithGeometry{
 
     private GeometryXithImpl adapteeGeometry;
 
@@ -32,6 +32,10 @@ public class ModelAdapterGeometry extends Geometry {
         this.modelObjectName = modelObjectName;
     }
 
+
+    public Node getSceneGraphNode() {
+        return getAdapteeGeometry().getSceneGraphNode();
+    }
 
     @Override
     public String getName() {

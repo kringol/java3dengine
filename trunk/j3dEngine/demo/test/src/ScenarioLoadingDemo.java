@@ -2,6 +2,7 @@ import org.xith3d.render.base.Xith3DEnvironment;
 import org.xith3d.render.canvas.Canvas3DWrapper;
 import org.xith3d.render.loop.RenderLoop;
 import org.xith3d.render.CanvasPeer;
+import org.xith3d.render.Option;
 import org.xith3d.scenegraph.*;
 import org.xith3d.loaders.models.impl.tds.TDSLoader;
 import org.xith3d.loaders.models.base.Model;
@@ -16,6 +17,8 @@ import javax.vecmath.Point2f;
 import java.awt.*;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseEvent;
+
+import edu.ua.j3dengine.core.mgmt.ResourceManager;
 
 public class ScenarioLoadingDemo {
 
@@ -83,7 +86,9 @@ public class ScenarioLoadingDemo {
 
             Model model = null;
             try {
-                model = TDSLoader.getInstance().loadModel("resources\\models\\3ds\\drazinsunhawk\\Drazisunhawk1.1.3ds");
+                //model = ResourceManager.getInstance().getModel("resources\\3ds\\drazinsunhawk\\Drazisunhawk1.1.3ds", ResourceManager.ModelFormat.TDS);
+                model = ResourceManager.getInstance().getModel("resources\\collada\\shuttle\\shuttle.dae");
+                
                 assert model != null : "Scene should not be null!";
 
                 translateGroup.addChild(spaceTG);
@@ -97,7 +102,8 @@ public class ScenarioLoadingDemo {
                 throw new RuntimeException("Cancelling scene loading", e);
             }
 
-            final String objectName = "DraziSunHa";
+            //final String objectName = "DraziSunHa";
+            final String objectName = "spaceship";
             SceneGraphObject object = model.getNamedObject(objectName);
 
 
@@ -276,9 +282,9 @@ public class ScenarioLoadingDemo {
         private Xith3DEnvironment createEnvironment() {
             Xith3DEnvironment environment = new Xith3DEnvironment();
 
-            Canvas3DWrapper canvas = Canvas3DWrapper.createFullscreen(CanvasPeer.OpenGLLayer.JOGL,
+            Canvas3DWrapper canvas = Canvas3DWrapper.createFullscreen(CanvasPeer.OpenGLLayer.getDefault(),
                     Canvas3DWrapper.Resolution.DESKTOP,
-                    Canvas3DWrapper.ColorDepth.B32);
+                    Canvas3DWrapper.ColorDepth.B16);
 
 //        createStandalone(CanvasPeer.OpenGLLayer.JOGL,
 //                Canvas3DWrapper.Resolution.DESKTOP,
@@ -288,7 +294,7 @@ public class ScenarioLoadingDemo {
 
             environment.addCanvas(canvas);
             //canvas.setRenderOption(Option.USE_TEXTURES, true);
-
+            //canvas.setRenderOption(Option.USE_VERTEX_BUFFER_CACHING, true);
             //set window
             window = (Window)canvas.getWindow();
 
@@ -300,6 +306,7 @@ public class ScenarioLoadingDemo {
                 new Point(0,0),
                 "invisible");
            // window.setCursor(invisibleCursor);//todo uncomment
+
 
             return environment;
         }
