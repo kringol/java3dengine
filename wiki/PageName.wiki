@@ -1,0 +1,7 @@
+#summary Progreso del proyecto.
+
+= Grado de Avance de cada Módulo =
+
+
+||Modulo||Grado de Avance %||
+||Core||80%||
