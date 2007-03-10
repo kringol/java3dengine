@@ -3,5 +3,5 @@
 = Grado de Avance de cada Módulo =
 
 
-||Modulo||Grado de Avance %||
-||Core||80%||
+|| *Modulo* || *Grado de Avance %* ||
+|| _Core_ || 80% ||
