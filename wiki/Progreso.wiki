@@ -1,0 +1,12 @@
+#summary Progreso del proyecto.
+
+= Grado de Avance de cada Módulo =
+
+
+|| *Modulo* || *Grado de Avance %* ||
+|| _Core_ || 90% ||
+|| _Processors_ || 20% ||
+|| _Configuration_ || 10% ||
+|| _GameActionAPI_ || 10% ||
+|| _Demo_ || 0% ||
+|| _Teoría_ || 20% ||
