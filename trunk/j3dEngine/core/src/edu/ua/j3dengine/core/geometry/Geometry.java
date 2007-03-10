@@ -26,10 +26,4 @@ public abstract class Geometry {
     public abstract Tuple3f getLocation();
 
     
-    
-//    public abstract Geometry getParent();
-//
-//    public abstract Collection<? extends Geometry> getChildren();
-
-
 }
