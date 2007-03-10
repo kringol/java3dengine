@@ -23,13 +23,9 @@
     <orderEntry type="library" name="isorelax" level="project" />
     <orderEntry type="library" name="istack-commons-runtime" level="project" />
     <orderEntry type="library" name="istack-commons-tools" level="project" />
-    <orderEntry type="library" name="jaxb-api-doc" level="project" />
-    <orderEntry type="library" name="jaxb-api-src" level="project" />
     <orderEntry type="library" name="jaxb-api" level="project" />
     <orderEntry type="library" name="jaxb-impl" level="project" />
-    <orderEntry type="library" name="jaxb-impl.src" level="project" />
     <orderEntry type="library" name="jaxb-xjc" level="project" />
-    <orderEntry type="library" name="jaxb-xjc.src" level="project" />
     <orderEntry type="library" name="jaxb1-impl" level="project" />
     <orderEntry type="library" name="jsr173_1.0_api" level="project" />
     <orderEntry type="library" name="msv" level="project" />
@@ -38,7 +34,6 @@
     <orderEntry type="library" name="rngom" level="project" />
     <orderEntry type="library" name="txw2" level="project" />
     <orderEntry type="library" name="xsdlib" level="project" />
-    <orderEntry type="library" name="xsom-src" level="project" />
     <orderEntry type="library" name="xsom" level="project" />
     <orderEntryProperties />
   </component>
