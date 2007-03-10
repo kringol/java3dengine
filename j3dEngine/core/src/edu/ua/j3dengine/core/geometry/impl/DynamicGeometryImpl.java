@@ -4,8 +4,8 @@ import org.xith3d.scenegraph.TransformGroup;
 import org.xith3d.scenegraph.Node;
 
 
-
-public class DynamicGeometryImpl extends GeometryXithImpl {
+//todo (pablius) remove this class -- bad concept
+@Deprecated public class DynamicGeometryImpl extends GeometryXithImpl {
 
     private TransformGroup targetTransformGroup;
 

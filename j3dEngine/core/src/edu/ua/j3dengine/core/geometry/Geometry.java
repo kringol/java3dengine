@@ -26,4 +26,5 @@ public abstract class Geometry {
     public abstract Tuple3f getLocation();
 
     
+    
 }

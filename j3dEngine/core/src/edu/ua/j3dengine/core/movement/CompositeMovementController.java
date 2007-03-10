@@ -17,7 +17,7 @@ public class CompositeMovementController extends MovementController {
     }
 
 
-    public void performConcreteUpdate(long elapsedTime) {
+    protected void performConcreteUpdate(long elapsedTime) {
         for (MovementController controller : controllers) {
             controller.performConcreteUpdate(elapsedTime);
         }

@@ -40,6 +40,6 @@ public abstract class MovementController {
         }
     }
 
-    public abstract void performConcreteUpdate(long elapsedTime);
+    protected abstract void performConcreteUpdate(long elapsedTime);
 
 }

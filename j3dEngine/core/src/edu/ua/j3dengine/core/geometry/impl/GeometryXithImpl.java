@@ -6,7 +6,7 @@ import org.xith3d.scenegraph.Node;
 import javax.vecmath.Tuple3f;
 
 
-public class GeometryXithImpl extends Geometry {
+public class GeometryXithImpl extends Geometry implements XithGeometry {
 
     private Node node;
 
@@ -20,4 +20,8 @@ public class GeometryXithImpl extends Geometry {
         return node.getLocalToVworld().getTranslation();
     }
 
+
+    public Node getSceneGraphNode() {
+        return node;
+    }
 }
