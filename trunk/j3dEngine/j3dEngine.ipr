@@ -255,6 +255,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/configuration/configuration.iml" filepath="$PROJECT_DIR$/configuration/configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/processors/processors.iml" filepath="$PROJECT_DIR$/processors/processors.iml" />
     </modules>
   </component>
@@ -504,6 +505,13 @@
       <SOURCES>
         <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/xsom-src.zip!/" />
       </SOURCES>
+    </library>
+    <library name="jogl">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jogl/jogl.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
     </library>
   </component>
   <component name="uidesigner-configuration">
