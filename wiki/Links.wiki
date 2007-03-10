@@ -33,6 +33,12 @@ http://lwjgl.org/
 
 http://www.eecs.tulane.edu/www/Terry/OpenGL/Introduction.html OpenGL Tutorial]
 
+==3D Editors==
+
+[http://www.blender.org]
+
+[http://colladablender.illusoft.com/ Blender Collada plugin (opensource)]
+
 ==Game development==
 http://www.javagaming.org/forums/index.php
 
