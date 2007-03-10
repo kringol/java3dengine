@@ -2,7 +2,9 @@ package edu.ua.j3dengine.core.mgmt;
 
 import edu.ua.j3dengine.core.exception.ModelLoadingException;
 import org.xith3d.loaders.models.base.Model;
+import org.xith3d.loaders.models.base.ModelLoader;
 import org.xith3d.loaders.models.impl.dae.DaeLoader;
+import org.xith3d.loaders.models.impl.tds.TDSLoader;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,16 +31,46 @@ public class ResourceManager {
     }
 
     public Model getModel(String modelPath){
+        return getModel(modelPath, null);
+    }
+
+    public Model getModel(String modelPath, ModelFormat modelFormat){
         Model model = models.get(modelPath);
         if (model == null){
+
+                ModelLoader loader;
+                if (modelFormat == null){
+                    loader = ModelFormat.DEFAULT.getLoader();
+                }else{
+                    loader = modelFormat.getLoader();
+                }
+
             try {
-                model = DaeLoader.getInstance().loadModel(modelPath);
+                model = loader.loadModel(modelPath);
             } catch (IOException e) {
                 throw new ModelLoadingException("Model could not be loaded.", e);
             }
+            
             models.put(modelPath, model);
         }
         return model;
+    }
+
+
+    public static enum ModelFormat {
+        TDS{
+            public ModelLoader getLoader() {
+                return TDSLoader.getInstance();
+            }},
+        COLLADA{
+            public ModelLoader getLoader() {
+                return DaeLoader.getInstance();
+            }},
+        DEFAULT{
+            public ModelLoader getLoader() {
+                return COLLADA.getLoader();
+            }};
+        public abstract ModelLoader getLoader();
     }
 
     
