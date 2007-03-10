@@ -67,6 +67,8 @@
   * Diseño de clases, explicación de cada módulo
   * Design Patterns aplicados
   * Diagramas de secuencia básicos
+ * Implementación de Behaviors
+ * Testing con JUnit
 
 === 4.c) Ciclo de vida de creación de un 'World' ===
  * Configuración y ejecución
