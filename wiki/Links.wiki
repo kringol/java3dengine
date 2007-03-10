@@ -45,9 +45,20 @@ http://www.javagaming.org/forums/index.php
 http://community.java.net/projects/community/games
 
 ==Engines==
+===Java Engines===
 http://jmonkeyengine.com/
 
 http://www.agency9.se/products/agentfx/
+
+===Other Engines===
+http://www.alice.org/ 
+http://www.ogre3d.org/ 
+http://www.yake.org/ 
+http://www.delta3d.org/ 
+http://www.panda3d.org/ 
+http://www.idsoftware.com/business/techdownloads/ 
+http://irrlicht.sourceforge.net/ 
+http://www.garagegames.com/products/1 
 
 ==Loaders and Resources==
 
