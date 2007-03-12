@@ -29,6 +29,9 @@ public class DynamicGameObject extends GameObject<DynamicObjectState> implements
     }
 
     public void update(){
+        if (getCurrentState() == null){
+            throw new IllegalStateException("DynamicGameObject has not been correctly initialized. No initial state has been defined.");
+        }
         assert getBehavior() != null;
         
         getBehavior().execute();

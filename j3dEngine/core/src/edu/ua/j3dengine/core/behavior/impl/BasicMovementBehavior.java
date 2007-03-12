@@ -20,6 +20,11 @@ public class BasicMovementBehavior extends Behavior {
         super("BasicMovementBehavior");
     }
 
+    public BasicMovementBehavior(DynamicGameObject targetObject){
+        this();
+        setTargetObject(targetObject);
+    }
+
     public void initialize(){
         validateNotNull(getTargetObject());
         if (isInitialized()){

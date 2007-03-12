@@ -119,7 +119,7 @@ public abstract class GameObject<S extends State> {
     }
 
     public enum GameObjectType {
-        STATIC, DYNAMIC;
+        STATIC, DYNAMIC
     }
 
 

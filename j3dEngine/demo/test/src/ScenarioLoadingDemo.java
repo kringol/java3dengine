@@ -4,7 +4,6 @@ import org.xith3d.render.loop.RenderLoop;
 import org.xith3d.render.CanvasPeer;
 import org.xith3d.render.Option;
 import org.xith3d.scenegraph.*;
-import org.xith3d.loaders.models.impl.tds.TDSLoader;
 import org.xith3d.loaders.models.base.Model;
 import org.xith3d.geometry.GeoSphere;
 import org.xith3d.spatial.bounds.Frustum;
@@ -67,8 +66,10 @@ public class ScenarioLoadingDemo {
 
             TransformGroup firstTG = addSphere(bg);
 
+            bg.addChild(firstTG);
 
-            loadColladaModel(firstTG);
+
+            loadModel(firstTG);
 
 
 
@@ -77,11 +78,18 @@ public class ScenarioLoadingDemo {
 
         }
 
-        private void loadColladaModel(TransformGroup firstTG) {
+        private void loadModel(TransformGroup firstTG) {
             TransformGroup spaceTG = new TransformGroup();
             TransformGroup translateGroup = new TransformGroup();
             Transform3D t3d = new Transform3D();
-            t3d.setTranslation(1500, 0, 1000);
+            t3d.setTranslation(1000, 0, 0);
+           // t3d.setScale(3);
+//            Transform3D t3d2 = new Transform3D();
+//            t3d2.rotAxis(new Vector3f(1,0,0), -90);
+//            t3d.add(t3d2);
+//            Transform3D t3d3 = new Transform3D();
+//            t3d3.scaleTranslation(2);
+//            t3d.add(t3d3);
             translateGroup.setTransform(t3d);
 
             Model model = null;
@@ -144,9 +152,9 @@ public class ScenarioLoadingDemo {
         private void addListeners() {
             Canvas3DWrapper canvas = (Canvas3DWrapper)environment.getCanvas();
 
-            canvas.addMouseWheelListener(new MyMouseWheelListener());
+            //canvas.addMouseWheelListener(new MyMouseWheelListener());
 
-            canvas.addMouseMotionListener(new MyMouseMotionListener());
+            //canvas.addMouseMotionListener(new MyMouseMotionListener());
         }
 
         private void startRenderLoop() {
@@ -190,7 +198,7 @@ public class ScenarioLoadingDemo {
             t3d.setTranslation(100, 0, 0);
             transformGroup.setTransform(t3d);
 
-            bg.addChild(transformGroup);
+
             return transformGroup;
         }
 
@@ -206,7 +214,7 @@ public class ScenarioLoadingDemo {
         }
 
         private void setAmbientLight(BranchGroup bg) {
-            Light light = new AmbientLight(false);
+            Light light = new AmbientLight(true);
             light.setColor(white);
             bg.addChild(light);
         }
@@ -254,7 +262,7 @@ public class ScenarioLoadingDemo {
             int height = environment.getCanvas().getHeight();
             float deltaX = (float)dx / (width/2);
             float deltaY = (float)dy / (height/2);
-            System.out.println("\nMOVING: deltaY = "+deltaY + ", deltaX = "+deltaX);
+            //System.out.println("\nMOVING: deltaY = "+deltaY + ", deltaX = "+deltaX);
             view.setCenterOfView(new Point2f(deltaX, deltaY));
         }
 
@@ -263,7 +271,7 @@ public class ScenarioLoadingDemo {
             Tuple3f viewLocation = view.getPosition();
             final Tuple3f viewDirection = view.getFacingDirection();
 
-            System.out.println("Before moving view: \nviewLocation = " + viewLocation);
+            //System.out.println("Before moving view: \nviewLocation = " + viewLocation);
 
             int variation = -5 * units;
             final Vector3f normalizedViewDirection = new Vector3f(viewDirection);
@@ -273,7 +281,7 @@ public class ScenarioLoadingDemo {
 
             viewLocation.add(normalizedViewDirection);
 
-            System.out.println("After moving view: \nviewLocation = " + viewLocation);
+            //System.out.println("After moving view: \nviewLocation = " + viewLocation);
             view.setPosition(viewLocation);
         }
 
@@ -284,7 +292,7 @@ public class ScenarioLoadingDemo {
 
             Canvas3DWrapper canvas = Canvas3DWrapper.createFullscreen(CanvasPeer.OpenGLLayer.getDefault(),
                     Canvas3DWrapper.Resolution.DESKTOP,
-                    Canvas3DWrapper.ColorDepth.B16);
+                    Canvas3DWrapper.ColorDepth.B32);
 
 //        createStandalone(CanvasPeer.OpenGLLayer.JOGL,
 //                Canvas3DWrapper.Resolution.DESKTOP,
@@ -293,8 +301,10 @@ public class ScenarioLoadingDemo {
 
 
             environment.addCanvas(canvas);
-            //canvas.setRenderOption(Option.USE_TEXTURES, true);
-            //canvas.setRenderOption(Option.USE_VERTEX_BUFFER_CACHING, true);
+            canvas.setRenderOption(Option.USE_TEXTURES, true);
+            canvas.setRenderOption(Option.USE_LIGHTING, true);
+            canvas.setRenderOption(Option.USE_TEXTURES, true);
+           // canvas.setRenderOption(Option.USE_VERTEX_BUFFER_CACHING, true);
             //set window
             window = (Window)canvas.getWindow();
 
@@ -325,7 +335,7 @@ public class ScenarioLoadingDemo {
             private int despCount = 0;
             public void mouseWheelMoved(MouseWheelEvent e) {
                 wheelRotation = e.getWheelRotation();
-                System.out.println("\n----------------\nwheelRotation = " + wheelRotation);
+                //System.out.println("\n----------------\nwheelRotation = " + wheelRotation);
                 doZoom(wheelRotation);
 
 
@@ -381,13 +391,13 @@ public class ScenarioLoadingDemo {
                 if (isRecenteringMouse ||
                         (centerLocation.x == e.getX() && centerLocation.y == e.getY()))
                 {
-                    System.out.println("Recentering event processed.");
+                    //System.out.println("Recentering event processed.");
                     isRecenteringMouse = false;
                 }
                 else {
                     int dx = e.getX() - lastLocation.x;
                     int dy = e.getY() - lastLocation.y;
-                    System.out.println("Mouse moved: dy = " + dy + ", dx = " + dx);
+                    //System.out.println("Mouse moved: dy = " + dy + ", dx = " + dx);
 
                     //moveView(dx, dy);   //todo uncomment
                     recenterMouse();  //todo uncomment

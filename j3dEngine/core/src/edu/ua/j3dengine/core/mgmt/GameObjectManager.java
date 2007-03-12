@@ -32,8 +32,8 @@ public class GameObjectManager {
         return instance;
     }
 
-    public void loadWorld(String path) throws WorldInitializationException {
-        loadWorld(new File(path));
+    public void loadWorld(String worldConfigFilePath) throws WorldInitializationException {
+        loadWorld(new File(worldConfigFilePath));
     }
 
     public void loadWorld(File worldConfigFile) throws WorldInitializationException {

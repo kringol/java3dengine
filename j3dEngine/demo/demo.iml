@@ -13,6 +13,7 @@
     <orderEntry type="library" name="openmali" level="project" />
     <orderEntry type="library" name="xith-tk" level="project" />
     <orderEntry type="library" name="xith3d" level="project" />
+    <orderEntry type="module" module-name="core" />
     <orderEntryProperties />
   </component>
 </module>

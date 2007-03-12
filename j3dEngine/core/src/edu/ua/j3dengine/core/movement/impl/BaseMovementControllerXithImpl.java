@@ -14,7 +14,7 @@ public abstract class BaseMovementControllerXithImpl extends MovementController 
 
     public BaseMovementControllerXithImpl(DynamicGameObject targetObject) {
         super(targetObject);
-        targetTransformGroup = Utils.insertTransformGroup(((XithGeometry)targetObject).getSceneGraphNode());
+        targetTransformGroup = Utils.insertTransformGroup(((XithGeometry)targetObject.getGeometry()).getSceneGraphNode());
     }
 
 
