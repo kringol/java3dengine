@@ -5,7 +5,7 @@
 
 || *Modulo* || *Grado de Avance %* ||
 || _Core_ || 90% ||
-|| _Processors_ || 20% ||
+|| _Processors_ || 40% ||
 || _Configuration_ || 10% ||
 || _GameActionAPI_ || 10% ||
 || _Demo_ || 0% ||
