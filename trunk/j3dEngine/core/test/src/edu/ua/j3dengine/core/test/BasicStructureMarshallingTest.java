@@ -1,10 +1,12 @@
 package edu.ua.j3dengine.core.test;
 
+
 import edu.ua.j3dengine.core.*;
-import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.behavior.InertBehavior;
+import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.state.DynamicObjectState;
 import edu.ua.j3dengine.core.state.StaticObjectState;
+import static edu.ua.j3dengine.core.test.Resources.TEST_WORLD_FILE_PATH;
 import static edu.ua.j3dengine.utils.Utils.logDebug;
 import junit.framework.TestCase;
 
@@ -14,11 +16,10 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
 
 public class BasicStructureMarshallingTest extends TestCase {
+
 
 
     public BasicStructureMarshallingTest() {
@@ -57,7 +58,7 @@ public class BasicStructureMarshallingTest extends TestCase {
     public void testWorldLoading() throws GameObjectManager.WorldInitializationException {
 
         GameObjectManager manager = GameObjectManager.getInstance();
-        manager.loadWorld("core/test/testWorld.j3d");
+        manager.loadWorld(TEST_WORLD_FILE_PATH);
 
         World world = createStructure();
         World loadedWorld = manager.getWorld();
@@ -66,7 +67,7 @@ public class BasicStructureMarshallingTest extends TestCase {
 
         boolean ok = false;
         try {
-            manager.loadWorld("core/test/testWorld.j3d");
+            manager.loadWorld(TEST_WORLD_FILE_PATH);
         } catch (Exception e) {
             ok = true;
         }

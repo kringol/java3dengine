@@ -3,13 +3,17 @@ package edu.ua.j3dengine.core.behavior;
 import static edu.ua.j3dengine.utils.Utils.logDebug;
 
 public class InertBehavior extends Behavior {
+    private static final String INERT_BEHAVIOR_NAME = "InertBehavior";
 
 
     public InertBehavior(String name) {
         super(name);
     }
 
-    private InertBehavior(){}
+    public InertBehavior() {
+        super(INERT_BEHAVIOR_NAME);
+    }
+
 
 
     public void execute() {

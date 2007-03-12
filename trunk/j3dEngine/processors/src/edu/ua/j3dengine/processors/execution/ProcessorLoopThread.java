@@ -35,7 +35,7 @@ public class ProcessorLoopThread extends Thread {
         return new ProcessorLoopThread(group, name, priority, processors);
     }
 
-    public void inactivate(){
+    public synchronized void inactivate(){
         this.active = false;
     }
 
