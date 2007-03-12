@@ -113,6 +113,7 @@ public class BasicShapesTest {
         SceneGraphObject object = model.getNamedObjects().get(objectName);
         //System.out.println("object = " + object);
 
+        ((Group)object).setBounds(new BoundingSphere(new Vector3f(0,0,0), 2000));
         final MovementController mC = VelocityMovementController.create(tgReference, objectName);
         ((VelocityMovementController)mC).setDirection(new Vector3f(-50, 25, 50));
         ((VelocityMovementController)mC).setSpeed(50);

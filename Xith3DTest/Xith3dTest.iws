@@ -119,6 +119,19 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java" line="116" class="org.test.xith3d.BasicShapesTest" package="org.test.xith3d">
+        <option name="ENABLED" value="true" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -174,10 +187,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BasicShapesTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BasicShapesTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="37" selection-start="2951" selection-end="2951" vertical-scroll-proportion="0.8235294">
+            <state line="39" column="39" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.5588235">
               <folding />
             </state>
           </provider>
@@ -192,10 +205,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MovementController.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MovementController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/MovementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="44" selection-start="490" selection-end="490" vertical-scroll-proportion="-0.02866779">
+            <state line="25" column="22" selection-start="680" selection-end="680" vertical-scroll-proportion="0.3322091">
               <folding />
             </state>
           </provider>
@@ -204,7 +217,7 @@
       <file leaf-file-name="VelocityMovementController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/VelocityMovementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="55" selection-start="202" selection-end="202" vertical-scroll-proportion="0.14333895">
+            <state line="8" column="55" selection-start="202" selection-end="202" vertical-scroll-proportion="0.02866779">
               <folding />
             </state>
           </provider>
@@ -222,7 +235,7 @@
       <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="13" selection-start="230" selection-end="920" vertical-scroll-proportion="0.83136594">
+            <state line="34" column="13" selection-start="230" selection-end="920" vertical-scroll-proportion="0.81112987">
               <folding />
             </state>
           </provider>
@@ -534,7 +547,7 @@
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <showStructure ProjectPane="false" PackagesPane="false" Scope="false" Favorites="false" />
+      <showStructure Scope="false" ProjectPane="false" PackagesPane="false" Favorites="false" />
       <autoscrollToSource ProjectPane="true" />
       <autoscrollFromSource ProjectPane="true" />
       <sortByType />
@@ -568,6 +581,13 @@
   </component>
   <component name="RestoreUpdateTree" />
   <component name="RunManager" selected="Application.Shapes test">
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -579,13 +599,6 @@
       <option name="VM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <module name="" />
@@ -780,7 +793,7 @@
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32163265" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32160392" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6446154" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3276923" order="8" />
@@ -793,7 +806,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5950156" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.24979724" order="2" x="994" y="69" width="308" height="650" />
       <window_info id="File View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52" order="4" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5186916" order="4" />
+      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="-1" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998378" order="0" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
@@ -919,9 +933,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/xith3d-source.jar!/org/xith3d/scenegraph/TransformGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="13" selection-start="2278" selection-end="2278" vertical-scroll-proportion="0.08994709">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/xith-tk-source.jar!/org/xith3d/behaviors/impl/VelocityBehaviorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="19" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.083333336">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.6.0/src.zip!/java/util/Collections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1009" column="0" selection-start="42438" selection-end="42438" vertical-scroll-proportion="0.029411765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/VelocityMovementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="55" selection-start="202" selection-end="202" vertical-scroll-proportion="0.02866779">
           <folding />
         </state>
       </provider>
@@ -933,9 +968,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/xith3d-source.jar!/org/xith3d/scenegraph/TransformGroup.java">
+    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="13" selection-start="2278" selection-end="2278" vertical-scroll-proportion="0.08994709">
+        <state line="34" column="13" selection-start="230" selection-end="920" vertical-scroll-proportion="0.81112987">
           <folding />
         </state>
       </provider>
@@ -954,41 +989,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/MovementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="230" selection-end="920" vertical-scroll-proportion="0.83136594">
+        <state line="25" column="22" selection-start="680" selection-end="680" vertical-scroll-proportion="0.3322091">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="37" selection-start="2951" selection-end="2951" vertical-scroll-proportion="0.8235294">
+        <state line="39" column="39" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.5588235">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/VelocityMovementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="55" selection-start="202" selection-end="202" vertical-scroll-proportion="0.14333895">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/xith-tk-source.jar!/org/xith3d/behaviors/impl/VelocityBehaviorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="19" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.083333336">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/MovementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="44" selection-start="490" selection-end="490" vertical-scroll-proportion="-0.02866779">
-          <folding />
-        </state>
-      </provider>
-    </entry>
+  </component>
+  <component name="simpleUML.DiagramSettingsWorkspace" />
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$" />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
   </component>
 </project>
 
