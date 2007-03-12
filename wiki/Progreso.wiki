@@ -3,7 +3,7 @@
 = Grado de Avance de cada Módulo =
 
 
-|| *Modulo* || Descripción || *Grado de Avance %* ||
+|| *Modulo* || *Descripción* || *Grado de Avance %* ||
 || _Core_ || Objetos principales. Configuración Y carga de Worlds. || 90% ||
 || _Processors_ || Loops de procesamiento.  || 40% ||
 || _Configuration_ || GUI de Configuración de world y procesamiento. || 10% ||
