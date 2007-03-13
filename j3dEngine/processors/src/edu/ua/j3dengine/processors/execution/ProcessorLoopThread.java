@@ -35,14 +35,24 @@ public class ProcessorLoopThread extends Thread {
         return new ProcessorLoopThread(group, name, priority, processors);
     }
 
-    public synchronized void inactivate(){
+    public synchronized void deactivate(){
         this.active = false;
+        for (Processor processor : processors) {
+            processor.release();
+        }
     }
 
     @Override
     public synchronized void start() {
-        this.active = true;
+        activate();
         super.start();
+    }
+
+    private void activate() {
+        this.active = true;
+        for (Processor processor : processors) {
+            processor.initialize();
+        }
     }
 
     @Override

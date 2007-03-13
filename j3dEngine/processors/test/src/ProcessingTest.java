@@ -22,7 +22,7 @@ public class ProcessingTest extends TestCase {
 
         thread.start();
 
-        thread.inactivate();
+        thread.deactivate();
     }
 
 

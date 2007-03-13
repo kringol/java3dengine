@@ -292,7 +292,7 @@ public class ScenarioLoadingDemo {
 
             Canvas3DWrapper canvas = Canvas3DWrapper.createFullscreen(CanvasPeer.OpenGLLayer.getDefault(),
                     Canvas3DWrapper.Resolution.DESKTOP,
-                    Canvas3DWrapper.ColorDepth.B32);
+                    Canvas3DWrapper.ColorDepth.B16);
 
 //        createStandalone(CanvasPeer.OpenGLLayer.JOGL,
 //                Canvas3DWrapper.Resolution.DESKTOP,
