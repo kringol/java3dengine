@@ -58,7 +58,7 @@
 
 
 === 4.b) Arquitectura e Implementación ===
- * Scenegraph, Java3D
+ * Scenegraph, Java3D -> Scenegraph tutorial de Xith3D
  * Thirdparty libs
   * Xith3D
   * JInput (HIAL ? )
