@@ -39,6 +39,14 @@ http://www.eecs.tulane.edu/www/Terry/OpenGL/Introduction.html OpenGL Tutorial]
 
 [http://colladablender.illusoft.com/ Blender Collada plugin (opensource)]
 
+==Free 3D Models==
+
+http://www.3dgurukul.com/
+
+http://modelsbank.3dm3.com/
+
+http://www.digitaldreamdesigns.com/3DModels.htm
+
 ==Game development==
 http://www.javagaming.org/forums/index.php
 
