@@ -28,14 +28,14 @@
  * Qué son los GPUs?
  * Texture mapping
  * Skyboxes
- * Scenegraph y Java3D Scenegraph
+ * ~~Scenegraph y Java3D Scenegraph~~
 
 === 2.c) Librerías gráficas ===
  * OpenGL, DirectX
  * Java
   * JNI -> jogl, lwgjl
 
-=== 2.d) Intro a Renderización de Escenarios ===
+=== 2.d) ~~Intro a Renderización de Escenarios~~ === (*no pondremos esta sección*)
  * Scene Management
   * Culling (occlusion culling, backface culling, view frustum culling)
   * LOD
