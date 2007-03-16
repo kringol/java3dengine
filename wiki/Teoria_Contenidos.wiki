@@ -89,5 +89,6 @@
  * Eberly, _3D Game Engine Architecture_, Morgan Kauffman
  * Davison, _Killer Game Programming in Java_, O'Reilly
  * David Brackeen, Bret Barker, Laurence Vanhelsuwé, _Developing Games in Java_, New Riders
- * Dunn, Parberry, _3D Math Primer_, Wordware 
+ * Dunn, Parberry, _3D Math Primer_, Wordware (pipeline gráfico)
+ * Realtime Rendering in DirectX (iluminación)
  * Otros... (links, etc...)
