@@ -9,4 +9,4 @@
 || _Configuration_ || GUI de Configuración de world y procesamiento. || 10% ||
 || _GameActionAPI_ || API para acciones sobre objetos. || 10% ||
 || _Demo_ || Demo para validación de arquitectura. || 0% ||
-|| _Teoría_ || Documento sobre arquitectura del engine. || 20% ||
+|| _Teoría_ || Documento sobre arquitectura del engine. || 50% ||
