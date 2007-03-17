@@ -73,6 +73,11 @@ public class GameObjectManager {
 
         this.world = unmarshalledWorld;
 
+        //if the world has a geometry set, the initialize it
+        if (world.getGeometry() != null){
+            world.loadWorldGeometry();
+        }
+
         initialized = true;
         logDebug("World '" + unmarshalledWorld + "' initialized successfully!");
 
