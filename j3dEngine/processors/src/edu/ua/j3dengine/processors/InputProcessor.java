@@ -6,10 +6,18 @@ import edu.ua.j3dengine.core.input.MouseManager;
 
 public class InputProcessor extends Processor {
 
-    protected InputProcessor(String name) {
-        super(name);
+    private static InputProcessor instance;
+
+    private InputProcessor(){
+        super("InputProcessor");
     }
 
+    public synchronized static InputProcessor getInstance(){
+        if (instance == null){
+            instance = new InputProcessor();
+        }
+        return instance;
+    }
     public void performConcreteInitialize() {
         KeyboardManager.init();
         MouseManager.init();

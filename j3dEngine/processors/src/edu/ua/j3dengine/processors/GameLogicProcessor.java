@@ -9,12 +9,17 @@ import java.util.Collection;
 
 public class GameLogicProcessor extends Processor {
 
+    private static GameLogicProcessor instance;
+
     private GameLogicProcessor(){
         super("GameLogicProcessor");
     }
 
-    public static GameLogicProcessor create(){
-        return new GameLogicProcessor();
+    public synchronized static GameLogicProcessor getInstance(){
+        if (instance == null){
+            instance = new GameLogicProcessor();
+        }
+        return instance;
     }
 
 

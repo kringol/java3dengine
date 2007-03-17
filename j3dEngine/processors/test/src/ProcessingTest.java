@@ -12,7 +12,7 @@ public class ProcessingTest extends TestCase {
     public void testBasicLoop(){
         ThreadGroup group = new ThreadGroup("ProcessingGroup");
 
-        GameLogicProcessor gameLogicProcessor = GameLogicProcessor.create();
+        GameLogicProcessor gameLogicProcessor = GameLogicProcessor.getInstance();
         gameLogicProcessor.initialize();
 
         ProcessorLoopThread thread = ProcessorLoopThread.create(group,

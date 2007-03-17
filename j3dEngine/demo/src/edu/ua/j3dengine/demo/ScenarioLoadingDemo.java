@@ -1,3 +1,5 @@
+package edu.ua.j3dengine.demo;
+
 import edu.ua.j3dengine.core.mgmt.ResourceManager;
 import org.xith3d.geometry.GeoSphere;
 import org.xith3d.geometry.SkyBox;

@@ -8,7 +8,8 @@ import edu.ua.j3dengine.core.movement.impl.VelocityMovementController;
 import static edu.ua.j3dengine.utils.ValidationUtils.validateNotNull;
 
 
-public class BasicMovementBehavior extends Behavior {
+//todo (pablius) eliminate this class if it is not necessary
+@Deprecated public class BasicMovementBehavior extends Behavior {
 
     private DynamicGameObject targetObject;
 

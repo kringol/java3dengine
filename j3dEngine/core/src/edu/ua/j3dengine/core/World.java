@@ -1,9 +1,12 @@
 package edu.ua.j3dengine.core;
 
 import static edu.ua.j3dengine.utils.ValidationUtils.validateNotNull;
+import edu.ua.j3dengine.core.geometry.Geometry;
+import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.*;
 
 @XmlRootElement
@@ -13,6 +16,9 @@ public class World extends DynamicGameObject {
 
     private long elapsedTime;
     private long gameTime;
+
+    @XmlElement
+    private ModelAdapterGeometry worldGeometry;
 
     @XmlElementWrapper
     private Map<String, GameObject> worldObjects;
@@ -81,6 +87,18 @@ public class World extends DynamicGameObject {
     public void storeDynamicObject(DynamicGameObject dynamicObject){
         dynamicObjects.put(dynamicObject.getName(), dynamicObject);
     }
+
+
+    public Geometry getWorldGeometry() {
+        return worldGeometry;
+    }
+
+    public void loadWorldGeometry(){
+        //initialization call
+        this.worldGeometry.getSceneGraphNode();
+    }
+
+
 
 
     @Override

@@ -2,6 +2,7 @@ package edu.ua.j3dengine.gapi;
 
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.GameObject;
+import edu.ua.j3dengine.core.input.KeyboardManager;
 import edu.ua.j3dengine.core.movement.BasicMovementController;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 
@@ -35,6 +36,11 @@ public class GameActions {
     }
 
 
+    public static boolean isKeyPressed(int key){
+        return KeyboardManager.isKeyPressed(key);
+    }
+
+    
 
     
 
