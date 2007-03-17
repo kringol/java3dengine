@@ -10,12 +10,24 @@ import java.util.Collections;
 public class CompositeMovementController extends MovementController {
 
     private List<MovementController> controllers;
+    private boolean initialized = false;
 
     public CompositeMovementController(DynamicGameObject targetObject) {
         super(targetObject);
         this.controllers = new ArrayList<MovementController>();
     }
 
+
+    public void initialize() {
+        for (MovementController controller : controllers) {
+            controller.initialize();
+        }
+        initialized = true;
+    }
+
+    public boolean isInitialized() {
+        return initialized;
+    }
 
     protected void performConcreteUpdate(long elapsedTime) {
         for (MovementController controller : controllers) {

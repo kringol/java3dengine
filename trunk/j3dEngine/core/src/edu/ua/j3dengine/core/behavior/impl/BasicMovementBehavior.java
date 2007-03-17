@@ -12,8 +12,6 @@ public class BasicMovementBehavior extends Behavior {
 
     private DynamicGameObject targetObject;
 
-    private CompositeMovementController controller;
-
     private boolean initialized;
 
     private BasicMovementBehavior(){
@@ -30,10 +28,6 @@ public class BasicMovementBehavior extends Behavior {
         if (isInitialized()){
             throw new IllegalStateException(getName() + " can only be initialized once.");
         }
-        controller = new CompositeMovementController(getTargetObject());
-        VelocityMovementController vController = new VelocityMovementController(getTargetObject());
-        RotationMovementController rController = new RotationMovementController(getTargetObject());
-        controller.addControllers(vController, rController);
 
         initialized = true;
     }
@@ -62,6 +56,6 @@ public class BasicMovementBehavior extends Behavior {
             initialize();
         }
 
-        controller.update();   
+        //todo (pablius) implement!
     }
 }

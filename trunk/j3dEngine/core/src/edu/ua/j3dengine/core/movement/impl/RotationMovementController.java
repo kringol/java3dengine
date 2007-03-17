@@ -21,13 +21,22 @@ public class RotationMovementController extends BaseMovementControllerXithImpl {
     }
 
 
+    public void initialize() {
+        //do nothing
+    }
+
+    public boolean isInitialized() {
+        return true;
+    }
+    
+
     
     public float getRotationSpeed() {
         return rotationSpeed;
     }
 
 
-    protected Transform3D updateTransform(Transform3D transform, long elapsedMillis) {
+    protected final Transform3D updateTransform(Transform3D transform, long elapsedMillis) {
         if (rotationAxis != null && rotationSpeed != 0){
             float deltaDegrees = rotationSpeed * (elapsedMillis / 1000f);
             rotationAngle = (rotationAngle + deltaDegrees) % 360;

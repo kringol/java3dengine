@@ -19,7 +19,16 @@ public class VelocityMovementController extends BaseMovementControllerXithImpl {
         super(targetObject);
     }
 
-    protected Transform3D updateTransform(Transform3D transform, long elapsedMillis) {
+
+    public void initialize() {
+        //do nothing
+    }
+
+    public boolean isInitialized() {
+        return true;
+    }
+
+    protected final Transform3D updateTransform(Transform3D transform, long elapsedMillis) {
 
         if (direction != null && speed != 0) {
             Vector3f translationVector = (Vector3f) transform.getTranslation();

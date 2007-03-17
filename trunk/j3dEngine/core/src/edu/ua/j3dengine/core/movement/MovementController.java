@@ -20,6 +20,9 @@ public abstract class MovementController {
         this.targetObject = targetObject;
     }
 
+    public abstract void initialize();
+
+    public abstract boolean isInitialized();
 
     public DynamicGameObject getTargetObject() {
         return targetObject;
