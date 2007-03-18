@@ -1,0 +1,235 @@
+# Max2Mtl Version 4.0 Mar 10th, 2001
+#
+newmtl F40pirel
+Ka  0.1 0.1 0.1
+Kd  0.3 0.3 0.3
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  3.0
+illum 2
+#
+newmtl F40tire
+Ka  0.1 0.1 0.1
+Kd  0.3 0.3 0.3
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  3.0
+illum 2
+#
+newmtl F40chrom
+Ka  0.1 0.1 0.1
+Kd  0.4 0.4 0.4
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40horse
+Ka  0.1 0.1 0.1
+Kd  0.7 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40seatB
+Ka  0.4 0.4 0.4
+Kd  1.0 0.0 0.0
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  6.0
+illum 2
+#
+newmtl F40seat
+Ka  0.4 0.4 0.4
+Kd  1.0 0.0 0.0
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  6.0
+illum 2
+#
+newmtl F40netO
+Ka  0.1 0.1 0.1
+Kd  0.2 0.2 0.2
+Ks  0.9 0.9 0.9
+d  0.6
+Ns  3.0
+illum 2
+#
+newmtl F40belt
+Ka  0.1 0.1 0.1
+Kd  0.7 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  3.0
+illum 2
+#
+newmtl F40glass
+Ka  0.0 0.0 0.0
+Kd  0.3 0.4 0.4
+Ks  1.0 1.0 1.0
+d  0.5
+Ns  10.0
+illum 2
+#
+newmtl F40shieF
+Ka  0.2 0.3 0.3
+Kd  0.4 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40shieS
+Ka  0.1 0.1 0.1
+Kd  0.7 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40engB
+Ka  0.1 0.1 0.1
+Kd  0.8 0.8 0.8
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  4.0
+illum 2
+#
+newmtl F40engCH
+Ka  0.1 0.1 0.1
+Kd  0.8 0.8 0.8
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  4.0
+illum 2
+#
+newmtl F40dirty
+Ka  0.1 0.1 0.1
+Kd  0.7 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  2.0
+illum 2
+#
+newmtl F40lighG
+Ka  0.0 0.0 0.0
+Kd  0.7 0.7 0.7
+Ks  1.0 1.0 1.0
+d  0.5
+Ns  10.0
+illum 2
+#
+newmtl F40stopB
+Ka  0.0 0.0 0.0
+Kd  0.6 0.1 0.1
+Ks  1.0 1.0 1.0
+d  0.9
+Ns  10.0
+illum 2
+#
+newmtl F40stop
+Ka  0.0 0.0 0.0
+Kd  0.9 0.0 0.0
+Ks  1.0 1.0 1.0
+d  0.8
+Ns  10.0
+illum 2
+#
+newmtl F40insid
+Ka  0.1 0.1 0.1
+Kd  0.2 0.3 0.3
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  3.0
+illum 2
+#
+newmtl F40oranB
+Ka  0.0 0.0 0.0
+Kd  0.9 0.5 0.1
+Ks  1.0 1.0 1.0
+d  0.9
+Ns  10.0
+illum 2
+#
+newmtl F40oran
+Ka  0.0 0.0 0.0
+Kd  0.9 0.4 0.0
+Ks  1.0 1.0 1.0
+d  0.8
+Ns  10.0
+illum 2
+#
+newmtl F40plstc
+Ka  0.1 0.1 0.1
+Kd  0.1 0.1 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  8.0
+illum 2
+#
+newmtl F40pnl1
+Ka  0.1 0.1 0.1
+Kd  0.7 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40pnl2
+Ka  0.1 0.1 0.1
+Kd  0.7 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40pnl3
+Ka  0.1 0.1 0.1
+Kd  0.7 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40decal
+Ka  0.0 0.0 0.0
+Kd  0.1 0.2 0.0
+Ks  1.0 1.0 1.0
+d  0.5
+Ns  0.0
+illum 2
+#
+newmtl F40pinin
+Ka  0.1 0.1 0.1
+Kd  0.7 0.7 0.7
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40f40
+Ka  0.1 0.1 0.1
+Kd  0.7 0.0 0.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl F40net
+Ka  0.1 0.1 0.1
+Kd  0.0 0.0 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  3.0
+illum 2
+#
+newmtl F40glasB
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  10.0
+illum 2
+#
+# EOF
