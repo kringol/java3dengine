@@ -521,6 +521,13 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="gluegen-rt">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jogl/gluegen-rt.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
   </component>
   <component name="uidesigner-configuration">
     <option name="INSTRUMENT_CLASSES" value="true" />
