@@ -2,6 +2,7 @@ package edu.ua.j3dengine.core.geometry.impl;
 
 import edu.ua.j3dengine.core.geometry.BaseGeometry;
 import org.xith3d.scenegraph.Node;
+import org.xith3d.scenegraph.SceneGraphObject;
 
 import javax.vecmath.Tuple3f;
 

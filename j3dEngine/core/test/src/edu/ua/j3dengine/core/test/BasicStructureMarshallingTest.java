@@ -4,6 +4,7 @@ package edu.ua.j3dengine.core.test;
 import edu.ua.j3dengine.core.*;
 import edu.ua.j3dengine.core.behavior.InertBehavior;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
+import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
 import edu.ua.j3dengine.core.state.DynamicObjectState;
 import edu.ua.j3dengine.core.state.StaticObjectState;
 import static edu.ua.j3dengine.core.test.Resources.TEST_WORLD_FILE_PATH;
@@ -55,7 +56,7 @@ public class BasicStructureMarshallingTest extends TestCase {
 
 
 
-    public void testWorldLoading() throws GameObjectManager.WorldInitializationException {
+    public void testWorldLoading() throws WorldInitializationException {
 
         GameObjectManager manager = GameObjectManager.getInstance();
         manager.loadWorld(TEST_WORLD_FILE_PATH);

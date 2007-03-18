@@ -5,13 +5,12 @@ import static edu.ua.j3dengine.utils.Utils.*;
 import edu.ua.j3dengine.core.World;
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.state.DynamicObjectState;
-import edu.ua.j3dengine.core.geometry.BaseGeometry;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
+import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
 import edu.ua.j3dengine.core.behavior.Behavior;
 import edu.ua.j3dengine.processors.rendering.RenderingProcessor;
-import edu.ua.j3dengine.processors.GameLogicProcessor;
 import edu.ua.j3dengine.processors.execution.ProcessorLoopThread;
 
 
@@ -30,7 +29,7 @@ public class SimpleWorldDemo {
         archer.setGeometry(geom);
         try {
             GameObjectManager.getInstance().loadWorld(world);
-        } catch (GameObjectManager.WorldInitializationException e) {
+        } catch (WorldInitializationException e) {
             e.printStackTrace();
             System.exit(-1);
         }
@@ -72,6 +71,9 @@ public class SimpleWorldDemo {
 
         public void execute() {
             logDebug("executing anim behavior");
+
+            
+
         }
     }
 }

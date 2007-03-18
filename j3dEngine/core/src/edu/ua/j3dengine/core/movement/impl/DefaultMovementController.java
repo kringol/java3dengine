@@ -3,11 +3,12 @@ package edu.ua.j3dengine.core.movement.impl;
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.movement.MovementController;
 import edu.ua.j3dengine.core.movement.BasicMovementController;
+import edu.ua.j3dengine.core.movement.AnimatedMovementController;
 
 import javax.vecmath.Vector3f;
 
 
-public class DefaultMovementController extends MovementController implements BasicMovementController {
+public class DefaultMovementController extends MovementController implements AnimatedMovementController {
 
     private VelocityMovementController velocityController;
     private RotationMovementController rotationController;

@@ -2,6 +2,9 @@ package edu.ua.j3dengine.processors.rendering;
 
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.geometry.impl.XithGeometry;
+import edu.ua.j3dengine.core.Camera;
+import edu.ua.j3dengine.core.World;
+import edu.ua.j3dengine.core.GameObjectFactory;
 import edu.ua.j3dengine.processors.Processor;
 import org.xith3d.render.Canvas3D;
 import org.xith3d.render.Canvas3DFactory;
@@ -12,6 +15,7 @@ import org.xith3d.render.config.DisplayMode;
 import org.xith3d.scenegraph.Node;
 import org.xith3d.scenegraph.BranchGroup;
 
+import javax.vecmath.Vector3f;
 import java.awt.*;
 
 
@@ -21,6 +25,7 @@ public class RenderingProcessor extends Processor {
     private Canvas3D canvas;
 
     private static RenderingProcessor instance;
+    private static final Vector3f VEC_UP = new Vector3f(0,1,0);
 
     private RenderingProcessor() {
         super("RenderingProcessor");
@@ -48,6 +53,10 @@ public class RenderingProcessor extends Processor {
         BranchGroup mainBranchGroup = new BranchGroup(node);
         environment.addBranchGraph(mainBranchGroup);
 
+        environment.getView().lookAt(new Vector3f(0,0,0), new Vector3f(100,0,0), VEC_UP);
+
+        //set default camera to world
+        GameObjectManager.getInstance().setDefaultCamera(environment.getView());
     }
 
     public void performConcreteExecute() {

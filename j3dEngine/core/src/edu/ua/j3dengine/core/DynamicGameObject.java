@@ -1,6 +1,7 @@
 package edu.ua.j3dengine.core;
 
 import static edu.ua.j3dengine.utils.Utils.*;
+import static edu.ua.j3dengine.utils.ValidationUtils.*;
 
 import edu.ua.j3dengine.core.behavior.Behavior;
 import edu.ua.j3dengine.core.geometry.BaseGeometry;
@@ -70,11 +71,17 @@ public class DynamicGameObject extends GameObject<DynamicObjectState> implements
 
     }
 
+    protected void changeMovementController(MovementController controller){
+        validateNotNull(controller);
+        this.movementController = controller;
+        initializeMovementController();
+    }
+
     public void initializeMovementController(){
         if (!this.movementController.isInitialized()){
             this.movementController.initialize();
         }else{
-            logDebug("MovementController had already been initialized.");
+            logDebug("["+this.toString()+"] MovementController '"+this.movementController.getClass().getName()+"' had already been initialized.");
         }
     }
 

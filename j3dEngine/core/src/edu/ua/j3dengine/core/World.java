@@ -28,6 +28,9 @@ public class World extends DynamicGameObject {
     @XmlElementWrapper
     private Map<String, GameObject> worldObjects;
 
+    private Map<String, Camera> cameras;//todo (pablius) serializar las camaras!
+
+    public static final String DEFAULT_CAMERA_NAME = "DEFAULT_CAMERA";
     /**
      * Created for fast access to dynamic objects.
      */
@@ -39,6 +42,8 @@ public class World extends DynamicGameObject {
         this.elapsedTime = 0L;
         this.worldObjects = new HashMap<String, GameObject>();
         this.dynamicObjects = new HashMap<String, DynamicGameObject>();
+        this.cameras = new HashMap<String, Camera>();
+
     }
 
     private World(String name, Collection<GameObject> worldObjects){
@@ -106,10 +111,13 @@ public class World extends DynamicGameObject {
     }
 
     private void attachGeometryIfNecessary(GameObject gameObject) {
+
         if (gameObject instanceof SpatialObject){
-            XithGeometry geometryXith = (XithGeometry) ((SpatialObject) gameObject).getGeometry();
-            if (geometryXith.isSeparatedModel()){
-                ((Group)((XithGeometry)getGeometry()).getSceneGraphNode()).addChild(geometryXith.getSceneGraphNode());
+            if (((SpatialObject) gameObject).getGeometry() instanceof XithGeometry){
+                XithGeometry geometryXith = (XithGeometry) ((SpatialObject) gameObject).getGeometry();
+                if (geometryXith.isSeparatedModel()){
+                    ((Group)((XithGeometry)getGeometry()).getSceneGraphNode()).addChild(geometryXith.getSceneGraphNode());
+                }
             }
         }
     }
@@ -124,6 +132,20 @@ public class World extends DynamicGameObject {
             XithGeometry geom = new GeometryXithImpl("DefaultWorldGeometry", new BranchGroup());
             setGeometry(geom);
         }
+    }
+
+    public void setDefaultCamera(Camera defaultCamera){
+        cameras.put(DEFAULT_CAMERA_NAME, defaultCamera);
+        addCamera(defaultCamera);
+    }
+
+    public Camera getDefaultCamera(){
+        return cameras.get(DEFAULT_CAMERA_NAME);
+    }
+
+    public void addCamera(Camera camera){
+        cameras.put(camera.getName(), camera);
+        addGameObject(camera);
     }
 
 

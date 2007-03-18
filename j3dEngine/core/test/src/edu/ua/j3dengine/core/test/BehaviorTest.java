@@ -3,6 +3,7 @@ package edu.ua.j3dengine.core.test;
 import junit.framework.TestCase;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.mgmt.ResourceManager;
+import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
 import static edu.ua.j3dengine.core.test.Resources.TEST_WORLD_FILE_PATH;
 import static edu.ua.j3dengine.core.test.Resources.BASE_DIR;
 import static edu.ua.j3dengine.core.test.Resources.TDS_MODEL_PATH;
@@ -26,7 +27,7 @@ public class BehaviorTest extends TestCase {
         super("BehaviorTest");
     }
 
-    public void testTdsLoadingAndDynamicObjectBehavior() throws GameObjectManager.WorldInitializationException {
+    public void testTdsLoadingAndDynamicObjectBehavior() throws WorldInitializationException {
 
         GameObjectManager objectManager = GameObjectManager.getInstance();
 
