@@ -32,6 +32,7 @@ public abstract class Processor {
         if (initialized){
             throw new IllegalStateException("Processor '"+getName()+"' has already been initialized.");
         }
+        performConcreteInitialize();
         initialized = true;
     }
 
@@ -41,6 +42,7 @@ public abstract class Processor {
         if (!initialized){
             throw new IllegalStateException("Processor '"+getName()+"' is not initialized.");
         }
+        performConcreteExecute();
     }
 
     public abstract void performConcreteExecute();
@@ -52,6 +54,7 @@ public abstract class Processor {
         if (released){
             throw new IllegalStateException("Processor '"+getName()+"' has already been released.");
         }
+        performConcreteRelease();
         released = true;
     }
 

@@ -5,6 +5,7 @@ import org.xith3d.geometry.*;
 import org.xith3d.geometry.Rectangle;
 import org.xith3d.loaders.models.base.Model;
 import org.xith3d.loaders.models.impl.cal3d.Cal3dLoader;
+import org.xith3d.loaders.models.impl.obj.OBJLoader;
 import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
 import org.xith3d.loaders.models.util.precomputed.Animation;
 import org.xith3d.loaders.texture.TextureLoader;
@@ -129,21 +130,14 @@ public class ScenarioLoadingDemo {
         //model = ResourceManager.getInstance().getModel("resources\\obj\\ferrari\\ferrari.obj", ResourceManager.ModelFormat.WAVEFRONT);
         //
         PrecomputedAnimatedModel model = null;
-        try {
-            model = new Cal3dLoader(Cal3dLoader.LOADER_INVERT_V_COORD).loadPrecomputedModel("resources\\cal3d\\archer\\Archer.cfg");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        Animation animation = model.getAnimations().get("walk");
+        model = ResourceManager.getInstance().getPrecomputedCal3DModel("resources\\cal3d\\archer\\Archer.cfg");
+//        try {
+//            model = new Cal3dLoader(Cal3dLoader.LOADER_INVERT_V_COORD).loadPrecomputedModel("resources\\cal3d\\archer\\Archer.cfg");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-        model.play(animation, true);
-
-        System.out.println("Animation?:"+model.isAnimation("walk"));
-
-        
-//        model.addAnimation(new Animation("all", 0, model.getFrameCount()));
-//        model.play("all", true);
 
         firstTG.addChild(new Transform().addRotationX(-90).addScale(10).addRotationZ(-90).add(model));
         firstTG.addChild(createFloor());
@@ -162,7 +156,9 @@ public class ScenarioLoadingDemo {
                         //ignore
                     }
                 }
-                animated.startAnimation(0);
+                Animation animation = animated.getAnimations().get("walk");
+                animated.play(animation, true);
+                //animated.startAnimation(0);
                 while(rendering){
 
                     animated.executeOperation(time, TIME);

@@ -1,7 +1,8 @@
 package edu.ua.j3dengine.core.geometry.impl;
 
-import edu.ua.j3dengine.core.geometry.Geometry;
+import edu.ua.j3dengine.core.geometry.BaseGeometry;
 import edu.ua.j3dengine.core.mgmt.ResourceManager;
+import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.exception.ModelLoadingException;
 
 import javax.vecmath.Tuple3f;
@@ -13,9 +14,12 @@ import org.xith3d.scenegraph.SceneGraphObject;
 import org.xith3d.scenegraph.Node;
 
 @XmlRootElement
-public class ModelAdapterGeometry extends Geometry implements XithGeometry{
+public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
 
-    private GeometryXithImpl adapteeGeometry;
+    private XithGeometry adapteeGeometry;
+
+
+    private boolean separatedModel = true;
 
     @XmlElement
     private String modelFilePath;
@@ -28,7 +32,11 @@ public class ModelAdapterGeometry extends Geometry implements XithGeometry{
     }
 
     public ModelAdapterGeometry(String modelFilePath, String modelObjectName) {
-        this.modelFilePath = modelFilePath;
+        if (modelFilePath == null){
+            setSeparatedModel(false);
+        }else{
+            this.modelFilePath = modelFilePath;
+        }
         this.modelObjectName = modelObjectName;
     }
 
@@ -37,21 +45,45 @@ public class ModelAdapterGeometry extends Geometry implements XithGeometry{
         return getAdapteeGeometry().getSceneGraphNode();
     }
 
+
+    public boolean isSeparatedModel() {
+        return separatedModel;
+    }
+
+    public void setSeparatedModel(boolean separatedModel) {
+        this.separatedModel = separatedModel;
+    }
+
     @Override
     public String getName() {
         return modelObjectName;
     }
 
-    public GeometryXithImpl getAdapteeGeometry() {
-        assert modelFilePath != null && modelObjectName != null;
+    public XithGeometry getAdapteeGeometry() {
+        assert (modelFilePath != null) || (!isSeparatedModel() && modelObjectName != null);
 
         if (adapteeGeometry == null){
-            Model model = ResourceManager.getInstance().getModel(modelFilePath);
-            SceneGraphObject object = model.getNamedObject(modelObjectName);
-            if (object == null){
-                throw new ModelLoadingException("No object with name '"+modelObjectName+"' could be found in model '"+modelFilePath+"'.");
+            Model model = null;
+            if (isSeparatedModel()){
+                model = ResourceManager.getInstance().getModel(modelFilePath);
+            }else{
+                Node node = ((XithGeometry)GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
+                if (node instanceof Model){
+                    model = (Model)node;
+                }else{
+                    throw new ModelLoadingException("No object with name '"+modelObjectName+"' could be found in loaded world model.");
+                }
             }
+            SceneGraphObject object = null;
+            if (modelObjectName != null){
+                object = model.getNamedObject(modelObjectName);
 
+                if (object == null){
+                    throw new ModelLoadingException("No object with name '"+modelObjectName+"' could be found in model '"+modelFilePath+"'.");
+                }
+            }else{
+                object = model;
+            }
             assert object instanceof Node;
 
             adapteeGeometry = new GeometryXithImpl(modelObjectName, (Node)object);

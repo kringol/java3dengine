@@ -10,10 +10,11 @@ import org.xith3d.render.config.DisplayModeSelector;
 import org.xith3d.render.config.OpenGLLayer;
 import org.xith3d.render.config.DisplayMode;
 import org.xith3d.scenegraph.Node;
+import org.xith3d.scenegraph.BranchGroup;
 
 import java.awt.*;
 
-// todo (pablius) implementation should be tested -> no estoy seguro de q funcione!
+
 public class RenderingProcessor extends Processor {
 
     private Xith3DEnvironment environment;
@@ -22,7 +23,7 @@ public class RenderingProcessor extends Processor {
     private static RenderingProcessor instance;
 
     private RenderingProcessor() {
-        super("GameLogicProcessor");
+        super("RenderingProcessor");
     }
 
     public synchronized static RenderingProcessor getInstance() {
@@ -38,13 +39,14 @@ public class RenderingProcessor extends Processor {
         //todo (pablius) change this to full screen 
         DisplayMode mode = DisplayModeSelector.getImplementation( OpenGLLayer.JOGL_AWT ).getBestMode( 1024, 768 );
 
-        Canvas3D canvas = Canvas3DFactory.createWindowed( OpenGLLayer.JOGL_AWT, mode, "RenderCanvas");
+        canvas = Canvas3DFactory.createWindowed( OpenGLLayer.JOGL_AWT, mode, "RenderCanvas");
 
         environment.addCanvas(canvas);
 
         //load main geometry into scenegraph
         Node node = ((XithGeometry)GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
-        environment.getRootGroup().addChild(node);
+        BranchGroup mainBranchGroup = new BranchGroup(node);
+        environment.addBranchGraph(mainBranchGroup);
 
     }
 

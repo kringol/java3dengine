@@ -4,6 +4,7 @@ import static edu.ua.j3dengine.utils.ValidationUtils.*;
 
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
+import edu.ua.j3dengine.core.geometry.BaseGeometry;
 import edu.ua.j3dengine.core.geometry.Geometry;
 
 

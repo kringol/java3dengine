@@ -1,13 +1,18 @@
 package edu.ua.j3dengine.core;
 
 import static edu.ua.j3dengine.utils.ValidationUtils.validateNotNull;
-import edu.ua.j3dengine.core.geometry.Geometry;
+import edu.ua.j3dengine.core.geometry.SpatialObject;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
+import edu.ua.j3dengine.core.geometry.impl.GeometryXithImpl;
+import edu.ua.j3dengine.core.geometry.impl.XithGeometry;
 
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.*;
+
+import org.xith3d.scenegraph.BranchGroup;
+import org.xith3d.scenegraph.Group;
 
 @XmlRootElement
 public class World extends DynamicGameObject {
@@ -30,7 +35,7 @@ public class World extends DynamicGameObject {
 
     private World(String name) {
         super(name);
-        this.gameTime = System.currentTimeMillis();
+        this.gameTime = System.currentTimeMillis();//todo (pablius) ojo con esto-> necesita correr un update()
         this.elapsedTime = 0L;
         this.worldObjects = new HashMap<String, GameObject>();
         this.dynamicObjects = new HashMap<String, DynamicGameObject>();
@@ -82,24 +87,50 @@ public class World extends DynamicGameObject {
     public void addGameObject(GameObject gameObject){
         validateNotNull(gameObject);
         worldObjects.put(gameObject.getName(), gameObject);
+        attachGeometryIfNecessary(gameObject);
+        
+        if (gameObject instanceof DynamicGameObject){
+            storeDynamicObject((DynamicGameObject)gameObject);
+        }
     }
 
-    public void storeDynamicObject(DynamicGameObject dynamicObject){
+
+
+    private void storeDynamicObject(DynamicGameObject dynamicObject){
         dynamicObjects.put(dynamicObject.getName(), dynamicObject);
+
+        assert dynamicObject.getMovementController() != null;
+        if (!dynamicObject.getMovementController().isInitialized()){
+            dynamicObject.initializeMovementController();
+        }
     }
 
-
-    public Geometry getWorldGeometry() {
-        return worldGeometry;
+    private void attachGeometryIfNecessary(GameObject gameObject) {
+        if (gameObject instanceof SpatialObject){
+            XithGeometry geometryXith = (XithGeometry) ((SpatialObject) gameObject).getGeometry();
+            if (geometryXith.isSeparatedModel()){
+                ((Group)((XithGeometry)getGeometry()).getSceneGraphNode()).addChild(geometryXith.getSceneGraphNode());
+            }
+        }
     }
+
 
     public void loadWorldGeometry(){
-        //initialization call
-        this.worldGeometry.getSceneGraphNode();
+        if (this.worldGeometry != null){
+            //initialization call
+            this.worldGeometry.getSceneGraphNode();
+            setGeometry(this.worldGeometry);
+        }else{
+            XithGeometry geom = new GeometryXithImpl("DefaultWorldGeometry", new BranchGroup());
+            setGeometry(geom);
+        }
     }
 
 
-
+    @Override
+    public void initializeMovementController() {
+        throw new UnsupportedOperationException("World does not support MovementControllers.");
+    }
 
     @Override
     public void update() {
