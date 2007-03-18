@@ -123,7 +123,7 @@ public class GameObjectManager {
 
 
     public World getWorld() {
-        if (!initialized) {
+        if (!isInitialized()) {
             throw new IllegalStateException("No World has been loaded yet.");
         }
         assert world != null;
