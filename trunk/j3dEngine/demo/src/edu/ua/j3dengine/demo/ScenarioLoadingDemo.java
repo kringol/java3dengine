@@ -1,21 +1,21 @@
 package edu.ua.j3dengine.demo;
 
 import edu.ua.j3dengine.core.mgmt.ResourceManager;
-import org.xith3d.geometry.GeoSphere;
-import org.xith3d.geometry.SkyBox;
-import org.xith3d.geometry.Line;
+import org.xith3d.geometry.*;
+import org.xith3d.geometry.Rectangle;
 import org.xith3d.loaders.models.base.Model;
+import org.xith3d.loaders.models.impl.cal3d.Cal3dLoader;
+import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
+import org.xith3d.loaders.models.util.precomputed.Animation;
 import org.xith3d.loaders.texture.TextureLoader;
 import org.xith3d.render.Canvas3D;
 
-import org.xith3d.render.CanvasPeer;
 import org.xith3d.render.Option;
 import org.xith3d.render.Canvas3DFactory;
 import org.xith3d.render.config.OpenGLLayer;
 import org.xith3d.render.config.DisplayModeSelector;
 import org.xith3d.render.config.DisplayMode;
 import org.xith3d.render.base.Xith3DEnvironment;
-import org.xith3d.render.canvas.Canvas3DWrapper;
 import org.xith3d.render.loop.RenderLoop;
 import org.xith3d.scenegraph.*;
 import org.xith3d.spatial.bounds.Frustum;
@@ -29,12 +29,15 @@ import javax.vecmath.Vector3f;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.*;
+import java.io.IOException;
+
 
 public class ScenarioLoadingDemo {
 
     public String visibleText;
 
-    private static final int MAX_FPS = 100;
+    private static final int TIME = 100;
+    private static final int MAX_FPS = TIME;
 
     private Xith3DEnvironment environment;
     private Window window;
@@ -64,6 +67,7 @@ public class ScenarioLoadingDemo {
         environment = createEnvironment();
 
         BranchGroup bg = new BranchGroup();
+        bg.setBounds(new BoundingSphere(new Vector3f(0,0,0), 10000f));
         environment.addBranchGraph(bg);
 
         addListeners();
@@ -84,7 +88,8 @@ public class ScenarioLoadingDemo {
         bg.addChild(firstTG);
 
 
-        loadModel(firstTG);
+        //loadModel(firstTG);
+        loadModel2(firstTG);
 
 
         startRenderLoop();
@@ -92,12 +97,93 @@ public class ScenarioLoadingDemo {
 
     }
 
+    private Group createFloor() {
+        Rectangle floor = new Rectangle("resources\\textures\\grass.jpg", false, 1000f, 1000f);
+        Material material = new Material(true);
+        floor.getAppearance().setMaterial(material);
+        
+        return (new Transform(floor).setTranslationY(0).addRotationX(-90f));
+    }
+
 
     private void loadSkyBox(Group root) {
-        Texture texture = TextureLoader.getInstance().getTexture("resources\\images\\Nuages.jpg");
-        SkyBox background = new SkyBox(texture, texture, texture, texture, null, null);
+        //Texture texture = TextureLoader.getInstance().getTexture("resources\\images\\Nuages.jpg");
+        TextureLoader textureloader = TextureLoader.getInstance();
+        Texture top = textureloader.getTexture("resources\\skyboxes\\normal\\top.png");
+        Texture bottom = textureloader.getTexture("resources\\skyboxes\\normal\\bottom.png");
+        Texture right = textureloader.getTexture("resources\\skyboxes\\normal\\right.png");
+        Texture left = textureloader.getTexture("resources\\skyboxes\\normal\\left.png");
+        Texture front = textureloader.getTexture("resources\\skyboxes\\normal\\front.png");
+        Texture back = textureloader.getTexture("resources\\skyboxes\\normal\\back.png");
+
+        SkyBox background = new SkyBox(front, right, back, left, top, bottom);
+        
         //Background background = new BackgroundImage(texture, 0.5f);
         root.addChild(background);
+    }
+
+    private void loadModel2(TransformGroup firstTG){
+
+
+        //model = ResourceManager.getInstance().getModel("resources\\obj\\interior.obj", ResourceManager.ModelFormat.WAVEFRONT);
+        //model = ResourceManager.getInstance().getModel("resources\\obj\\ferrari\\ferrari.obj", ResourceManager.ModelFormat.WAVEFRONT);
+        //
+        PrecomputedAnimatedModel model = null;
+        try {
+            model = new Cal3dLoader(Cal3dLoader.LOADER_INVERT_V_COORD).loadPrecomputedModel("resources\\cal3d\\archer\\Archer.cfg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Animation animation = model.getAnimations().get("walk");
+
+        model.play(animation, true);
+
+        System.out.println("Animation?:"+model.isAnimation("walk"));
+
+        
+//        model.addAnimation(new Animation("all", 0, model.getFrameCount()));
+//        model.play("all", true);
+
+        firstTG.addChild(new Transform().addRotationX(-90).addScale(10).addRotationZ(-90).add(model));
+        firstTG.addChild(createFloor());
+
+        final PrecomputedAnimatedModel animated = model;
+        new Thread("animator"){
+            private long time = 0;
+            int i = 0;
+
+            @Override
+            public void run() {
+                while(!rendering){
+                    try {
+                        Thread.sleep(TIME);
+                    } catch (InterruptedException e) {
+                        //ignore
+                    }
+                }
+                animated.startAnimation(0);
+                while(rendering){
+
+                    animated.executeOperation(time, TIME);
+
+
+                    if (time > 0 && time % 10000 == 0){
+                        i = (i+1) % 3;
+                        animated.play(animated.getAnimation(i), true);
+                    }
+
+                    try {
+                        Thread.sleep(TIME);
+                    } catch (InterruptedException e) {
+                        //ignore
+                    }
+                    time += TIME;
+                }
+            }
+        }.start();
+
+       
     }
 
     private void loadModel(TransformGroup firstTG) {
@@ -183,7 +269,7 @@ public class ScenarioLoadingDemo {
 
                 while (!rendering) {
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(TIME);
                     } catch (InterruptedException e) {
                         //ignore
                     }
@@ -291,21 +377,40 @@ public class ScenarioLoadingDemo {
 
     private TransformGroup addSphere(BranchGroup bg) {
         Material material = new Material(blue, black, blue, specular, 1f);
-        // material.setLightingEnabled(true);
+         material.setLightingEnabled(true);
 
         Appearance appearance = new Appearance();
         appearance.setMaterial(material);
 
-        GeoSphere sph = new GeoSphere(8, GeometryArray.NORMALS, 15f);
+        //GeoSphere sph = new GeoSphere(8, GeometryArray.NORMALS, 15f);
+        Shape3D sph = new Sphere("resources\\textures\\deathstart.jpg", true, 32, 32, 15);
         sph.setAppearance(appearance);
         String sphereName = "mysphere";
         sph.setName(sphereName);
         TransformGroup transformGroup = new TransformGroup();
         //transformGroup.addChild(sph);
         Transform3D t3d = new Transform3D();
-        t3d.setTranslation(100, 0, 0);
+        t3d.setTranslation(TIME, 0, 0);
         transformGroup.setTransform(t3d);
 
+
+        /*
+        Shape3D sph = new Sphere( "deathstar.jpg", true, 32, 32, radius );
+            sph.setName( "the rotating sphere" );
+
+            Material mat = new Material();
+            mat.setEmissiveColor( new Color3f( 0.1f, 0.1f, 0.1f ) );
+            mat.setColorTarget( Material.NONE );
+            mat.setLightingEnabled( true );
+            sph.getAppearance().setMaterial( mat );
+
+            light = new DirectionalLight( true, new Color3f( Color.YELLOW ), new Vector3f( -1f, -1f, -1f ) );
+
+            switchColor();
+
+            this.addChild( sph );
+            this.addChild( light );
+         */
 
         return transformGroup;
     }
@@ -344,15 +449,15 @@ public class ScenarioLoadingDemo {
     }
 
     private void defineView() {
-        Vector3f viewLocation = new Vector3f(-500, 20, -500);
-        Vector3f viewFocus = new Vector3f(20,20,20);
+        Vector3f viewLocation = new Vector3f(-50, 50, -30);
+        Vector3f viewFocus = new Vector3f(1000,0,1000);
         //viewDirection.add(new Vector3f(1,0,1));
         VECTOR_UP_ORIENTATION.normalize();
         environment.getView().lookAt(
                 viewLocation,
                 viewFocus,
                 VECTOR_UP_ORIENTATION);
-        environment.getView().setBackClipDistance(5000f);
+        environment.getView().setBackClipDistance(10000f);
         
 
     }
@@ -422,12 +527,12 @@ public class ScenarioLoadingDemo {
 
         Xith3DEnvironment environment = new Xith3DEnvironment();
 
-//        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-//        java.awt.DisplayMode displayMode = device.getDisplayMode();
+        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        java.awt.DisplayMode displayMode = device.getDisplayMode();
 
-        DisplayMode mode = DisplayModeSelector.getImplementation( OpenGLLayer.JOGL_AWT ).getBestMode( 1024, 768 );
+        DisplayMode mode = DisplayModeSelector.getImplementation( OpenGLLayer.JOGL_AWT ).getBestMode( displayMode.getWidth(), displayMode.getHeight() );
         //Canvas3D canvas = Canvas3DFactory.create(OpenGLLayer.LWJGL, new DisplayMode(OpenGLLayer.LWJGL, displayMode.getWidth(), displayMode.getHeight(), 16, DisplayMode.getDefaultFrequency()), false, "Canvas");
-        Canvas3D canvas = Canvas3DFactory.createWindowed( OpenGLLayer.JOGL_AWT, mode, "TestCanvas");
+        Canvas3D canvas = Canvas3DFactory.createWindowed( OpenGLLayer.JOGL_AWT, mode, "RenderCanvas");
         //Canvas3D canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "Canvas");
 
         environment.addCanvas(canvas);
@@ -463,7 +568,7 @@ public class ScenarioLoadingDemo {
 //                Canvas3DWrapper.ColorDepth.B32,
 //                "BasicScene");
 
-
+         
         canvas.setRenderOption(Option.USE_TEXTURES, true);
         canvas.setRenderOption(Option.USE_LIGHTING, true);
 
