@@ -6,6 +6,8 @@ import org.xith3d.loaders.models.base.ModelLoader;
 
 import org.xith3d.loaders.models.impl.dae.DaeLoader;
 import org.xith3d.loaders.models.impl.tds.TDSLoader;
+import org.xith3d.loaders.models.impl.obj.OBJLoader;
+import org.xith3d.loaders.models.impl.cal3d.Cal3dLoader;
 
 
 import java.io.IOException;
@@ -19,7 +21,7 @@ public class ResourceManager {
 
     private Map<String, Model> models;
 
-    
+
     private ResourceManager() {
         models = new HashMap<String, Model>();
     }
@@ -32,27 +34,27 @@ public class ResourceManager {
         return instance;
     }
 
-    public Model getModel(String modelPath){
+    public Model getModel(String modelPath) {
         return getModel(modelPath, null);
     }
 
-    public Model getModel(String modelPath, ModelFormat modelFormat){
+    public Model getModel(String modelPath, ModelFormat modelFormat) {
         Model model = models.get(modelPath);
-        if (model == null){
+        if (model == null) {
 
-                ModelLoader loader;
-                if (modelFormat == null){
-                    loader = ModelFormat.DEFAULT.getLoader();
-                }else{
-                    loader = modelFormat.getLoader();
-                }
+            ModelLoader loader;
+            if (modelFormat == null) {
+                loader = ModelFormat.DEFAULT.getLoader();
+            } else {
+                loader = modelFormat.getLoader();
+            }
 
             try {
                 model = loader.loadModel(modelPath);
             } catch (IOException e) {
                 throw new ModelLoadingException("Model could not be loaded.", e);
             }
-            
+
             models.put(modelPath, model);
         }
         return model;
@@ -60,20 +62,50 @@ public class ResourceManager {
 
 
     public static enum ModelFormat {
-        TDS{
+        CAL3D{
+            public ModelLoader getLoader() {
+                return new Cal3dLoader(Cal3dLoader.LOADER_ROTATE_X_AXIS);
+            }
+
+            public String getFileExtension() {
+                return "cfg";
+            }},
+
+        WAVEFRONT {
+            public ModelLoader getLoader() {
+                return OBJLoader.getInstance();
+            }
+
+            public String getFileExtension() {
+                return "obj";
+            }},
+        TDS {
             public ModelLoader getLoader() {
                 return TDSLoader.getInstance();
+            }
+
+            public String getFileExtension() {
+                return "3ds";
             }},
-        COLLADA{
+        COLLADA {
             public ModelLoader getLoader() {
                 return DaeLoader.getInstance();
+            }
+            public String getFileExtension() {
+                return "dae";
             }},
-        DEFAULT{
+        DEFAULT {
             public ModelLoader getLoader() {
                 return COLLADA.getLoader();
+            }
+            public String getFileExtension() {
+                return COLLADA.getFileExtension();
             }};
+
+        public abstract String getFileExtension();
+
         public abstract ModelLoader getLoader();
     }
 
-    
+
 }

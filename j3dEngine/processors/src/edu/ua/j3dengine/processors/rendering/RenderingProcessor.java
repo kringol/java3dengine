@@ -1,16 +1,17 @@
 package edu.ua.j3dengine.processors.rendering;
 
-import edu.ua.j3dengine.processors.Processor;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.geometry.impl.XithGeometry;
-import org.xith3d.render.base.Xith3DEnvironment;
+import edu.ua.j3dengine.processors.Processor;
 import org.xith3d.render.Canvas3D;
-import org.xith3d.render.CanvasPeer;
-import org.xith3d.render.canvas.Canvas3DWrapper;
+import org.xith3d.render.Canvas3DFactory;
+import org.xith3d.render.base.Xith3DEnvironment;
+import org.xith3d.render.config.DisplayModeSelector;
+import org.xith3d.render.config.OpenGLLayer;
+import org.xith3d.render.config.DisplayMode;
 import org.xith3d.scenegraph.Node;
 
 import java.awt.*;
-
 
 // todo (pablius) implementation should be tested -> no estoy seguro de q funcione!
 public class RenderingProcessor extends Processor {
@@ -34,17 +35,16 @@ public class RenderingProcessor extends Processor {
     public void performConcreteInitialize() {
         environment = new Xith3DEnvironment();
 
-        /* GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-        java.awt.DisplayMode displayMode = device.getDisplayMode();
-        */
-        //TODO (Pablius) change this impl to new api if it works!
-//        canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "RenderCanvas");
-//
-//        environment.addCanvas(canvas);
-//
-//        //load main geometry into scenegraph
-//        Node node = ((XithGeometry)GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
-//        environment.getRootGroup().addChild(node);
+        //todo (pablius) change this to full screen 
+        DisplayMode mode = DisplayModeSelector.getImplementation( OpenGLLayer.JOGL_AWT ).getBestMode( 1024, 768 );
+
+        Canvas3D canvas = Canvas3DFactory.createWindowed( OpenGLLayer.JOGL_AWT, mode, "RenderCanvas");
+
+        environment.addCanvas(canvas);
+
+        //load main geometry into scenegraph
+        Node node = ((XithGeometry)GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
+        environment.getRootGroup().addChild(node);
 
     }
 
