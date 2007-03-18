@@ -37,14 +37,14 @@ public class RenderingProcessor extends Processor {
         /* GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         java.awt.DisplayMode displayMode = device.getDisplayMode();
         */
-
-        canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "RenderCanvas");
-
-        environment.addCanvas(canvas);
-
-        //load main geometry into scenegraph
-        Node node = ((XithGeometry)GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
-        environment.getRootGroup().addChild(node);
+        //TODO (Pablius) change this impl to new api if it works!
+//        canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "RenderCanvas");
+//
+//        environment.addCanvas(canvas);
+//
+//        //load main geometry into scenegraph
+//        Node node = ((XithGeometry)GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
+//        environment.getRootGroup().addChild(node);
 
     }
 

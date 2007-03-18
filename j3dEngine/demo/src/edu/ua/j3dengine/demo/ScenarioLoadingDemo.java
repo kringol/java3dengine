@@ -10,6 +10,10 @@ import org.xith3d.render.Canvas3D;
 
 import org.xith3d.render.CanvasPeer;
 import org.xith3d.render.Option;
+import org.xith3d.render.Canvas3DFactory;
+import org.xith3d.render.config.OpenGLLayer;
+import org.xith3d.render.config.DisplayModeSelector;
+import org.xith3d.render.config.DisplayMode;
 import org.xith3d.render.base.Xith3DEnvironment;
 import org.xith3d.render.canvas.Canvas3DWrapper;
 import org.xith3d.render.loop.RenderLoop;
@@ -21,9 +25,10 @@ import javax.vecmath.Color3f;
 import javax.vecmath.Point2f;
 import javax.vecmath.Tuple3f;
 import javax.vecmath.Vector3f;
-import java.awt.*;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
+import java.awt.*;
 
 public class ScenarioLoadingDemo {
 
@@ -107,7 +112,7 @@ public class ScenarioLoadingDemo {
         translateGroup = temp;
 
         Transform3D t3d = new Transform3D();
-        t3d.setTranslation(new Vector3f(1000, 0, 1000));
+        t3d.setScale(20);
         translateGroup.setTransform(t3d);
 //        Transform3D t3d2 = new Transform3D();
 //        t3d2.rotX((float) Math.toRadians(-90));
@@ -147,8 +152,8 @@ public class ScenarioLoadingDemo {
 
         Model model = null;
         try {
-            //model = ResourceManager.getInstance().getModel("resources\\3ds\\drazinsunhawk\\Drazisunhawk1.1.3ds", ResourceManager.ModelFormat.TDS);
-            model = ResourceManager.getInstance().getModel("resources\\collada\\shuttle\\shuttle.dae");
+            model = ResourceManager.getInstance().getModel("resources\\3ds\\drazinsunhawk\\Drazisunhawk1.1.3ds", ResourceManager.ModelFormat.TDS);
+           // model = ResourceManager.getInstance().getModel("resources\\collada\\shuttle\\shuttle.dae");
 
             assert model != null : "Scene should not be null!";
 
@@ -417,11 +422,13 @@ public class ScenarioLoadingDemo {
 
         Xith3DEnvironment environment = new Xith3DEnvironment();
 
-        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-        java.awt.DisplayMode displayMode = device.getDisplayMode();
+//        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+//        java.awt.DisplayMode displayMode = device.getDisplayMode();
 
+        DisplayMode mode = DisplayModeSelector.getImplementation( OpenGLLayer.JOGL_AWT ).getBestMode( 1024, 768 );
         //Canvas3D canvas = Canvas3DFactory.create(OpenGLLayer.LWJGL, new DisplayMode(OpenGLLayer.LWJGL, displayMode.getWidth(), displayMode.getHeight(), 16, DisplayMode.getDefaultFrequency()), false, "Canvas");
-        Canvas3D canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "Canvas");
+        Canvas3D canvas = Canvas3DFactory.createWindowed( OpenGLLayer.JOGL_AWT, mode, "TestCanvas");
+        //Canvas3D canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "Canvas");
 
         environment.addCanvas(canvas);
 
