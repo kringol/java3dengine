@@ -182,6 +182,68 @@ public class ScenarioLoadingDemo {
        
     }
 
+
+
+
+     private void loadModel3(TransformGroup firstTG){
+
+
+        //model = ResourceManager.getInstance().getModel("resources\\obj\\interior.obj", ResourceManager.ModelFormat.WAVEFRONT);
+        //model = ResourceManager.getInstance().getModel("resources\\obj\\ferrari\\ferrari.obj", ResourceManager.ModelFormat.WAVEFRONT);
+        //
+        PrecomputedAnimatedModel model = null;
+
+        model = ResourceManager.getInstance().getPrecomputedCal3DModel("resources\\cal3d\\archer\\Archer.cfg");
+//        try {
+//            model = new Cal3dLoader(Cal3dLoader.LOADER_INVERT_V_COORD).loadPrecomputedModel("resources\\cal3d\\archer\\Archer.cfg");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
+        firstTG.addChild(new Transform().addRotationX(-90).addScale(10).addRotationZ(-90).add(model));
+        firstTG.addChild(createFloor());
+
+        final PrecomputedAnimatedModel animated = model;
+        new Thread("animator"){
+            private long time = 0;
+            int i = 0;
+
+            @Override
+            public void run() {
+                while(!rendering){
+                    try {
+                        Thread.sleep(TIME);
+                    } catch (InterruptedException e) {
+                        //ignore
+                    }
+                }
+                Animation animation = animated.getAnimations().get("walk");
+                animated.play(animation, true);
+                //animated.startAnimation(0);
+                while(rendering){
+
+                    animated.executeOperation(time, TIME);
+
+
+                    if (time > 0 && time % 10000 == 0){
+                        i = (i+1) % 3;
+                        animated.play(animated.getAnimation(i), true);
+                    }
+
+                    try {
+                        Thread.sleep(TIME);
+                    } catch (InterruptedException e) {
+                        //ignore
+                    }
+                    time += TIME;
+                }
+            }
+        }.start();
+
+
+    }
+
     private void loadModel(TransformGroup firstTG) {
         TransformGroup spaceTG = new TransformGroup();
 

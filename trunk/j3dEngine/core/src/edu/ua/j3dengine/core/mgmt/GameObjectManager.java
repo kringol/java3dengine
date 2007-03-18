@@ -1,8 +1,6 @@
 package edu.ua.j3dengine.core.mgmt;
 
-import edu.ua.j3dengine.core.GameObject;
-import edu.ua.j3dengine.core.World;
-import edu.ua.j3dengine.core.DynamicGameObject;
+import edu.ua.j3dengine.core.*;
 import static edu.ua.j3dengine.utils.Utils.logDebug;
 
 import javax.xml.bind.JAXBContext;
@@ -10,7 +8,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.Collection;
-import java.util.Collections;
+
+import org.xith3d.scenegraph.View;
 
 
 public class GameObjectManager {
@@ -94,6 +93,15 @@ public class GameObjectManager {
 
     }
 
+    public void setDefaultCamera(View view){
+        Camera camera = GameObjectFactory.getInstance().createCamera(null, view);
+        getWorld().setDefaultCamera(camera);
+    }
+
+    public Camera getDefaultCamera(){
+        return getWorld().getDefaultCamera();
+    }
+
     public long getGameTime() {
         return getWorld().getGameTime();
     }
@@ -123,6 +131,8 @@ public class GameObjectManager {
     }
 
 
+
+
     public boolean isInitialized() {
         return initialized;
     }
@@ -139,24 +149,6 @@ public class GameObjectManager {
         return getWorld().getAllDynamicObjects();
     }
 
-
-    public static class WorldInitializationException extends Exception {
-
-        public WorldInitializationException() {
-        }
-
-        public WorldInitializationException(String message) {
-            super(message);
-        }
-
-        public WorldInitializationException(String message, Throwable cause) {
-            super(message, cause);
-        }
-
-        public WorldInitializationException(Throwable cause) {
-            super(cause);
-        }
-    }
 
     public static JAXBContext createJAXBContext() throws JAXBException {
         JAXBContext ctx = JAXBContext.newInstance(
