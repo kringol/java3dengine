@@ -11,12 +11,12 @@ public class GameLogicProcessor extends Processor {
 
     private static GameLogicProcessor instance;
 
-    private GameLogicProcessor(){
+    private GameLogicProcessor() {
         super("GameLogicProcessor");
     }
 
-    public synchronized static GameLogicProcessor getInstance(){
-        if (instance == null){
+    public synchronized static GameLogicProcessor getInstance() {
+        if (instance == null) {
             instance = new GameLogicProcessor();
         }
         return instance;
@@ -41,5 +41,9 @@ public class GameLogicProcessor extends Processor {
         }
     }
 
+    public String getType() {
+        return TYPE;
+    }
 
+    public static final String TYPE = "processor.gamelogic";
 }
