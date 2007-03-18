@@ -2,6 +2,7 @@ package edu.ua.j3dengine.core.test;
 
 import static edu.ua.j3dengine.core.test.Resources.*;
 
+import edu.ua.j3dengine.core.geometry.BaseGeometry;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 import edu.ua.j3dengine.core.mgmt.ResourceManager;

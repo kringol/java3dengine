@@ -11,6 +11,7 @@ public class DefaultMovementController extends MovementController implements Bas
 
     private VelocityMovementController velocityController;
     private RotationMovementController rotationController;
+    private AnimationController animationController;
 
 
     public DefaultMovementController(DynamicGameObject targetObject) {
@@ -21,31 +22,40 @@ public class DefaultMovementController extends MovementController implements Bas
     protected void performConcreteUpdate(long elapsedTime) {
         getVelocityController().update();
         getRotationController().update();
+        getAnimationController().update();
     }
 
-    public void initialize(){
+    public void initialize() {
         velocityController = new VelocityMovementController(getTargetObject());
         rotationController = new RotationMovementController(getTargetObject());
+        animationController = new AnimationController(getTargetObject());
     }
 
 
     public boolean isInitialized() {
-        return velocityController != null && rotationController != null;
+        return velocityController != null && rotationController != null && animationController != null;
     }
 
 
     public VelocityMovementController getVelocityController() {
-         if (!isInitialized()){
+        if (!isInitialized()) {
             throw new IllegalStateException("DefaultMovementController has not been initialized.");
         }
         return velocityController;
     }
 
     public RotationMovementController getRotationController() {
-         if (!isInitialized()){
+        if (!isInitialized()) {
             throw new IllegalStateException("DefaultMovementController has not been initialized.");
         }
         return rotationController;
+    }
+
+    public AnimationController getAnimationController() {
+        if (!isInitialized()) {
+            throw new IllegalStateException("DefaultMovementController has not been initialized.");
+        }
+        return animationController;
     }
 
     public void setSpeed(Vector3f direction, float speed) {
@@ -53,11 +63,11 @@ public class DefaultMovementController extends MovementController implements Bas
         getVelocityController().setSpeed(speed);
     }
 
-    public Vector3f getCurrentDirection(){
+    public Vector3f getCurrentDirection() {
         return getVelocityController().getDirection();
     }
 
-    public void setSpeed(float speed){
+    public void setSpeed(float speed) {
         getVelocityController().setSpeed(speed);
     }
 
@@ -79,8 +89,24 @@ public class DefaultMovementController extends MovementController implements Bas
         return getRotationController().getRotationAxis();
     }
 
-    public void setRotationSpeed(float rotationSpeed){
+    public void setRotationSpeed(float rotationSpeed) {
         getRotationController().setRotationSpeed(rotationSpeed);
+    }
+
+    public void changeAnimation(String animationName, boolean loopAnimation) {
+        getAnimationController().changeAnimation(animationName, loopAnimation);
+    }
+
+    public void changeAnimation(String animationName) {
+        getAnimationController().changeAnimation(animationName);
+    }
+
+    public void stopAnimation() {
+        getAnimationController().stopAnimation();
+    }
+
+    public void startAnimation() {
+        getAnimationController().startAnimation();
     }
 
 

@@ -1,12 +1,12 @@
 package edu.ua.j3dengine.core.geometry.impl;
 
-import edu.ua.j3dengine.core.geometry.Geometry;
+import edu.ua.j3dengine.core.geometry.BaseGeometry;
 import org.xith3d.scenegraph.Node;
 
 import javax.vecmath.Tuple3f;
 
 
-public class GeometryXithImpl extends Geometry implements XithGeometry {
+public class GeometryXithImpl extends BaseGeometry implements XithGeometry {
 
     private Node node;
 
@@ -23,5 +23,10 @@ public class GeometryXithImpl extends Geometry implements XithGeometry {
 
     public Node getSceneGraphNode() {
         return node;
+    }
+
+
+    public boolean isSeparatedModel() {
+        return true;
     }
 }

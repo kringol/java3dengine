@@ -36,8 +36,21 @@ public class GameObjectManager {
         loadWorld(new File(worldConfigFilePath));
     }
 
+    public void loadWorld(World world) throws WorldInitializationException {
+        if (initialized) {
+            throw new IllegalStateException("A World has already been loaded.");
+        }
+        this.world = world;
+
+        this.world.loadWorldGeometry();
+
+
+        initialized = true;
+        logDebug("World '" + this.world + "' initialized successfully!");
+    }
+
     public void loadWorld(File worldConfigFile) throws WorldInitializationException {
-        if (initialized){
+        if (initialized) {
             throw new IllegalStateException("A World has already been loaded.");
         }
 
@@ -73,38 +86,36 @@ public class GameObjectManager {
 
         this.world = unmarshalledWorld;
 
-        //if the world has a geometry set, the initialize it
-        if (world.getGeometry() != null){
-            world.loadWorldGeometry();
-        }
+        world.loadWorldGeometry();
+
 
         initialized = true;
         logDebug("World '" + unmarshalledWorld + "' initialized successfully!");
 
     }
 
-    public long getGameTime(){
+    public long getGameTime() {
         return getWorld().getGameTime();
     }
 
-    public long getGameSeconds(){
+    public long getGameSeconds() {
         return getGameTime() / 1000;
     }
 
     /**
      * Returns elapsed game time since last update and the previous one.
      */
-    public long getElapsedTime(){
+    public long getElapsedTime() {
         return getWorld().getElapsedTime();
     }
 
-    public long getElapsedSeconds(){
+    public long getElapsedSeconds() {
         return getElapsedTime() / 1000;
     }
 
 
     public World getWorld() {
-        if (!initialized){
+        if (!initialized) {
             throw new IllegalStateException("No World has been loaded yet.");
         }
         assert world != null;
@@ -116,15 +127,15 @@ public class GameObjectManager {
         return initialized;
     }
 
-    public GameObject lookupGameObject(String name){
+    public GameObject lookupGameObject(String name) {
         return getWorld().getGameObject(name);
     }
 
-    public Collection<GameObject> getAllGameObjects(){
+    public Collection<GameObject> getAllGameObjects() {
         return getWorld().getAllGameObjects();
     }
 
-    public Collection<DynamicGameObject> getAllDynamicObjects(){
+    public Collection<DynamicGameObject> getAllDynamicObjects() {
         return getWorld().getAllDynamicObjects();
     }
 
@@ -150,9 +161,9 @@ public class GameObjectManager {
     public static JAXBContext createJAXBContext() throws JAXBException {
         JAXBContext ctx = JAXBContext.newInstance(
                 "edu.ua.j3dengine.core:" +
-                "edu.ua.j3dengine.core.state:" +
-                "edu.ua.j3dengine.core.geometry:" +
-                "edu.ua.j3dengine.core.behavior");
+                        "edu.ua.j3dengine.core.state:" +
+                        "edu.ua.j3dengine.core.geometry:" +
+                        "edu.ua.j3dengine.core.behavior");
         return ctx;
     }
 
