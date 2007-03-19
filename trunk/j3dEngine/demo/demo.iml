@@ -17,6 +17,7 @@
     <orderEntry type="library" name="jogl" level="project" />
     <orderEntry type="library" name="gluegen-rt" level="project" />
     <orderEntry type="module" module-name="processors" />
+    <orderEntry type="library" name="hial" level="project" />
     <orderEntryProperties />
   </component>
 </module>

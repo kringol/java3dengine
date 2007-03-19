@@ -89,8 +89,8 @@ public class ScenarioLoadingDemo {
         bg.addChild(firstTG);
 
 
-        //loadModel(firstTG);
-        loadModel2(firstTG);
+        loadModel(firstTG);
+        //loadModel2(firstTG);
 
 
         startRenderLoop();
@@ -164,7 +164,7 @@ public class ScenarioLoadingDemo {
                     animated.executeOperation(time, TIME);
 
 
-                    if (time > 0 && time % 10000 == 0){
+                    if (time > 0 && time % 5000 == 0){
                         i = (i+1) % 3;
                         animated.play(animated.getAnimation(i), true);
                     }
@@ -507,7 +507,7 @@ public class ScenarioLoadingDemo {
     }
 
     private void defineView() {
-        Vector3f viewLocation = new Vector3f(-50, 50, -30);
+        Vector3f viewLocation = new Vector3f(-150, 50, -150);
         Vector3f viewFocus = new Vector3f(1000,0,1000);
         //viewDirection.add(new Vector3f(1,0,1));
         VECTOR_UP_ORIENTATION.normalize();
