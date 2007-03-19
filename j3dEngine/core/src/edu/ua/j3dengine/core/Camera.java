@@ -1,6 +1,8 @@
 package edu.ua.j3dengine.core;
 
 import edu.ua.j3dengine.core.geometry.impl.CameraGeometry;
+import edu.ua.j3dengine.core.movement.MovementController;
+import edu.ua.j3dengine.core.movement.CameraMovementController;
 import org.xith3d.scenegraph.View;
 
 

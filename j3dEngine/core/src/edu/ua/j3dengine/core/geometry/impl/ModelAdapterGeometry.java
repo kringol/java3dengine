@@ -21,6 +21,8 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
 
     private boolean separatedModel = true;
 
+    private boolean precomputedModel = false;
+
     @XmlElement
     private String modelFilePath;
 
@@ -32,14 +34,28 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
     }
 
     public ModelAdapterGeometry(String modelFilePath, String modelObjectName) {
+        this(modelFilePath, modelObjectName, false);
+    }
+
+    public ModelAdapterGeometry(String modelFilePath, String modelObjectName, boolean isPrecomputedModel) {
         if (modelFilePath == null){
             setSeparatedModel(false);
         }else{
             this.modelFilePath = modelFilePath;
         }
         this.modelObjectName = modelObjectName;
+        this.precomputedModel = isPrecomputedModel;
     }
 
+
+    public void setPrecomputedModel(boolean precomputedModel) {
+        this.precomputedModel = precomputedModel;
+    }
+
+
+    public boolean isPrecomputedModel() {
+        return precomputedModel;
+    }
 
     public Node getSceneGraphNode() {
         return getAdapteeGeometry().getSceneGraphNode();
@@ -63,9 +79,13 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
         assert (modelFilePath != null) || (!isSeparatedModel() && modelObjectName != null);
 
         if (adapteeGeometry == null){
-            Model model = null;
+            Node model = null;
             if (isSeparatedModel()){
-                model = ResourceManager.getInstance().getModel(modelFilePath);
+                if (isPrecomputedModel()){
+                    model = ResourceManager.getInstance().getPrecomputedCal3DModel(modelFilePath);
+                }else{
+                    model = ResourceManager.getInstance().getModel(modelFilePath);
+                }
             }else{
                 Node node = ((XithGeometry)GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
                 if (node instanceof Model){
@@ -76,7 +96,8 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
             }
             SceneGraphObject object = null;
             if (modelObjectName != null){
-                object = model.getNamedObject(modelObjectName);
+                //todo (pablius) assuming its not a precomputed model... (refactor this)
+                object = ((Model)model).getNamedObject(modelObjectName);
 
                 if (object == null){
                     throw new ModelLoadingException("No object with name '"+modelObjectName+"' could be found in model '"+modelFilePath+"'.");

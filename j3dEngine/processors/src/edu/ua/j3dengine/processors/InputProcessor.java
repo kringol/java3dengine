@@ -1,5 +1,7 @@
 package edu.ua.j3dengine.processors;
 
+import static edu.ua.j3dengine.utils.Utils.*;
+
 import edu.ua.j3dengine.processors.input.KeyboardManager;
 import edu.ua.j3dengine.processors.input.MouseManager;
 
@@ -25,6 +27,7 @@ public class InputProcessor extends Processor {
     }
 
     public void performConcreteExecute() {
+        logDebug("Executing Input Processor");
         KeyboardManager.update();
         MouseManager.update();
     }
