@@ -69,7 +69,7 @@ public class ProcessorLoopBuilder {
 
     private static JAXBContext createJAXBContext() throws JAXBException {
         return JAXBContext.newInstance(
-                "edu.ua.j3dengine.processors.execution:");
+                "edu.ua.j3dengine.processors.execution");
     }
 
     private static final String CONFIG_FILE = "conf/processors.xml";
