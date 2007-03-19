@@ -2,10 +2,10 @@ package edu.ua.j3dengine.gapi;
 
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.GameObject;
-import edu.ua.j3dengine.core.input.KeyboardManager;
-import edu.ua.j3dengine.core.movement.BasicMovementController;
-import edu.ua.j3dengine.core.movement.AnimatedMovementController;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
+import edu.ua.j3dengine.core.movement.AnimatedMovementController;
+import edu.ua.j3dengine.core.movement.BasicMovementController;
+import edu.ua.j3dengine.processors.input.KeyboardManager;
 
 import javax.vecmath.Vector3f;
 

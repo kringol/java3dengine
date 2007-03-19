@@ -62,4 +62,27 @@ public abstract class Processor {
 
     public abstract void performConcreteRelease();
 
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Processor processor = (Processor) o;
+
+        if (name != null ? !name.equals(processor.name) : processor.name != null) return false;
+        if (!getType().equals(processor.getType())) return false;
+
+        return true;
+    }
+
+    public int hashCode() {
+        int result;
+        result = (name != null ? name.hashCode() : 0);
+        result = 31 * result + getType().hashCode();
+        return result;
+    }
+
+    public String toString() {
+        return "Name: '" + name + "' - Type: '" + getType() + "'";
+    }
 }

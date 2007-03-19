@@ -1,10 +1,9 @@
-package edu.ua.j3dengine.core.input;
+package edu.ua.j3dengine.processors.input;
 
+import edu.ua.j3dengine.processors.execution.GameEnvironment;
 import net.jtank.input.MouseAccumulator;
 import net.jtank.input.MouseDevice;
 import net.jtank.input.awt.AWTMouse;
-
-import java.awt.*;
 
 public class MouseManager {
 
@@ -13,7 +12,7 @@ public class MouseManager {
     private MouseAccumulator mouse;
 
     private MouseManager() {
-        mouseDevice = new AWTMouse(new Frame()); //todo DUMMY FRAME, FIX!!
+        mouseDevice = new AWTMouse(GameEnvironment.getInstance().getWindow());
 
         //todo what should we do with this?
 //        if (mouseDevice.isExclusiveSupported()) {
