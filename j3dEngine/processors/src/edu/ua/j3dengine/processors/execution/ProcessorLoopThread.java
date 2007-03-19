@@ -1,9 +1,8 @@
 package edu.ua.j3dengine.processors.execution;
 
-import static edu.ua.j3dengine.utils.ValidationUtils.*;
-import static edu.ua.j3dengine.utils.Utils.*;
-
 import edu.ua.j3dengine.processors.Processor;
+import static edu.ua.j3dengine.utils.Utils.logDebug;
+import static edu.ua.j3dengine.utils.ValidationUtils.validateInsideRange;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -27,15 +26,15 @@ public class ProcessorLoopThread extends Thread {
         }
     }
 
-    public static ProcessorLoopThread create(ThreadGroup group, String name, int priority, Collection<Processor> processors){
+    public static ProcessorLoopThread create(ThreadGroup group, String name, int priority, Collection<Processor> processors) {
         return create(group, name, priority, processors.toArray(new Processor[processors.size()]));
     }
 
-    public static ProcessorLoopThread create(ThreadGroup group, String name, int priority, Processor... processors){
+    public static ProcessorLoopThread create(ThreadGroup group, String name, int priority, Processor... processors) {
         return new ProcessorLoopThread(group, name, priority, processors);
     }
 
-    public synchronized void deactivate(){
+    public synchronized void deactivate() {
         this.active = false;
         for (Processor processor : processors) {
             processor.release();
@@ -57,7 +56,7 @@ public class ProcessorLoopThread extends Thread {
 
     @Override
     public void run() {
-        while (active){
+        while (active) {
             for (Processor processor : processors) {
                 processor.execute();
             }

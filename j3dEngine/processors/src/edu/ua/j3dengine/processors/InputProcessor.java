@@ -1,7 +1,7 @@
 package edu.ua.j3dengine.processors;
 
-import edu.ua.j3dengine.core.input.KeyboardManager;
-import edu.ua.j3dengine.core.input.MouseManager;
+import edu.ua.j3dengine.processors.input.KeyboardManager;
+import edu.ua.j3dengine.processors.input.MouseManager;
 
 
 public class InputProcessor extends Processor {
