@@ -9,19 +9,9 @@ import java.util.Collection;
 
 public class GameLogicProcessor extends Processor {
 
-    private static GameLogicProcessor instance;
-
-    private GameLogicProcessor() {
+    public GameLogicProcessor() {
         super("GameLogicProcessor");
     }
-
-    public synchronized static GameLogicProcessor getInstance() {
-        if (instance == null) {
-            instance = new GameLogicProcessor();
-        }
-        return instance;
-    }
-
 
     public void performConcreteInitialize() {
         GameObjectManager.getInstance();
