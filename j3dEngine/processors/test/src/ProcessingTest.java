@@ -1,18 +1,18 @@
-import junit.framework.TestCase;
 import edu.ua.j3dengine.processors.GameLogicProcessor;
 import edu.ua.j3dengine.processors.execution.ProcessorLoopThread;
+import junit.framework.TestCase;
 
 public class ProcessingTest extends TestCase {
-    
 
-    public ProcessingTest(){
+
+    public ProcessingTest() {
         super("ProcessingTest");
     }
 
-    public void testBasicLoop(){
+    public void testBasicLoop() {
         ThreadGroup group = new ThreadGroup("ProcessingGroup");
 
-        GameLogicProcessor gameLogicProcessor = GameLogicProcessor.getInstance();
+        GameLogicProcessor gameLogicProcessor = new GameLogicProcessor();
         gameLogicProcessor.initialize();
 
         ProcessorLoopThread thread = ProcessorLoopThread.create(group,
