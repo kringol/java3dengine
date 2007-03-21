@@ -1,24 +1,14 @@
 package edu.ua.j3dengine.processors;
 
-import static edu.ua.j3dengine.utils.Utils.*;
-
 import edu.ua.j3dengine.processors.input.KeyboardManager;
 import edu.ua.j3dengine.processors.input.MouseManager;
+import static edu.ua.j3dengine.utils.Utils.logDebug;
 
 
 public class InputProcessor extends Processor {
 
-    private static InputProcessor instance;
-
-    private InputProcessor() {
+    public InputProcessor() {
         super("InputProcessor");
-    }
-
-    public synchronized static InputProcessor getInstance() {
-        if (instance == null) {
-            instance = new InputProcessor();
-        }
-        return instance;
     }
 
     public void performConcreteInitialize() {

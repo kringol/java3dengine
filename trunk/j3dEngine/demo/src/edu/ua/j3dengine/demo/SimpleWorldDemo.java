@@ -1,29 +1,23 @@
 package edu.ua.j3dengine.demo;
 
-import static edu.ua.j3dengine.utils.Utils.*;
-
-import edu.ua.j3dengine.core.World;
-import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.Camera;
-import edu.ua.j3dengine.core.movement.CameraMovementController;
-import edu.ua.j3dengine.core.state.DynamicObjectState;
+import edu.ua.j3dengine.core.DynamicGameObject;
+import edu.ua.j3dengine.core.World;
+import edu.ua.j3dengine.core.behavior.Behavior;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 import edu.ua.j3dengine.core.geometry.impl.XithGeometry;
-import edu.ua.j3dengine.core.geometry.impl.CameraGeometry;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
-import edu.ua.j3dengine.core.behavior.Behavior;
-import edu.ua.j3dengine.processors.rendering.RenderingProcessor;
-import edu.ua.j3dengine.processors.execution.ProcessorLoopThread;
-import edu.ua.j3dengine.processors.execution.GameEnvironment;
-import edu.ua.j3dengine.processors.InputProcessor;
+import edu.ua.j3dengine.core.movement.CameraMovementController;
+import edu.ua.j3dengine.core.state.DynamicObjectState;
 import edu.ua.j3dengine.processors.GameLogicProcessor;
-import edu.ua.j3dengine.processors.input.MouseManager;
-import edu.ua.j3dengine.processors.input.KeyboardManager;
-import net.jtank.input.KeyCode;
-import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
+import edu.ua.j3dengine.processors.InputProcessor;
+import edu.ua.j3dengine.processors.execution.GameEnvironment;
+import edu.ua.j3dengine.processors.execution.ProcessorLoopThread;
+import edu.ua.j3dengine.processors.rendering.RenderingProcessor;
 import org.xith3d.loaders.models.util.precomputed.Animation;
+import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
 
 import javax.vecmath.Vector3f;
 
@@ -57,7 +51,7 @@ public class SimpleWorldDemo {
 
         Behavior cameraBehav = new CameraBehavior(world.getDefaultCamera());
 
-        DynamicObjectState camState = new DynamicObjectState("MovingState", null, null,cameraBehav);
+        DynamicObjectState camState = new DynamicObjectState("MovingState", null, null, cameraBehav);
         world.getDefaultCamera().addState(camState);
         world.getDefaultCamera().setCurrentState(camState);
 
@@ -76,7 +70,7 @@ public class SimpleWorldDemo {
         public CameraBehavior(Camera targetCamera) {
             this.targetCamera = targetCamera;
             movementController = (CameraMovementController) targetCamera.getMovementController();
-            direction = new Vector3f(-1,5,-1);
+            direction = new Vector3f(-1, 5, -1);
             speed = 1;
         }
 
@@ -103,9 +97,9 @@ public class SimpleWorldDemo {
     }
 
     private static void startProcessors() {
-        RenderingProcessor renderProcessor = RenderingProcessor.getInstance();
-        InputProcessor inputProcessor = InputProcessor.getInstance();
-        GameLogicProcessor logicProcessor = GameLogicProcessor.getInstance();
+        RenderingProcessor renderProcessor = new RenderingProcessor();
+        InputProcessor inputProcessor = new InputProcessor();
+        GameLogicProcessor logicProcessor = new GameLogicProcessor();
 
         ThreadGroup group = new ThreadGroup("ProcessingGroup");
         ProcessorLoopThread thread = ProcessorLoopThread.create(group,
@@ -138,7 +132,7 @@ public class SimpleWorldDemo {
 
 
         public void execute() {
-            PrecomputedAnimatedModel animated = (PrecomputedAnimatedModel)((XithGeometry)targetObject.getGeometry()).getSceneGraphNode();
+            PrecomputedAnimatedModel animated = (PrecomputedAnimatedModel) ((XithGeometry) targetObject.getGeometry()).getSceneGraphNode();
             Animation anim = animated.getAnimations().get("walk");
             assert anim != null;
             animated.play(anim, true);
@@ -159,8 +153,8 @@ public class SimpleWorldDemo {
 
         public void execute() {
 
-            if (animated == null){
-                animated = (PrecomputedAnimatedModel)((XithGeometry)targetObject.getGeometry()).getSceneGraphNode();
+            if (animated == null) {
+                animated = (PrecomputedAnimatedModel) ((XithGeometry) targetObject.getGeometry()).getSceneGraphNode();
             }
             animated.executeOperation(GameObjectManager.getInstance().getGameTime(), GameObjectManager.getInstance().getElapsedTime());
 

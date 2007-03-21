@@ -7,13 +7,13 @@ public class ProcessorFactory {
     public static Processor createProcessor(String type) throws ProcessorValidationException {
 
         if (InputProcessor.TYPE.equals(type)) {
-            return InputProcessor.getInstance();
+            return new InputProcessor();
         }
         if (GameLogicProcessor.TYPE.equals(type)) {
-            return GameLogicProcessor.getInstance();
+            return new GameLogicProcessor();
         }
         if (RenderingProcessor.TYPE.equals(type)) {
-            return RenderingProcessor.getInstance();
+            return new RenderingProcessor();
         }
 
         throw new ProcessorValidationException("Process of type: '" + type + "' does not exist");
