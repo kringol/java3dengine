@@ -8,6 +8,10 @@ http://www.mobilefish.com/developer/xith3d/xith3d_quickguide_explained.html
 
 http://www.mobilefish.com/developer/xith3d/xith3d_quickguide_faq.html
 
+==Java3D==
+
+[http://java.sun.com/developer/onlineTraining/java3d/index.html Java 3D Tutorial]
+
 ==Multithreading==
 http://www.jmonkeyengine.com/wiki/doku.php?id=concurrency_and_multithreading_in_game_design
 
