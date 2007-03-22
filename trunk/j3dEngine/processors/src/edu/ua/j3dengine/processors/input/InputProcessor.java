@@ -17,6 +17,11 @@ public class InputProcessor extends Processor {
     public void performConcreteExecute() {
         KeyboardManager.update();
         MouseManager.update();
+        int x = MouseManager.getXDelta();
+        int y = MouseManager.getYDelta();
+        if (x != 0 && y != 0) {
+            System.out.println("MouseDelta: " + x + "," + y);
+        }
     }
 
     public String getId() {
