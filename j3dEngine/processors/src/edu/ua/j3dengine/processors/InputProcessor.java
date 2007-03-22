@@ -18,8 +18,6 @@ public class InputProcessor extends Processor {
     public void performConcreteExecute() {
         KeyboardManager.update();
         MouseManager.update();
-        //System.out.println("Mouse coords: " + MouseManager.getX() + "," + MouseManager.getY());
-        System.out.println("Mouse deltas: X= " + MouseManager.getXDelta() + " Y=" + MouseManager.getYDelta());
     }
 
     public String getType() {
