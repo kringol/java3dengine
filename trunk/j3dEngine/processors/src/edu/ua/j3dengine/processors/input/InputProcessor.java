@@ -1,7 +1,6 @@
-package edu.ua.j3dengine.processors;
+package edu.ua.j3dengine.processors.input;
 
-import edu.ua.j3dengine.processors.input.KeyboardManager;
-import edu.ua.j3dengine.processors.input.MouseManager;
+import edu.ua.j3dengine.processors.Processor;
 
 
 public class InputProcessor extends Processor {
@@ -20,12 +19,11 @@ public class InputProcessor extends Processor {
         MouseManager.update();
     }
 
-    public String getType() {
-        return TYPE;
+    public String getId() {
+        return getClass().getCanonicalName();
     }
 
     public void performConcreteRelease() {
     }
 
-    public static final String TYPE = "processor.input";
 }

@@ -10,8 +10,6 @@ public class RenderingProcessor extends Processor {
 
     private Xith3DEnvironment environment;
 
-    public static final String TYPE = "processor.render";
-
     public RenderingProcessor() {
         super("RenderingProcessor");
     }
@@ -31,10 +29,8 @@ public class RenderingProcessor extends Processor {
         environment.destroy();
     }
 
-
-    public String getType() {
-        return TYPE;
+    public String getId() {
+        return getClass().getCanonicalName();
     }
-
 
 }

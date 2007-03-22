@@ -31,9 +31,8 @@ public class GameLogicProcessor extends Processor {
         }
     }
 
-    public String getType() {
-        return TYPE;
+    public String getId() {
+        return getClass().getCanonicalName();
     }
 
-    public static final String TYPE = "processor.gamelogic";
 }

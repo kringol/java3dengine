@@ -58,7 +58,7 @@ public abstract class Processor {
         released = true;
     }
 
-    public abstract String getType();
+    public abstract String getId();
 
     public abstract void performConcreteRelease();
 
@@ -70,7 +70,7 @@ public abstract class Processor {
         Processor processor = (Processor) o;
 
         if (name != null ? !name.equals(processor.name) : processor.name != null) return false;
-        if (!getType().equals(processor.getType())) return false;
+        if (!getId().equals(processor.getId())) return false;
 
         return true;
     }
@@ -78,11 +78,11 @@ public abstract class Processor {
     public int hashCode() {
         int result;
         result = (name != null ? name.hashCode() : 0);
-        result = 31 * result + getType().hashCode();
+        result = 31 * result + getId().hashCode();
         return result;
     }
 
     public String toString() {
-        return "Name: '" + name + "' - Type: '" + getType() + "'";
+        return "Name: '" + name + "' - Id: '" + getId() + "'";
     }
 }
