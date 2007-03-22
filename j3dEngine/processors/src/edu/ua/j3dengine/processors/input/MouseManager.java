@@ -1,5 +1,6 @@
 package edu.ua.j3dengine.processors.input;
 
+import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.processors.execution.GameEnvironment;
 import net.jtank.input.MouseAccumulator;
 import net.jtank.input.MouseDevice;
@@ -10,15 +11,18 @@ public class MouseManager {
     private static MouseManager ourInstance = new MouseManager();
     private MouseDevice mouseDevice;
     private MouseAccumulator mouse;
+    protected static final long MIN_DELTA_UPDATE_TIME_MILLIS = 10L;
+    private static long elapsedTime = 0;
+    private int x, y;
 
     private MouseManager() {
         mouseDevice = new AWTMouse(GameEnvironment.getInstance().getComponent());
 
-        //todo what should we do with this?
-//        if (mouseDevice.isExclusiveSupported()) {
-//            mouseDevice.setExclusive(true);
-//            mouseDevice.setCursorVisible(false);
-//        }
+        //hides and centers the cursor
+        if (mouseDevice.isExclusiveSupported()) {
+            mouseDevice.setExclusive(true);
+            mouseDevice.setCursorVisible(false);
+        }
 
         mouse = new MouseAccumulator();
         mouseDevice.registerListener(mouse);
@@ -29,9 +33,18 @@ public class MouseManager {
     }
 
     public static void update() {
+
         ourInstance.mouseDevice.update();
-        //ourInstance.mouse.clearXAccumulator();
-        //ourInstance.mouse.clearYAccumulator();
+
+        elapsedTime += GameObjectManager.getInstance().getElapsedTime();
+
+        if (elapsedTime > MIN_DELTA_UPDATE_TIME_MILLIS) {
+            ourInstance.mouse.setXAccumulator(getX() - ourInstance.x);
+            ourInstance.mouse.setYAccumulator(getY() - ourInstance.y);
+            ourInstance.x = getX();
+            ourInstance.y = getY();
+            elapsedTime = 0;
+        }
     }
 
     public static boolean isButtonPressed(int key) {
