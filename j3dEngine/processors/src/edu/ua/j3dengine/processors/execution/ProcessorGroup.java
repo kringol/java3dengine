@@ -32,11 +32,11 @@ public class ProcessorGroup {
     }
 
     public void addProcessor(Processor processor) {
-        String type = processor.getType();
-        if (this.processors.contains(type)) {
-            System.out.println("Ignoring processor '" + processor + "' because a process of that type already exists on this group");
+        String id = processor.getId();
+        if (this.processors.contains(id)) {
+            System.out.println("Ignoring processor '" + processor + "' because it already exists on this group");
         } else {
-            this.processors.add(type);
+            this.processors.add(id);
         }
     }
 
