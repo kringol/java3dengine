@@ -38,10 +38,12 @@ public class MouseManager {
         return ourInstance.mouse.isPressed(key);
     }
 
+    //todo not working
     public static int getXDelta() {
         return ourInstance.mouse.getXAccumulator();
     }
 
+    //todo not working
     public static int getYDelta() {
         return ourInstance.mouse.getYAccumulator();
     }
