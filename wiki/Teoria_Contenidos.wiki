@@ -92,5 +92,6 @@
  * Dunn, Parberry, _3D Math Primer_, Wordware (pipeline gráfico)
  * Realtime Rendering in DirectX (iluminación)
  * Xith3D in a Nutshell
+ * Java 3D Tutorial
  * Wikipedia
  * Otros... (links, etc...)
