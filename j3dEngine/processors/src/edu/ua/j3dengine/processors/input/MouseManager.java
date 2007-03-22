@@ -12,7 +12,7 @@ public class MouseManager {
     private MouseAccumulator mouse;
 
     private MouseManager() {
-        mouseDevice = new AWTMouse(GameEnvironment.getInstance().getWindow());
+        mouseDevice = new AWTMouse(GameEnvironment.getInstance().getComponent());
 
         //todo what should we do with this?
 //        if (mouseDevice.isExclusiveSupported()) {
@@ -30,8 +30,8 @@ public class MouseManager {
 
     public static void update() {
         ourInstance.mouseDevice.update();
-        ourInstance.mouse.clearXAccumulator();
-        ourInstance.mouse.clearYAccumulator();
+        //ourInstance.mouse.clearXAccumulator();
+        //ourInstance.mouse.clearYAccumulator();
     }
 
     public static boolean isButtonPressed(int key) {

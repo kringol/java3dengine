@@ -21,7 +21,8 @@ public class KeyboardManager {
     private KeyArrayListener keyboard;
 
     private KeyboardManager() {
-        this.keyboardDevice = new AWTKeyboard(GameEnvironment.getInstance().getWindow());
+        Object component = GameEnvironment.getInstance().getComponent();
+        this.keyboardDevice = new AWTKeyboard(component);
         this.keyboard = new KeyArrayListener();
         this.keyboardDevice.registerListener(keyboard);
     }
