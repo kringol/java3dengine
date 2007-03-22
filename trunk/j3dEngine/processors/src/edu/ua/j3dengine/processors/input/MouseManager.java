@@ -19,10 +19,7 @@ public class MouseManager {
         mouseDevice = new AWTMouse(GameEnvironment.getInstance().getComponent());
 
         //hides and centers the cursor
-        if (mouseDevice.isExclusiveSupported()) {
-            mouseDevice.setExclusive(true);
-            mouseDevice.setCursorVisible(false);
-        }
+        setExclusiveMode(true);
 
         mouse = new MouseAccumulator();
         mouseDevice.registerListener(mouse);
@@ -47,16 +44,27 @@ public class MouseManager {
         }
     }
 
+
+    public static boolean isExclusiveMode() {
+        return ourInstance.mouseDevice.isExclusive();
+    }
+
+    public static void setExclusiveMode(boolean exclusiveMode) {
+
+        if (ourInstance.mouseDevice.isExclusiveSupported()) {
+            ourInstance.mouseDevice.setExclusive(exclusiveMode);
+            ourInstance.mouseDevice.setCursorVisible(!exclusiveMode);
+        }
+    }
+
     public static boolean isButtonPressed(int key) {
         return ourInstance.mouse.isPressed(key);
     }
 
-    //todo not working
     public static int getXDelta() {
         return ourInstance.mouse.getXAccumulator();
     }
 
-    //todo not working
     public static int getYDelta() {
         return ourInstance.mouse.getYAccumulator();
     }
@@ -72,6 +80,4 @@ public class MouseManager {
     public static boolean isAt(int x, int y) {
         return (getX() == x && getY() == y);
     }
-
-
 }
