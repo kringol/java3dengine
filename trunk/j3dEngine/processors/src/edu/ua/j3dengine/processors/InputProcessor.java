@@ -2,7 +2,6 @@ package edu.ua.j3dengine.processors;
 
 import edu.ua.j3dengine.processors.input.KeyboardManager;
 import edu.ua.j3dengine.processors.input.MouseManager;
-import static edu.ua.j3dengine.utils.Utils.logDebug;
 
 
 public class InputProcessor extends Processor {
@@ -17,9 +16,10 @@ public class InputProcessor extends Processor {
     }
 
     public void performConcreteExecute() {
-        logDebug("Executing Input Processor");
         KeyboardManager.update();
         MouseManager.update();
+        //System.out.println("Mouse coords: " + MouseManager.getX() + "," + MouseManager.getY());
+        System.out.println("Mouse deltas: X= " + MouseManager.getXDelta() + " Y=" + MouseManager.getYDelta());
     }
 
     public String getType() {
