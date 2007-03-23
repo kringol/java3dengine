@@ -4,8 +4,6 @@ import edu.ua.j3dengine.core.mgmt.ResourceManager;
 import org.xith3d.geometry.*;
 import org.xith3d.geometry.Rectangle;
 import org.xith3d.loaders.models.base.Model;
-import org.xith3d.loaders.models.impl.cal3d.Cal3dLoader;
-import org.xith3d.loaders.models.impl.obj.OBJLoader;
 import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
 import org.xith3d.loaders.models.util.precomputed.Animation;
 import org.xith3d.loaders.texture.TextureLoader;
@@ -30,7 +28,6 @@ import javax.vecmath.Vector3f;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -69,23 +66,24 @@ public class ScenarioLoadingDemo {
         environment = createEnvironment();
 
         BranchGroup bg = new BranchGroup();
-        bg.setBounds(new BoundingSphere(new Vector3f(0,0,0), 10000f));
+        //bg.setAllBounds(new BoundingSphere(new Vector3f(0,0,0), 100000f));
         environment.addBranchGraph(bg);
 
         addListeners();
 
         defineView();
 
-        defineBackground(bg);
-        loadSkyBox(bg);
+        //defineBackground(bg);
+        //loadSkyBox(bg);
+        loadSkyBox2(bg);
 
-        //setAmbientLight(bg);
+        setAmbientLight(bg);
 
-        setDirectionalLight(bg);
+        //setDirectionalLight(bg);
 
         TransformGroup firstTG = addSphere(bg);
 
-        addLines(bg);
+        addAxes(bg);
 
         bg.addChild(firstTG);
 
@@ -93,6 +91,7 @@ public class ScenarioLoadingDemo {
         loadModel(firstTG);
         //loadModel2(firstTG);
 
+        bg.addChild(createFloor());
 
         startRenderLoop();
 
@@ -119,10 +118,25 @@ public class ScenarioLoadingDemo {
         Texture back = textureloader.getTexture("resources\\skyboxes\\normal\\back.png");
 
         SkyBox background = new SkyBox(front, right, back, left, top, bottom);
-        
-        //Background background = new BackgroundImage(texture, 0.5f);
+
         root.addChild(background);
     }
+
+    private void loadSkyBox2(Group root) {
+            //Texture texture = TextureLoader.getInstance().getTexture("resources\\images\\Nuages.jpg");
+            TextureLoader textureloader = TextureLoader.getInstance();
+            Texture top = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_y.jpg");
+            Texture bottom = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_y.jpg");
+            Texture right = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_x.jpg");
+            Texture left = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_x.jpg");
+            Texture front = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_z.jpg");
+            Texture back = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_z.jpg");
+
+            SkyBox background = new SkyBox(front, right, back, left, top, bottom);
+
+            root.addChild(background);
+        }
+
 
     private void loadModel2(TransformGroup firstTG){
 
@@ -496,13 +510,13 @@ public class ScenarioLoadingDemo {
         return transformGroup;
     }
 
-    private void addLines(Group bg){
+    private void addAxes(Group bg){
         final Vector3f origin = new Vector3f(0, 0, 0);
-        Line yAxis = new Line(origin, new Vector3f(0, 1000, 0), 5, new Color3f(1, 0 ,0), Line.LinePattern.SOLID);
+        Line yAxis = new Line(origin, new Vector3f(0, 10000, 0), 5, new Color3f(1, 0 ,0), Line.LinePattern.SOLID);
         bg.addChild(yAxis);
-        Line xAxis = new Line(origin, new Vector3f(1000, 0, 0), 5, new Color3f(0, 1 ,0), Line.LinePattern.SOLID);
+        Line xAxis = new Line(origin, new Vector3f(10000, 0, 0), 5, new Color3f(0, 1 ,0), Line.LinePattern.SOLID);
         bg.addChild(xAxis);
-        Line zAxis = new Line(origin, new Vector3f(0, 0, 1000), 5, new Color3f(0, 0 ,1), Line.LinePattern.SOLID);
+        Line zAxis = new Line(origin, new Vector3f(0, 0, 10000), 5, new Color3f(0, 0 ,1), Line.LinePattern.SOLID);
         bg.addChild(zAxis);
     }
 
@@ -531,7 +545,7 @@ public class ScenarioLoadingDemo {
 
     private void defineView() {
         Vector3f viewLocation = new Vector3f(-159, 50,-150);
-        Vector3f viewFocus = new Vector3f(1000,0,1000);
+        Vector3f viewFocus = new Vector3f(1000,-100,1000);
         //viewDirection.add(new Vector3f(1,0,1));
         VECTOR_UP_ORIENTATION.normalize();
         environment.getView().lookAt(
@@ -611,7 +625,7 @@ public class ScenarioLoadingDemo {
         GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         java.awt.DisplayMode displayMode = device.getDisplayMode();
 
-        DisplayMode mode = DisplayModeSelector.getImplementation( OpenGLLayer.JOGL_AWT ).getBestMode( displayMode.getWidth(), displayMode.getHeight() );
+        DisplayMode mode = DisplayModeSelector.getImplementation( OpenGLLayer.JOGL_AWT).getBestMode( displayMode.getWidth(), displayMode.getHeight() );
         //Canvas3D canvas = Canvas3DFactory.create(OpenGLLayer.LWJGL, new DisplayMode(OpenGLLayer.LWJGL, displayMode.getWidth(), displayMode.getHeight(), 16, DisplayMode.getDefaultFrequency()), false, "Canvas");
         Canvas3D canvas = Canvas3DFactory.createWindowed( OpenGLLayer.JOGL_AWT, mode, "RenderCanvas");
         //Canvas3D canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "Canvas");
