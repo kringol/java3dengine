@@ -17,12 +17,11 @@ public class MouseManager {
 
     private MouseManager() {
         mouseDevice = new AWTMouse(GameEnvironment.getInstance().getComponent());
-
-        //hides and centers the cursor
-        setExclusiveMode(true);
-
         mouse = new MouseAccumulator();
         mouseDevice.registerListener(mouse);
+
+        //hides and centers the cursor
+        setExclusive(true);
     }
 
     public static void init() {
@@ -50,10 +49,13 @@ public class MouseManager {
     }
 
     public static void setExclusiveMode(boolean exclusiveMode) {
+        ourInstance.setExclusive(exclusiveMode);
+    }
 
-        if (ourInstance.mouseDevice.isExclusiveSupported()) {
-            ourInstance.mouseDevice.setExclusive(exclusiveMode);
-            ourInstance.mouseDevice.setCursorVisible(!exclusiveMode);
+    public void setExclusive(boolean exclusiveMode) {
+        if (mouseDevice.isExclusiveSupported()) {
+            mouseDevice.setExclusive(exclusiveMode);
+            mouseDevice.setCursorVisible(!exclusiveMode);
         }
     }
 
