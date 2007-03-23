@@ -117,8 +117,8 @@ public class GameObjectManager {
         return getWorld().getElapsedTime();
     }
 
-    public long getElapsedSeconds() {
-        return getElapsedTime() / 1000;
+    public double getElapsedSeconds() {
+        return getElapsedTime() / 1000d;
     }
 
 
