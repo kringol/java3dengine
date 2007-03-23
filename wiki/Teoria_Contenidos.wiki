@@ -93,5 +93,6 @@
  * Realtime Rendering in DirectX (iluminación)
  * Xith3D in a Nutshell
  * Java 3D Tutorial
+ * Free And Open Source Licensing (White Paper), Sun Microsystems Inc.
  * Wikipedia
  * Otros... (links, etc...)
