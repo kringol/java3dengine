@@ -31,6 +31,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class ScenarioLoadingDemo {
@@ -255,9 +256,7 @@ public class ScenarioLoadingDemo {
         temp.addChild(translateGroup);
         translateGroup = temp;
 
-        Transform3D t3d = new Transform3D();
-        t3d.setScale(20);
-        translateGroup.setTransform(t3d);
+        translateGroup.setTransform(new Transform().addScale(15).addRotationY(50).getTransform());
 //        Transform3D t3d2 = new Transform3D();
 //        t3d2.rotX((float) Math.toRadians(-90));
 //        t3d.mul(t3d2);
@@ -296,8 +295,12 @@ public class ScenarioLoadingDemo {
 
         Model model = null;
         try {
-            model = ResourceManager.getInstance().getModel("resources\\3ds\\drazinsunhawk\\Drazisunhawk1.1.3ds", ResourceManager.ModelFormat.TDS);
+            //model = ResourceManager.getInstance().getModel("resources\\3ds\\drazinsunhawk\\Drazisunhawk1.1.3ds", ResourceManager.ModelFormat.TDS);
            // model = ResourceManager.getInstance().getModel("resources\\collada\\shuttle\\shuttle.dae");
+            //model = ResourceManager.getInstance().getModel("resources\\3ds\\jeep\\jeep1.3ds");
+            //model = ResourceManager.getInstance().getModel("resources\\3ds\\3dm-Henry\\3dm-Henry.3ds");
+            model = ResourceManager.getInstance().getModel("resources\\jeep2.ase");
+
 
             assert model != null : "Scene should not be null!";
 
@@ -313,14 +316,23 @@ public class ScenarioLoadingDemo {
         }
 
         //final String objectName = "DraziSunHa";
-        final String objectName = "spaceship";
-        SceneGraphObject object = model.getNamedObject(objectName);
+        //final String objectName = "spaceship";
 
+        final java.util.List<TransformGroup> wheels = new ArrayList<TransformGroup>();
+        wheels.add((TransformGroup)model.getNamedObject("frw"));
+        wheels.add((TransformGroup)model.getNamedObject("flw"));
+        wheels.add((TransformGroup)model.getNamedObject("rrw"));
+        wheels.add((TransformGroup)model.getNamedObject("rlw"));
+
+        final TransformGroup steeringWheel = (TransformGroup)model.getNamedObject("lsteer");
 
         final TransformGroup mutableGroup = bottomGroup;
         Thread mover2 = new Thread() {
 
+
+            short sign = 1;
             float angle = 0;
+            float fastAngle = 0;
 
             @Override
             public void run() {
@@ -333,17 +345,28 @@ public class ScenarioLoadingDemo {
                     }
                 }
                 while (rendering) {
-                    float rotation = (float) Math.toRadians(angle);
-                    Transform3D t3d = new Transform3D();
-                    t3d.rotZ(rotation);
-                    Transform3D t3d2 = new Transform3D();
-                    t3d2.rotX(rotation);
-                    t3d.mul(t3d2);
-                    mutableGroup.setTransform(t3d);
+//                    float rotation = (float) Math.toRadians(angle);
+//                    Transform3D t3d = new Transform3D();
+//                    t3d.rotZ(rotation);
+//                    Transform3D t3d2 = new Transform3D();
+//                    t3d2.rotX(rotation);
+//                    t3d.mul(t3d2);
+//                    mutableGroup.setTransform(t3d);
+
+                    steeringWheel.setTransform(new Transform().addRotationX(angle).getTransform());
+                    for (TransformGroup wheel : wheels) {
+                        wheel.setTransform(new Transform().addRotationY(0).addRotationZ(-fastAngle).getTransform());
+                        
+                    }
 
                    // rotateView(angle);
-                    angle = (angle + 0.2f) % 360;
-                    //System.out.println("angle = " + angle);
+                    angle = angle + 0.5f * sign;
+                    if (angle >= 50 || angle <= -50){
+                        sign *= -1;
+                    }
+
+                    fastAngle = (fastAngle + 10f) % 360;
+                    
                     try {
                         Thread.sleep(25);
                     } catch (InterruptedException e) {
@@ -507,7 +530,7 @@ public class ScenarioLoadingDemo {
     }
 
     private void defineView() {
-        Vector3f viewLocation = new Vector3f(-150, 50, -150);
+        Vector3f viewLocation = new Vector3f(-159, 50,-150);
         Vector3f viewFocus = new Vector3f(1000,0,1000);
         //viewDirection.add(new Vector3f(1,0,1));
         VECTOR_UP_ORIENTATION.normalize();

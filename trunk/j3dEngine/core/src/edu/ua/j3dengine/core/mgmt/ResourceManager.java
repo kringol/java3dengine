@@ -10,6 +10,7 @@ import org.xith3d.loaders.models.impl.dae.DaeLoader;
 import org.xith3d.loaders.models.impl.tds.TDSLoader;
 import org.xith3d.loaders.models.impl.obj.OBJLoader;
 import org.xith3d.loaders.models.impl.cal3d.Cal3dLoader;
+import org.xith3d.loaders.models.impl.ase.AseLoader;
 import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
 
 
@@ -137,6 +138,15 @@ public class ResourceManager {
             public String getFileExtension() {
                 return "dae";
             }},
+        ASE {
+
+            public String getFileExtension() {
+                return "ase";
+            }
+            public ModelLoader getLoader() {
+                return AseLoader.getInstance();
+            }
+        },
         DEFAULT {
             public ModelLoader getLoader() {
                 return COLLADA.getLoader();
