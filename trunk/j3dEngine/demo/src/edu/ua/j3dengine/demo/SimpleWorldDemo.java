@@ -76,7 +76,7 @@ public class SimpleWorldDemo {
 
 
         public void execute() {
-            long elapsedTime = GameObjectManager.getInstance().getElapsedSeconds();
+            double elapsedTime = GameObjectManager.getInstance().getElapsedSeconds();
 
 
             if (direction != null && speed != 0) {
