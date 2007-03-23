@@ -66,6 +66,8 @@ http://www.javagaming.org/forums/index.php
 
 http://community.java.net/projects/community/games
 
+[http://www.gamemiddleware.org/middleware/index.html Game middleware]
+
 ==Engines==
 ===Java Engines===
 http://jmonkeyengine.com/
