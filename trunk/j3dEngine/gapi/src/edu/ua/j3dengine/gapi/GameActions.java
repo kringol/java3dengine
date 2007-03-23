@@ -6,6 +6,7 @@ import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.movement.AnimatedMovementController;
 import edu.ua.j3dengine.core.movement.BasicMovementController;
 import edu.ua.j3dengine.processors.input.KeyboardManager;
+import edu.ua.j3dengine.processors.input.MouseManager;
 
 import javax.vecmath.Vector3f;
 
@@ -66,5 +67,8 @@ public class GameActions {
         return (DynamicGameObject) object;
     }
 
+    public void setMouseExclusiveMode(boolean isExclusive){
+        MouseManager.setExclusiveMode(isExclusive);
+    }
 
 }
