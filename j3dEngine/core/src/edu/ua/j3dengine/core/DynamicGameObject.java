@@ -78,10 +78,14 @@ public class DynamicGameObject extends GameObject<DynamicObjectState> implements
     }
 
     public void initializeMovementController(){
-        if (!this.movementController.isInitialized()){
-            this.movementController.initialize();
+        if (getGeometry() == null){
+            logDebug("["+this.toString()+"] MovementController initialization failed. Object does not have a Geometry, so it cannot be moved. .");
         }else{
-            logDebug("["+this.toString()+"] MovementController '"+this.movementController.getClass().getName()+"' had already been initialized.");
+            if (!this.movementController.isInitialized()){
+                this.movementController.initialize();
+            }else{
+                logDebug("["+this.toString()+"] MovementController '"+this.movementController.getClass().getName()+"' had already been initialized.");
+            }
         }
     }
 
