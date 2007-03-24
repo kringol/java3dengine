@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<processors>
+    <processorGroup priority="9" name="Group 1">
+        <processor>edu.ua.j3dengine.processors.GameLogicProcessor</processor>
+        <processor>edu.ua.j3dengine.processors.rendering.RenderingProcessor</processor>
+    </processorGroup>
+    <processorGroup priority="7" name="Group 2">
+        <processor>edu.ua.j3dengine.processors.input.InputProcessor</processor>
+    </processorGroup>
+</processors>

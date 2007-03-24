@@ -12,8 +12,6 @@ import net.jtank.input.KeyArrayListener;
 import net.jtank.input.KeyboardDevice;
 import net.jtank.input.awt.AWTKeyboard;
 
-//todo see InputManagerImpl
-
 public class KeyboardManager {
 
     private static KeyboardManager ourInstance = new KeyboardManager();
