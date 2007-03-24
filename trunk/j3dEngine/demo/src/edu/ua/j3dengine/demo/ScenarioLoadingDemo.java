@@ -270,7 +270,7 @@ public class ScenarioLoadingDemo {
         temp.addChild(translateGroup);
         translateGroup = temp;
 
-        translateGroup.setTransform(new Transform().addScale(15).addRotationY(50).getTransform());
+        translateGroup.setTransform(new Transform().addScale(15).addRotationY(180).getTransform());
 //        Transform3D t3d2 = new Transform3D();
 //        t3d2.rotX((float) Math.toRadians(-90));
 //        t3d.mul(t3d2);
@@ -314,7 +314,7 @@ public class ScenarioLoadingDemo {
             //model = ResourceManager.getInstance().getModel("resources\\3ds\\jeep\\jeep1.3ds");
             //model = ResourceManager.getInstance().getModel("resources\\3ds\\3dm-Henry\\3dm-Henry.3ds");
             model = ResourceManager.getInstance().getModel("resources\\jeep2.ase");
-
+            model.setShowBounds(true, true);
 
             assert model != null : "Scene should not be null!";
 
@@ -512,11 +512,11 @@ public class ScenarioLoadingDemo {
 
     private void addAxes(Group bg){
         final Vector3f origin = new Vector3f(0, 0, 0);
-        Line yAxis = new Line(origin, new Vector3f(0, 10000, 0), 5, new Color3f(1, 0 ,0), Line.LinePattern.SOLID);
+        Line yAxis = new Line(origin, new Vector3f(0, 10000, 0), 5, new Color3f(1, 0 ,0), Line.LinePattern.DASHED);
         bg.addChild(yAxis);
-        Line xAxis = new Line(origin, new Vector3f(10000, 0, 0), 5, new Color3f(0, 1 ,0), Line.LinePattern.SOLID);
+        Line xAxis = new Line(origin, new Vector3f(10000, 0, 0), 5, new Color3f(0, 1 ,0), Line.LinePattern.DASHED);
         bg.addChild(xAxis);
-        Line zAxis = new Line(origin, new Vector3f(0, 0, 10000), 5, new Color3f(0, 0 ,1), Line.LinePattern.SOLID);
+        Line zAxis = new Line(origin, new Vector3f(0, 0, 10000), 5, new Color3f(0, 0 ,1), Line.LinePattern.DASHED);
         bg.addChild(zAxis);
     }
 
@@ -544,15 +544,15 @@ public class ScenarioLoadingDemo {
     }
 
     private void defineView() {
-        Vector3f viewLocation = new Vector3f(-159, 50,-150);
-        Vector3f viewFocus = new Vector3f(1000,-100,1000);
+        Vector3f viewLocation = new Vector3f(-159, 100,-150);
+        Vector3f viewFocus = new Vector3f(-1000,500,-1000);
         //viewDirection.add(new Vector3f(1,0,1));
         VECTOR_UP_ORIENTATION.normalize();
         environment.getView().lookAt(
                 viewLocation,
                 viewFocus,
                 VECTOR_UP_ORIENTATION);
-        environment.getView().setBackClipDistance(10000f);
+        environment.getView().setBackClipDistance(100000f);
         
 
     }

@@ -8,12 +8,13 @@ import edu.ua.j3dengine.core.exception.ModelLoadingException;
 import javax.vecmath.Tuple3f;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAttribute;
 
 import org.xith3d.loaders.models.base.Model;
 import org.xith3d.scenegraph.SceneGraphObject;
 import org.xith3d.scenegraph.Node;
 
-@XmlRootElement
+@XmlRootElement( name = "geometry" )
 public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
 
     private XithGeometry adapteeGeometry;
@@ -21,6 +22,7 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
 
     private boolean separatedModel = true;
 
+    @XmlAttribute
     private boolean precomputedModel = false;
 
     @XmlElement

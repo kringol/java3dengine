@@ -154,7 +154,7 @@ public class GameObjectManager {
         JAXBContext ctx = JAXBContext.newInstance(
                 "edu.ua.j3dengine.core:" +
                         "edu.ua.j3dengine.core.state:" +
-                        "edu.ua.j3dengine.core.geometry:" +
+                        "edu.ua.j3dengine.core.geometry.impl:" +
                         "edu.ua.j3dengine.core.behavior");
         return ctx;
     }

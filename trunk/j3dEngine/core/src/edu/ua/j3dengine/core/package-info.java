@@ -1,8 +1,7 @@
 /**
- * Indicates JAXB to use FIELD access (by default) to read/write object attributes.
- * This is neccesary to avoid conflict between property names and getX() methods.
+ * Indicates JAXB to bind only the explicitly set attributes.
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 package edu.ua.j3dengine.core;
 
 import javax.xml.bind.annotation.XmlAccessType;
