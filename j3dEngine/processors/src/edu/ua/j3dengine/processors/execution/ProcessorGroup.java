@@ -4,20 +4,30 @@ import edu.ua.j3dengine.processors.Processor;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAttribute;
 import java.util.List;
+import java.util.LinkedList;
 
 @XmlRootElement
 public class ProcessorGroup {
 
-    @XmlElement
-    private List<String> processors;
-
-    @XmlElement
+    @XmlAttribute
     private String name;
 
-    @XmlElement
+    @XmlAttribute
     private int priority;
 
+    @XmlElement(name="processor")
+    private List<String> processors;
+
+    public ProcessorGroup() {
+    }
+
+    public ProcessorGroup(String name, int priority) {
+        this.name = name;
+        this.priority = priority;
+        this.processors = new LinkedList<String>();
+    }
 
     public ProcessorGroup(String name, int priority, List<Processor> processors) {
         addProcessors(processors);

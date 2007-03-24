@@ -41,6 +41,11 @@ public class ProcessorLoopThread extends Thread {
         }
     }
 
+
+    public List<Processor> getProcessors() {
+        return processors;
+    }
+
     @Override
     public synchronized void start() {
         activate();
