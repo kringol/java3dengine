@@ -59,7 +59,7 @@ public class ScenarioLoadingDemo {
     private static final Vector3f VECTOR_UP_ORIENTATION = new Vector3f(0, 1, 0);
 
     private static final float MOUSE_SENSITIVITY = 5;
-    private static final int TIMEOUT = 30;
+    private static final int TIMEOUT = 60;
 
     public void showBasicScene() {
 
