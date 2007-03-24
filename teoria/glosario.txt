@@ -1,0 +1,14 @@
+MMO
+MMORPG
+engine3D
+renderer
+middleware
+out of the box
+scripting
+scenegraph
+API
+opengl
+direct3d, directx
+first person shooter
+FPS (frames per second)
+
