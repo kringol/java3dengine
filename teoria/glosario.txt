@@ -4,11 +4,30 @@ engine3D
 renderer
 middleware
 out of the box
-scripting
 scenegraph
 API
 opengl
 direct3d, directx
 first person shooter
 FPS (frames per second)
+nivel
+modelo
+inteligencia artificial
+animación
+dispositivos de entrada
+physics processing unit
+General Purpose processing on Graphics Processing Unit
+Nvidia
+game engine, engine 3d, 3d game engine
+npc (non player character)
+pathfinding
+árboles de decisión
+redes neuronales
+shader (vertex y pixel)
+culling
+BSP
+portales
+
+
+
 
