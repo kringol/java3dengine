@@ -2,6 +2,7 @@ package edu.ua.j3dengine.core.movement.impl;
 
 import edu.ua.j3dengine.core.DynamicGameObject;
 import org.xith3d.scenegraph.Transform3D;
+import org.xith3d.scenegraph.Transform;
 
 import javax.vecmath.Vector3f;
 import javax.vecmath.Tuple3f;
@@ -54,6 +55,17 @@ public class VelocityMovementControllerXithImpl extends BaseMovementControllerXi
     public Vector3f getDirection() {
         return velocityDelegate.getDirection();
     }
+
+    //todo (pablius) method to be tested
+    public Vector3f getLocation(){
+        return (Vector3f)getTargetGeometry().getLocation();
+    }
+
+    //todo (pablius) method to be tested
+    public void setLocation(Tuple3f newLocation){
+        getTargetTransformGroup().setTransform(new Transform3D(newLocation));
+    }
+
 
     /**
      * Set speed for controller.

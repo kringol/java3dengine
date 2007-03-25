@@ -27,6 +27,9 @@ public abstract class BaseMovementControllerXithImpl extends MovementController 
     }
 
 
+    protected TransformGroup getTargetTransformGroup() {
+        return targetTransformGroup;
+    }
 
     protected abstract Transform3D updateTransform(Transform3D transform, long elapsedMillis);
 

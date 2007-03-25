@@ -12,7 +12,7 @@ public class InputProcessor extends Processor {
 
     public void performConcreteInitialize() {
         KeyboardManager.init();
-        MouseManager.init(false);
+        MouseManager.init(true);
     }
 
     public void performConcreteExecute() {
@@ -20,7 +20,7 @@ public class InputProcessor extends Processor {
         MouseManager.update();
         int x = MouseManager.getXDelta();
         int y = MouseManager.getYDelta();
-        if (x != 0 && y != 0) {
+        if (x != 0 || y != 0) {
             logDebug("MouseDelta: " + x + "," + y);
         }
     }

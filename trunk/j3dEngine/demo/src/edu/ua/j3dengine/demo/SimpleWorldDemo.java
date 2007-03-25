@@ -8,12 +8,15 @@ import edu.ua.j3dengine.core.behavior.Behavior;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 import edu.ua.j3dengine.core.geometry.impl.GeometryXithImpl;
+import edu.ua.j3dengine.core.geometry.impl.XithGeometry;
+import edu.ua.j3dengine.core.geometry.impl.CameraGeometry;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
 import edu.ua.j3dengine.core.movement.CameraMovementController;
 import edu.ua.j3dengine.core.state.DynamicObjectState;
 import static edu.ua.j3dengine.gapi.GameActions.changeAnimation;
 import static edu.ua.j3dengine.gapi.GameActions.startAnimation;
+import static edu.ua.j3dengine.utils.Utils.*;
 import edu.ua.j3dengine.processors.GameLogicProcessor;
 import edu.ua.j3dengine.processors.execution.GameEnvironment;
 import edu.ua.j3dengine.processors.execution.ProcessorLoopThread;
@@ -21,13 +24,13 @@ import edu.ua.j3dengine.processors.input.InputProcessor;
 import edu.ua.j3dengine.processors.input.MouseManager;
 import edu.ua.j3dengine.processors.rendering.RenderingProcessor;
 import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
-import org.xith3d.scenegraph.Light;
-import org.xith3d.scenegraph.AmbientLight;
-import org.xith3d.scenegraph.Background;
-import org.xith3d.scenegraph.Transform;
+import org.xith3d.scenegraph.*;
+import org.xith3d.render.Canvas3D;
 
 import javax.vecmath.Vector3f;
 import javax.vecmath.Color3f;
+import javax.vecmath.Vector2f;
+import javax.vecmath.Tuple3f;
 
 
 public class SimpleWorldDemo {
@@ -60,7 +63,7 @@ public class SimpleWorldDemo {
         //initialize
         GameEnvironment.getInstance();
 
-        Behavior cameraBehav = new CameraBehavior(world.getDefaultCamera());
+        Behavior cameraBehav = new MouseCameraBehavior(world.getDefaultCamera());
 
         DynamicObjectState camState = new DynamicObjectState("MovingState", null, null, cameraBehav);
         world.getDefaultCamera().addState(camState);
@@ -69,11 +72,13 @@ public class SimpleWorldDemo {
         GameEnvironment.getInstance().getEnvironment().getView().lookAt(new Vector3f(-100, 0, -100), new Vector3f(1000, 0, 1000), new Vector3f(0,1,0));
         Light light = new AmbientLight(true);
         light.setColor(new Color3f(1,1,1));
-//        Background background = new Background();
-//        background.setColor(new Color3f(0.17f, 0.65f, 0.92f));//supposed to be sky color
+        Background background = new Background();
+        background.setColor(new Color3f(0.17f, 0.65f, 0.92f));//supposed to be sky color
         GameEnvironment.getInstance().getEnvironment().getRootGroup().addChild(light);
-//        GameEnvironment.getInstance().getEnvironment().getRootGroup().addChild(background);
+        GameEnvironment.getInstance().getEnvironment().getRootGroup().addChild(background);
+
         startProcessors();
+        MouseManager.init(true);
 
 
 
@@ -94,6 +99,70 @@ public class SimpleWorldDemo {
          */
     }
 
+    private static class MouseCameraBehavior extends Behavior {
+
+        private static final float TWO_PI = (2.0f * (float)Math.PI);
+//        private static final Vector3f XAXIS = new Vector3f(1,0,0);
+//        private static final Vector3f YAXIS = new Vector3f(0,1,0);
+        private static final float MAX_ANGLE_UPDOWN = (float)Math.toRadians( 80.0 );
+
+        private int canvasWidth;
+        private int canvasHeight;
+        private Tuple3f viewEuler;
+
+        private Camera targetCamera;
+        private View targetView;
+        private double sensitivity;
+        private CameraMovementController movementController;
+
+
+        public MouseCameraBehavior(Camera targetCamera) {
+            this.targetCamera = targetCamera;
+            this.targetView = targetCamera.getGeometry().getView();
+            movementController = (CameraMovementController) targetCamera.getMovementController();
+            this.sensitivity = 0.2;
+
+            this.viewEuler = new Vector3f(0,0,0);
+            this.targetView.getTransform().getEuler(this.viewEuler);
+
+            Canvas3D canvas = GameEnvironment.getInstance().getCanvas();
+            this.canvasHeight = canvas.getHeight();
+            this.canvasWidth = canvas.getWidth();
+        }
+
+
+        public void execute() {
+            //double elapsedTime = GameObjectManager.getInstance().getElapsedSeconds();
+            int dX = MouseManager.getXDelta();
+            int dY = MouseManager.getYDelta();
+//            float xRotAngle = (float) sensitivity * -dX;
+//            float yRotAngle = (float) sensitivity * -dY;
+//            targetView.getTransform().mul(new Transform().addRotationX(xRotAngle).addRotationY(yRotAngle).getTransform());
+
+            // calculate angle
+            viewEuler.y += (TWO_PI * -((float)dX / (float)canvasWidth) * sensitivity);
+            viewEuler.x -= (TWO_PI * -((float)dY / (float)canvasHeight) * sensitivity);
+
+            while (viewEuler.y > TWO_PI){
+                viewEuler.y -= TWO_PI;
+            }
+
+            while (viewEuler.y < 0.0f){
+                viewEuler.y += TWO_PI;
+            }
+
+            if (viewEuler.x < -MAX_ANGLE_UPDOWN){
+                viewEuler.x = -MAX_ANGLE_UPDOWN;
+            }
+            else if (viewEuler.x > MAX_ANGLE_UPDOWN){
+                viewEuler.x = MAX_ANGLE_UPDOWN;
+            }
+
+            targetView.getTransform().setEuler(viewEuler);
+
+        }
+    }
+
     private static class CameraBehavior extends Behavior {
 
         private Camera targetCamera;
@@ -112,20 +181,17 @@ public class SimpleWorldDemo {
         public void execute() {
             double elapsedTime = GameObjectManager.getInstance().getElapsedSeconds();
 
+            if (direction != null && speed != 0) {
+                Vector3f translationVector = new Vector3f(movementController.getLocation());
 
-            //todo uncomment this
-//            if (direction != null && speed != 0) {
-//                Vector3f translationVector = new Vector3f(movementController.getLocation());
-//
-//                double delta = (speed * elapsedTime);
-//
-//                translationVector.x += direction.x * delta;
-//                translationVector.y += direction.y * delta;
-//                translationVector.z += direction.z * delta;
-//
-//
-//                movementController.setLocation(translationVector);
-//            }
+                double delta = (speed * elapsedTime);
+
+                translationVector.x += direction.x * delta;
+                translationVector.y += direction.y * delta;
+                translationVector.z += direction.z * delta;
+
+                movementController.setLocation(translationVector);
+            }
 
 
         }

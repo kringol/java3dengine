@@ -1,14 +1,17 @@
 package edu.ua.j3dengine.processors.input;
 
+import static edu.ua.j3dengine.utils.Utils.*;
+
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.processors.execution.GameEnvironment;
 import net.jtank.input.MouseAccumulator;
 import net.jtank.input.MouseDevice;
+import net.jtank.input.MouseAdapter;
 import net.jtank.input.awt.AWTMouse;
 
 public class MouseManager {
 
-    private static MouseManager ourInstance = new MouseManager(false);
+    private static MouseManager ourInstance;
     private MouseDevice mouseDevice;
     private MouseAccumulator mouse;
     protected static final long MIN_DELTA_UPDATE_TIME_MILLIS = 10L;
@@ -35,10 +38,17 @@ public class MouseManager {
         elapsedTime += GameObjectManager.getInstance().getElapsedTime();
 
         if (elapsedTime > MIN_DELTA_UPDATE_TIME_MILLIS) {
-            ourInstance.mouse.setXAccumulator(getX() - ourInstance.x);
-            ourInstance.mouse.setYAccumulator(getY() - ourInstance.y);
-            ourInstance.x = getX();
-            ourInstance.y = getY();
+            if (!isExclusiveMode()){
+                int pX = getX();
+                int pY = getY();
+                ourInstance.mouse.setXAccumulator(pX - ourInstance.x);
+                ourInstance.mouse.setYAccumulator(pY - ourInstance.y);
+                ourInstance.x = pX;
+                ourInstance.y = pY;
+            }else{
+                ourInstance.mouse.clearXAccumulator();
+                ourInstance.mouse.clearYAccumulator();
+            }
             elapsedTime = 0;
         }
     }
