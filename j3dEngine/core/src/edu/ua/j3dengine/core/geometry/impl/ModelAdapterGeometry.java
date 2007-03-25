@@ -14,7 +14,7 @@ import org.xith3d.loaders.models.base.Model;
 import org.xith3d.scenegraph.SceneGraphObject;
 import org.xith3d.scenegraph.Node;
 
-@XmlRootElement( name = "geometry" )
+@XmlRootElement()
 public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
 
     private XithGeometry adapteeGeometry;
@@ -44,6 +44,9 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
             setSeparatedModel(false);
         }else{
             this.modelFilePath = modelFilePath;
+        }
+        if (modelObjectName != null){
+            this.setName(modelObjectName);
         }
         this.modelObjectName = modelObjectName;
         this.precomputedModel = isPrecomputedModel;

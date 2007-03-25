@@ -14,6 +14,10 @@ public abstract class BaseGeometry implements Geometry{
     }
 
 
+    protected void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

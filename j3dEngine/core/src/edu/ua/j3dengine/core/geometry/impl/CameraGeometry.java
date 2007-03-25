@@ -12,6 +12,9 @@ public class CameraGeometry extends BaseGeometry implements Geometry {
     private View view;
 
 
+    private CameraGeometry() {
+    }
+
     public CameraGeometry(View view) {
         this.view = view;
     }

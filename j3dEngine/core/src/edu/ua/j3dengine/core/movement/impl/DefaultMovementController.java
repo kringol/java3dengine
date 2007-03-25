@@ -2,16 +2,16 @@ package edu.ua.j3dengine.core.movement.impl;
 
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.movement.MovementController;
-import edu.ua.j3dengine.core.movement.BasicMovementController;
 import edu.ua.j3dengine.core.movement.AnimatedMovementController;
+import edu.ua.j3dengine.core.movement.BasicMovementController;
 
 import javax.vecmath.Vector3f;
 
 
-public class DefaultMovementController extends MovementController implements AnimatedMovementController {
+public class DefaultMovementController extends MovementController implements BasicMovementController, AnimatedMovementController {
 
-    private VelocityMovementController velocityController;
-    private RotationMovementController rotationController;
+    private VelocityMovementControllerXithImpl velocityController;
+    private RotationMovementControllerXithImpl rotationController;
     private AnimationController animationController;
 
 
@@ -27,9 +27,12 @@ public class DefaultMovementController extends MovementController implements Ani
     }
 
     public void initialize() {
-        velocityController = new VelocityMovementController(getTargetObject());
-        rotationController = new RotationMovementController(getTargetObject());
+        velocityController = new VelocityMovementControllerXithImpl(getTargetObject());
+        velocityController.initialize();
+        rotationController = new RotationMovementControllerXithImpl(getTargetObject());
+        rotationController.initialize();
         animationController = new AnimationController(getTargetObject());
+        animationController.initialize();
     }
 
 
@@ -38,14 +41,14 @@ public class DefaultMovementController extends MovementController implements Ani
     }
 
 
-    public VelocityMovementController getVelocityController() {
+    public VelocityMovementControllerXithImpl getVelocityController() {
         if (!isInitialized()) {
             throw new IllegalStateException("DefaultMovementController has not been initialized.");
         }
         return velocityController;
     }
 
-    public RotationMovementController getRotationController() {
+    public RotationMovementControllerXithImpl getRotationController() {
         if (!isInitialized()) {
             throw new IllegalStateException("DefaultMovementController has not been initialized.");
         }

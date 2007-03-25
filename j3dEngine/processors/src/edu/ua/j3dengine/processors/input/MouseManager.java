@@ -21,7 +21,7 @@ public class MouseManager {
         mouseDevice.registerListener(mouse);
 
         //hides and centers the cursor
-        setExclusive(true);
+        setExclusive(false);
     }
 
     public static void init() {

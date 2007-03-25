@@ -16,6 +16,8 @@ public abstract class GameObject<S extends State> {
     //@XmlElement(name = "currentState")
     private S currentState;
 
+    @XmlElement
+    private String initialState;
 
     @XmlElementWrapper
     private Map<String, S> gameObjectStates;
@@ -40,20 +42,25 @@ public abstract class GameObject<S extends State> {
 
 
 
-    @XmlElement
     public String getInitialState(){
-        return getCurrentState() != null ? getCurrentState().getName() : null;
+        return initialState;
+        //return getCurrentState() != null ? getCurrentState().getName() : null; //TODO (pablius) erase later
     }
 
     public void setInitialState(String stateName){
         validateNotEmpty(stateName);
-        S state = getState(stateName);
-        assert state != null;
-
-        setCurrentState(state);
+        this.initialState = stateName;
+//        S state = getState(stateName); //TODO (pablius) erase later
+//        assert state != null;
+//
+//        setCurrentState(state);
     }
 
     public S getCurrentState() {
+        if (currentState == null){
+            validateNotEmpty(getInitialState());
+            setCurrentState(getState(getInitialState()));
+        }
         return currentState;
     }
 

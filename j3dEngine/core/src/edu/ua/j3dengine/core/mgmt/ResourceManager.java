@@ -139,7 +139,6 @@ public class ResourceManager {
                 return "dae";
             }},
         ASE {
-
             public String getFileExtension() {
                 return "ase";
             }

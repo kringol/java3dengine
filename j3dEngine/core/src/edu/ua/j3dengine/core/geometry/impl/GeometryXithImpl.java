@@ -11,6 +11,10 @@ public class GeometryXithImpl extends BaseGeometry implements XithGeometry {
 
     private Node node;
 
+
+    private GeometryXithImpl() {
+    }
+
     public GeometryXithImpl(String name, Node node) {
         super(name);
         this.node = node;

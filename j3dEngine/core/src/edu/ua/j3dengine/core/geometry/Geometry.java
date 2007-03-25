@@ -16,7 +16,7 @@ public interface Geometry {
 
 
     
-    public static class GeometryAdapter extends XmlAdapter<BaseGeometry, Geometry>{
+    static class GeometryAdapter extends XmlAdapter<BaseGeometry, Geometry>{
 
         public Geometry unmarshal(BaseGeometry concreteGeometry) throws Exception {
             return concreteGeometry;

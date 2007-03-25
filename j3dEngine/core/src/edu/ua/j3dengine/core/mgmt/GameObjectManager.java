@@ -41,7 +41,7 @@ public class GameObjectManager {
         }
         this.world = world;
 
-        this.world.loadWorldGeometry();
+        this.world.initialize();
 
 
         initialized = true;
@@ -85,7 +85,7 @@ public class GameObjectManager {
 
         this.world = unmarshalledWorld;
 
-        world.loadWorldGeometry();
+        world.initialize();
 
 
         initialized = true;

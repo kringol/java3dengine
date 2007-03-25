@@ -2,6 +2,7 @@ package edu.ua.j3dengine.core.test;
 
 
 import edu.ua.j3dengine.core.*;
+import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 import edu.ua.j3dengine.core.behavior.InertBehavior;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
@@ -15,8 +16,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.io.StringReader;
-import java.io.StringWriter;
+import java.io.*;
 
 
 public class BasicStructureMarshallingTest extends TestCase {
@@ -30,9 +30,10 @@ public class BasicStructureMarshallingTest extends TestCase {
 
 
     public void testBasicWorldSerialization() throws JAXBException {
-
+        //create world structure
         World world = createStructure();
 
+        //initialize serializer
         JAXBContext ctx = GameObjectManager.createJAXBContext();
 
         Marshaller m =  ctx.createMarshaller();
@@ -41,12 +42,14 @@ public class BasicStructureMarshallingTest extends TestCase {
 
         StringWriter writer = new StringWriter();
 
+        //serialize into String
         m.marshal(world, writer);
 
         logDebug(writer.toString());
 
         StringReader reader = new StringReader(writer.toString());
 
+        //deserialize
         Unmarshaller um = ctx.createUnmarshaller();
         Object o = um.unmarshal(reader);
 
@@ -74,13 +77,18 @@ public class BasicStructureMarshallingTest extends TestCase {
         }
         assertTrue("Second world loading should have failed.", ok);
 
-        
+        //verify external model Geometry loading
+        DynamicGameObject object = (DynamicGameObject)manager.lookupGameObject("dObject1");
+        System.out.println("object.getGeometry().getLocation() = " + object.getGeometry().getLocation());
+
+        assertNotNull("Geometry should have been loaded.", object.getGeometry());
+
 
     }
 
 
 
-    private World createStructure() {
+    private static World createStructure() {
         GameObject go1 = new StaticGameObject("sObject1");
         go1.addAttribute(new Attribute<String>("object_Attr1", "object_Attr1_value"));
         StaticObjectState state = new StaticObjectState("sObject1_state1");
@@ -90,19 +98,49 @@ public class BasicStructureMarshallingTest extends TestCase {
         state = new StaticObjectState("sObject1_state2");
         state.addAttribute(new Attribute<Integer>("sObject1_state2_prop1", 5));
         go1.addState(state);
+        go1.setInitialState(state.getName());
 
         GameObject go2 = new StaticGameObject("sObject2");
         go2.addAttribute(new Attribute<String>("sObject2_attr1", "sObject2_attr1_value"));
 
         DynamicGameObject do1 = new DynamicGameObject("dObject1");
+        ModelAdapterGeometry geom = new ModelAdapterGeometry("resources\\3ds\\drazinsunhawk\\Drazisunhawk1.1.3ds", "DraziSunHa");
+        do1.setGeometry(geom);
         do1.addAttribute(new Attribute<Long>("dObject1_attr1", 2000000L));
+        
         DynamicObjectState state2 = new DynamicObjectState("dObject1_state1", null, null, new InertBehavior("dObject1_behavior1"));
         do1.addState(state2);
         do1.setInitialState(state2.getName());
 
+        //Camera camera = new Camera("")//todo (pablius) add camera!
 
-        World world = World.create("MyWorld", go1, go2, do1);
+        World world = World.create("MyWorld");
+        world.initialize();
+        world.addGameObject(go1);
+        world.addGameObject(go2);
+        world.addGameObject(do1);
+        
         return world;
+    }
+
+    //run to update structure file
+    public static void main(String[] args) throws JAXBException, IOException {
+        JAXBContext ctx = GameObjectManager.createJAXBContext();
+
+        Marshaller m =  ctx.createMarshaller();
+
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+        File file = new File(TEST_WORLD_FILE_PATH);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        m.marshal(createStructure(), writer);
+        writer.flush();
+        writer.close();
+
+    }
+
+    private void saveStructure(String structure) throws IOException {
+
     }
 
      private void verifySimilarity(Object o, World world) {
