@@ -113,18 +113,19 @@ public class SimpleWorldDemo {
             double elapsedTime = GameObjectManager.getInstance().getElapsedSeconds();
 
 
-            if (direction != null && speed != 0) {
-                Vector3f translationVector = new Vector3f(movementController.getLocation());
-
-                double delta = (speed * elapsedTime);
-
-                translationVector.x += direction.x * delta;
-                translationVector.y += direction.y * delta;
-                translationVector.z += direction.z * delta;
-
-
-                movementController.setLocation(translationVector);
-            }
+            //todo uncomment this
+//            if (direction != null && speed != 0) {
+//                Vector3f translationVector = new Vector3f(movementController.getLocation());
+//
+//                double delta = (speed * elapsedTime);
+//
+//                translationVector.x += direction.x * delta;
+//                translationVector.y += direction.y * delta;
+//                translationVector.z += direction.z * delta;
+//
+//
+//                movementController.setLocation(translationVector);
+//            }
 
 
         }
