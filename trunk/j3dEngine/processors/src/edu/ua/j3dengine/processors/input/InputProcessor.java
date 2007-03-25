@@ -1,5 +1,6 @@
 package edu.ua.j3dengine.processors.input;
 
+import static edu.ua.j3dengine.utils.Utils.*;
 import edu.ua.j3dengine.processors.Processor;
 
 
@@ -20,7 +21,7 @@ public class InputProcessor extends Processor {
         int x = MouseManager.getXDelta();
         int y = MouseManager.getYDelta();
         if (x != 0 && y != 0) {
-            System.out.println("MouseDelta: " + x + "," + y);
+            logDebug("MouseDelta: " + x + "," + y);
         }
     }
 
