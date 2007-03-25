@@ -173,8 +173,9 @@ public class World extends DynamicGameObject {
 
     @Override
     public void update() {
+        long oldGameTime = gameTime;
         gameTime = System.currentTimeMillis() - initialSystemTime;
-        elapsedTime = gameTime - elapsedTime;
+        elapsedTime = gameTime - oldGameTime;
     }
 
 

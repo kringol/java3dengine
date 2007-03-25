@@ -20,6 +20,12 @@ public class Utils {
         }
     }
 
+    public static void logInfo(String msg){
+        if (severity.weight() <= LogSeverity.INFO.weight()){
+            System.out.println("[INFO]: "+msg);
+        }
+    }
+
 
     public static enum LogSeverity {
         DEBUG{

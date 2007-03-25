@@ -1,5 +1,7 @@
 package edu.ua.j3dengine.processors;
 
+import static edu.ua.j3dengine.utils.Utils.*;
+
 
 public abstract class Processor {
 
@@ -34,6 +36,7 @@ public abstract class Processor {
         }
         performConcreteInitialize();
         initialized = true;
+        logInfo("Processor '" + getName() + "' has been initialized.");
     }
 
     public abstract void performConcreteInitialize();
@@ -56,6 +59,7 @@ public abstract class Processor {
         }
         performConcreteRelease();
         released = true;
+        logInfo("Processor '" + getName() + "' has been released.");
     }
 
     public abstract String getId();
