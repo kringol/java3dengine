@@ -23,6 +23,7 @@ public class GameEnvironment {
     private Canvas3D canvas;
 
     private static final Vector3f VEC_UP = new Vector3f(0, 1, 0);
+    private static final float DEFAULT_BACK_CLIP_DISTANCE = 100000f;
 
 
     public static synchronized GameEnvironment getInstance() {
@@ -52,7 +53,7 @@ public class GameEnvironment {
         Node node = ((XithGeometry) GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
         BranchGroup mainBranchGroup = new BranchGroup(node);
         environment.addBranchGraph(mainBranchGroup);
-
+        environment.getView().setBackClipDistance(DEFAULT_BACK_CLIP_DISTANCE);
         environment.getView().lookAt(new Vector3f(0, 0, 0), new Vector3f(100, 0, 0), VEC_UP);
 
         //set default camera to world

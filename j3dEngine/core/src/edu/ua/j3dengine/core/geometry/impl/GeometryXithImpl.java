@@ -3,6 +3,7 @@ package edu.ua.j3dengine.core.geometry.impl;
 import edu.ua.j3dengine.core.geometry.BaseGeometry;
 import org.xith3d.scenegraph.Node;
 import org.xith3d.scenegraph.SceneGraphObject;
+import org.xith3d.scenegraph.Transform3D;
 
 import javax.vecmath.Tuple3f;
 
@@ -33,5 +34,10 @@ public class GeometryXithImpl extends BaseGeometry implements XithGeometry {
 
     public boolean isSeparatedModel() {
         return true;
+    }
+
+
+    public Transform3D getPreTransform() {
+        return null;
     }
 }

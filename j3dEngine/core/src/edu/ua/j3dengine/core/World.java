@@ -14,12 +14,14 @@ import java.util.*;
 import org.xith3d.scenegraph.BranchGroup;
 import org.xith3d.scenegraph.Group;
 import org.xith3d.scenegraph.Node;
+import org.xith3d.scenegraph.TransformGroup;
 
 @XmlRootElement
 public class World extends DynamicGameObject {
 
     private static final String DEFAULT_WORLD_NAME = "World";
 
+    private long initialSystemTime;
     private long elapsedTime;
     private long gameTime;
 
@@ -37,7 +39,8 @@ public class World extends DynamicGameObject {
 
     private World(String name) {
         super(name);
-        this.gameTime = System.currentTimeMillis();//todo (pablius) ojo con esto-> necesita correr un update()
+        this.initialSystemTime = System.currentTimeMillis();
+        this.gameTime = 0L;
         this.elapsedTime = 0L;
         this.worldObjects = new HashMap<String, GameObject>();
         this.dynamicObjects = new HashMap<String, DynamicGameObject>();
@@ -119,7 +122,13 @@ public class World extends DynamicGameObject {
                     if (node.getParent() != null){
                         node.detach();
                     }
-                    ((Group)((XithGeometry)getGeometry()).getSceneGraphNode()).addChild(node);
+                    if (geometryXith.getPreTransform() != null){
+                        TransformGroup tg = new TransformGroup(geometryXith.getPreTransform());
+                        tg.addChild(geometryXith.getSceneGraphNode());
+                        node = tg;
+                    }
+
+                    ((Group)((XithGeometry)this.getGeometry()).getSceneGraphNode()).addChild(node);
                 }
             }
         }
@@ -164,7 +173,7 @@ public class World extends DynamicGameObject {
 
     @Override
     public void update() {
-        gameTime = System.currentTimeMillis() - gameTime;
+        gameTime = System.currentTimeMillis() - initialSystemTime;
         elapsedTime = gameTime - elapsedTime;
     }
 
