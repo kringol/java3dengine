@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import org.xith3d.loaders.models.base.Model;
 import org.xith3d.scenegraph.SceneGraphObject;
 import org.xith3d.scenegraph.Node;
+import org.xith3d.scenegraph.Transform3D;
+import org.xith3d.scenegraph.TransformGroup;
 
 @XmlRootElement()
 public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
@@ -21,6 +23,8 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
 
 
     private boolean separatedModel = true;
+
+    private Transform3D transform;
 
     @XmlAttribute
     private boolean precomputedModel = false;
@@ -75,6 +79,22 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
         this.separatedModel = separatedModel;
     }
 
+
+    public Transform3D getPreTransform() {
+        return getTransform();
+    }
+
+    public Transform3D getTransform() {
+        return transform;
+    }
+
+    public void setTransform(Transform3D transform) {
+        if (this.transform != null){
+            throw new IllegalStateException("Transform can only be set once.");
+        }
+        this.transform = transform;
+    }
+
     @Override
     public String getName() {
         return modelObjectName;
@@ -94,13 +114,14 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
             }else{
                 Node node = ((XithGeometry)GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
                 if (node instanceof Model){
-                    model = (Model)node;
+                    model = node;
                 }else{
                     throw new ModelLoadingException("No object with name '"+modelObjectName+"' could be found in loaded world model.");
                 }
             }
             SceneGraphObject object = null;
             if (modelObjectName != null){
+                assert model instanceof Model;
                 //todo (pablius) assuming its not a precomputed model... (refactor this)
                 object = ((Model)model).getNamedObject(modelObjectName);
 
