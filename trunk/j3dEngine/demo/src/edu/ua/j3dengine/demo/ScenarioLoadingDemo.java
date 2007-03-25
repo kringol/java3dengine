@@ -1,10 +1,13 @@
 package edu.ua.j3dengine.demo;
 
 import edu.ua.j3dengine.core.mgmt.ResourceManager;
+import edu.ua.j3dengine.core.mgmt.GameObjectManager;
+import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
 import edu.ua.j3dengine.core.movement.impl.DefaultMovementController;
 import edu.ua.j3dengine.core.movement.BasicMovementController;
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.GameObjectFactory;
+import edu.ua.j3dengine.core.World;
 import edu.ua.j3dengine.core.geometry.impl.GeometryXithImpl;
 import org.xith3d.geometry.*;
 import org.xith3d.geometry.Rectangle;
@@ -314,12 +317,6 @@ public class ScenarioLoadingDemo {
         final TransformGroup mutableGroup = bottomGroup;
 
 
-        final DynamicGameObject object = GameObjectFactory.getInstance().createDynamicObject("jeep_geom", model);
-        object.initializeMovementController();
-        ((BasicMovementController)object.getMovementController()).setDirection(new Vector3f(-1,0,0));
-        ((BasicMovementController)object.getMovementController()).setSpeed(1);
-
-
         Thread mover2 = new Thread() {
 
 
@@ -352,8 +349,6 @@ public class ScenarioLoadingDemo {
                     }
 
                     fastAngle = (fastAngle + 10f) % 360;
-
-                    object.update();
 
                     try {
                         Thread.sleep(25);
@@ -522,8 +517,8 @@ public class ScenarioLoadingDemo {
     }
 
     private void defineView() {
-        Vector3f viewLocation = new Vector3f(-159, 100,-150);
-        Vector3f viewFocus = new Vector3f(-1000,500,-1000);
+        Vector3f viewLocation = new Vector3f(-300, 100,-300);
+        Vector3f viewFocus = new Vector3f(1000,0,1000);
         //viewDirection.add(new Vector3f(1,0,1));
         VECTOR_UP_ORIENTATION.normalize();
         environment.getView().lookAt(
