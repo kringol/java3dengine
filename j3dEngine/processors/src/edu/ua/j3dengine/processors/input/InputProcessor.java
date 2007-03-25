@@ -1,7 +1,7 @@
 package edu.ua.j3dengine.processors.input;
 
-import static edu.ua.j3dengine.utils.Utils.*;
 import edu.ua.j3dengine.processors.Processor;
+import static edu.ua.j3dengine.utils.Utils.logDebug;
 
 
 public class InputProcessor extends Processor {
@@ -12,7 +12,7 @@ public class InputProcessor extends Processor {
 
     public void performConcreteInitialize() {
         KeyboardManager.init();
-        MouseManager.init();
+        MouseManager.init(false);
     }
 
     public void performConcreteExecute() {

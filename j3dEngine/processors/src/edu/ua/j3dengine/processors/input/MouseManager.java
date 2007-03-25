@@ -8,24 +8,24 @@ import net.jtank.input.awt.AWTMouse;
 
 public class MouseManager {
 
-    private static MouseManager ourInstance = new MouseManager();
+    private static MouseManager ourInstance = new MouseManager(false);
     private MouseDevice mouseDevice;
     private MouseAccumulator mouse;
     protected static final long MIN_DELTA_UPDATE_TIME_MILLIS = 10L;
     private static long elapsedTime = 0;
     private int x, y;
 
-    private MouseManager() {
+    private MouseManager(boolean exclusiveMode) {
         mouseDevice = new AWTMouse(GameEnvironment.getInstance().getComponent());
         mouse = new MouseAccumulator();
         mouseDevice.registerListener(mouse);
 
-        //hides and centers the cursor
-        setExclusive(false);
+        //if true hides and centers the cursor
+        setExclusive(exclusiveMode);
     }
 
-    public static void init() {
-        ourInstance = new MouseManager();
+    public static void init(boolean exclusive) {
+        ourInstance = new MouseManager(exclusive);
     }
 
     public static void update() {
