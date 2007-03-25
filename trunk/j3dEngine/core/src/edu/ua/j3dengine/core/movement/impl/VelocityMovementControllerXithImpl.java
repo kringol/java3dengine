@@ -4,19 +4,17 @@ import edu.ua.j3dengine.core.DynamicGameObject;
 import org.xith3d.scenegraph.Transform3D;
 
 import javax.vecmath.Vector3f;
+import javax.vecmath.Tuple3f;
 
 
-public class VelocityMovementController extends BaseMovementControllerXithImpl {
+public class VelocityMovementControllerXithImpl extends BaseMovementControllerXithImpl {
 
-    /**
-     * Speed measured in pixels/sec.
-     */
-    private float speed;
-    private Vector3f direction;
+    private VelocityMovementDelegate velocityDelegate;
 
 
-    public VelocityMovementController(DynamicGameObject targetObject) {
+    public VelocityMovementControllerXithImpl(DynamicGameObject targetObject) {
         super(targetObject);
+        velocityDelegate = new VelocityMovementDelegate();
     }
 
 
@@ -30,8 +28,8 @@ public class VelocityMovementController extends BaseMovementControllerXithImpl {
 
     protected final Transform3D updateTransform(Transform3D transform, long elapsedMillis) {
 
-        if (direction != null && speed != 0) {
-            Vector3f translationVector = (Vector3f) transform.getTranslation();
+        if (getDirection() != null && getSpeed() > 0) {
+            /*Vector3f translationVector = (Vector3f) transform.getTranslation();
 
             double deltaSecTime = (elapsedMillis / 1000f);
 
@@ -39,20 +37,22 @@ public class VelocityMovementController extends BaseMovementControllerXithImpl {
 
             translationVector.x += direction.x * delta;
             translationVector.y += direction.y * delta;
-            translationVector.z += direction.z * delta;
+            translationVector.z += direction.z * delta;*/
+            Tuple3f translationVector = velocityDelegate.calculateTranslationVector(elapsedMillis);
+            transform.getTranslation().add(translationVector);
 
-            transform.setTranslation(translationVector);
+            //transform.setTranslation(translationVector);
         }
 
         return transform;
     }
 
     public float getSpeed() {
-        return speed;
+        return velocityDelegate.getSpeed();
     }
 
     public Vector3f getDirection() {
-        return direction;
+        return velocityDelegate.getDirection();
     }
 
     /**
@@ -61,14 +61,10 @@ public class VelocityMovementController extends BaseMovementControllerXithImpl {
      * @param speed Speed measured in pixels/second.
      */
     public void setSpeed(float speed) {
-        if (speed < 0){
-            throw new IllegalArgumentException("Speed cannot be negative!");
-        }
-        this.speed = speed;
+        velocityDelegate.setSpeed(speed);
     }
 
     public void setDirection(Vector3f direction) {
-        direction.normalize();
-        this.direction = direction;
+        velocityDelegate.setDirection(direction);
     }
 }

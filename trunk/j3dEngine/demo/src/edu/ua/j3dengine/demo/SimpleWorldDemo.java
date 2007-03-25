@@ -1,22 +1,24 @@
 package edu.ua.j3dengine.demo;
 
+
 import edu.ua.j3dengine.core.Camera;
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.World;
 import edu.ua.j3dengine.core.behavior.Behavior;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
-import edu.ua.j3dengine.core.geometry.impl.XithGeometry;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
 import edu.ua.j3dengine.core.movement.CameraMovementController;
 import edu.ua.j3dengine.core.state.DynamicObjectState;
+import static edu.ua.j3dengine.gapi.GameActions.changeAnimation;
+import static edu.ua.j3dengine.gapi.GameActions.startAnimation;
 import edu.ua.j3dengine.processors.GameLogicProcessor;
 import edu.ua.j3dengine.processors.execution.GameEnvironment;
 import edu.ua.j3dengine.processors.execution.ProcessorLoopThread;
 import edu.ua.j3dengine.processors.input.InputProcessor;
+import edu.ua.j3dengine.processors.input.MouseManager;
 import edu.ua.j3dengine.processors.rendering.RenderingProcessor;
-import org.xith3d.loaders.models.util.precomputed.Animation;
 import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
 
 import javax.vecmath.Vector3f;
@@ -27,6 +29,14 @@ public class SimpleWorldDemo {
     public static void main(String[] args) {
 
         World world = World.create("SimpleWorld");
+
+        try {
+            GameObjectManager.getInstance().loadWorld(world);
+        } catch (WorldInitializationException e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
         DynamicGameObject archer = new DynamicGameObject("Archer");
         Geometry geom = new ModelAdapterGeometry("resources\\cal3d\\archer\\Archer.cfg", null, true);
 
@@ -37,12 +47,6 @@ public class SimpleWorldDemo {
         //archer.initializeMovementController();
         archer.setGeometry(geom);
         archer.setInitialState(state1.getName());
-        try {
-            GameObjectManager.getInstance().loadWorld(world);
-        } catch (WorldInitializationException e) {
-            e.printStackTrace();
-            System.exit(-1);
-        }
 
         world.addGameObject(archer);
 
@@ -117,7 +121,7 @@ public class SimpleWorldDemo {
         } catch (InterruptedException e) {
             //ignore
         }
-
+        //group.interrupt();
         thread.deactivate();
     }
 
@@ -132,10 +136,12 @@ public class SimpleWorldDemo {
 
 
         public void execute() {
-            PrecomputedAnimatedModel animated = (PrecomputedAnimatedModel) ((XithGeometry) targetObject.getGeometry()).getSceneGraphNode();
-            Animation anim = animated.getAnimations().get("walk");
-            assert anim != null;
-            animated.play(anim, true);
+            changeAnimation("Archer", "walk", true);
+            startAnimation("Archer");
+//            PrecomputedAnimatedModel animated = (PrecomputedAnimatedModel) ((XithGeometry) targetObject.getGeometry()).getSceneGraphNode();
+//            Animation anim = animated.getAnimations().get("walk");
+//            assert anim != null;
+//            animated.play(anim, true);
         }
     }
 
@@ -153,10 +159,13 @@ public class SimpleWorldDemo {
 
         public void execute() {
 
-            if (animated == null) {
-                animated = (PrecomputedAnimatedModel) ((XithGeometry) targetObject.getGeometry()).getSceneGraphNode();
-            }
-            animated.executeOperation(GameObjectManager.getInstance().getGameTime(), GameObjectManager.getInstance().getElapsedTime());
+//            if (animated == null) {
+//                animated = (PrecomputedAnimatedModel) ((XithGeometry) targetObject.getGeometry()).getSceneGraphNode();
+//            }
+//            animated.executeOperation(GameObjectManager.getInstance().getGameTime(), GameObjectManager.getInstance().getElapsedTime());
+
+
+
 
 //            logDebug("executing anim behavior");
 //

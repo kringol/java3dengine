@@ -8,7 +8,7 @@ import javax.vecmath.Vector3f;
 import edu.ua.j3dengine.core.DynamicGameObject;
 
 
-public class RotationMovementController extends BaseMovementControllerXithImpl {
+public class RotationMovementControllerXithImpl extends BaseMovementControllerXithImpl {
 
 
     private Vector3f rotationAxis;
@@ -16,7 +16,7 @@ public class RotationMovementController extends BaseMovementControllerXithImpl {
     private float rotationSpeed;
 
 
-    public RotationMovementController(DynamicGameObject targetObject) {
+    public RotationMovementControllerXithImpl(DynamicGameObject targetObject) {
         super(targetObject);
     }
 

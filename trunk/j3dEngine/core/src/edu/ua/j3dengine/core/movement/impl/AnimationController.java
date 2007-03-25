@@ -26,7 +26,7 @@ public class AnimationController extends MovementController {
         if (geom.getSceneGraphNode() instanceof Animatable) {
             animatable = (Animatable) geom.getSceneGraphNode();
         } else {
-            logDebug("AnimationController cannot be initialized. Model is not animatable. It will execute without operation.");
+            logDebug("AnimationController cannot be initialized. Model '"+getTargetObject().toString()+"' is not animatable. It will execute without operation.");
         }
     }
 
@@ -43,7 +43,7 @@ public class AnimationController extends MovementController {
 
     public void changeAnimation(String animationName, boolean loopAnimation) {
         if (!(animatable instanceof PrecomputedAnimatedModel)) {
-            throw new UnsupportedOperationException("This model cannot change its animation.");
+            throw new UnsupportedOperationException("This model cannot change its animation. It is not animatable.");
         }
 
         PrecomputedAnimatedModel model = (PrecomputedAnimatedModel) animatable;

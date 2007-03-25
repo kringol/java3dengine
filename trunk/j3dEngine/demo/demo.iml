@@ -15,9 +15,9 @@
     <orderEntry type="module" module-name="core" />
     <orderEntry type="library" name="lwjgl" level="project" />
     <orderEntry type="library" name="jogl" level="project" />
-    <orderEntry type="library" name="gluegen-rt" level="project" />
     <orderEntry type="module" module-name="processors" />
     <orderEntry type="library" name="hial" level="project" />
+    <orderEntry type="module" module-name="gapi" />
     <orderEntryProperties />
   </component>
 </module>

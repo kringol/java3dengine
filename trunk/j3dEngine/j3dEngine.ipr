@@ -258,7 +258,6 @@
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/gapi/gapi.iml" filepath="$PROJECT_DIR$/gapi/gapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/processors/processors.iml" filepath="$PROJECT_DIR$/processors/processors.iml" />
-      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
@@ -518,6 +517,13 @@
     <library name="gluegen-rt">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/lib/jogl/gluegen-rt.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="jaxb1-impl">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jaxb/2.1/jaxb1-impl.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

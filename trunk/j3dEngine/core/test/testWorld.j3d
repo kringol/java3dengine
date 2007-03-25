@@ -3,18 +3,13 @@
     <name>MyWorld</name>
     <gameObjectStates/>
     <attributes/>
+    <geometry xsi:type="geometryXithImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
     <worldObjects>
         <entry>
             <key>dObject1</key>
             <value xsi:type="dynamicGameObject" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <name>dObject1</name>
-                <currentState xsi:type="dynamicObjectState">
-                    <name>dObject1_state1</name>
-                    <attributes/>
-                    <normalBehavior xsi:type="inertBehavior">
-                        <name>dObject1_behavior1</name>
-                    </normalBehavior>
-                </currentState>
+                <initialState>dObject1_state1</initialState>
                 <gameObjectStates>
                     <entry>
                         <key>dObject1_state1</key>
@@ -36,13 +31,17 @@
                         </value>
                     </entry>
                 </attributes>
-                <initialState>dObject1_state1</initialState>
+                <geometry xsi:type="modelAdapterGeometry" precomputedModel="false">
+                    <modelFilePath>resources\3ds\drazinsunhawk\Drazisunhawk1.1.3ds</modelFilePath>
+                    <modelObjectName>DraziSunHa</modelObjectName>
+                </geometry>
             </value>
         </entry>
         <entry>
             <key>sObject1</key>
             <value xsi:type="staticGameObject" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <name>sObject1</name>
+                <initialState>sObject1_state2</initialState>
                 <gameObjectStates>
                     <entry>
                         <key>sObject1_state2</key>

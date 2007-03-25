@@ -1,6 +1,11 @@
 package edu.ua.j3dengine.demo;
 
 import edu.ua.j3dengine.core.mgmt.ResourceManager;
+import edu.ua.j3dengine.core.movement.impl.DefaultMovementController;
+import edu.ua.j3dengine.core.movement.BasicMovementController;
+import edu.ua.j3dengine.core.DynamicGameObject;
+import edu.ua.j3dengine.core.GameObjectFactory;
+import edu.ua.j3dengine.core.geometry.impl.GeometryXithImpl;
 import org.xith3d.geometry.*;
 import org.xith3d.geometry.Rectangle;
 import org.xith3d.loaders.models.base.Model;
@@ -271,40 +276,6 @@ public class ScenarioLoadingDemo {
         translateGroup = temp;
 
         translateGroup.setTransform(new Transform().addScale(15).addRotationY(180).getTransform());
-//        Transform3D t3d2 = new Transform3D();
-//        t3d2.rotX((float) Math.toRadians(-90));
-//        t3d.mul(t3d2);
-//        t3d2 = new Transform3D();
-//        t3d2.rotY((float) Math.toRadians(90));
-//        t3d.mul(t3d2);
-//        t3d2 = new Transform3D();
-//        t3d2.setTranslation(20, 5, 20);
-//        t3d.mul(t3d2);
-//        translateGroup.setTransform(t3d);
-
-//        temp = new TransformGroup();
-//        temp.addChild(translateGroup);
-//        translateGroup = temp;
-//
-//        t3d = new Transform3D();
-//        t3d.rotX((float) Math.toRadians(-90));
-//        translateGroup.setTransform(t3d);
-//
-//        temp = new TransformGroup();
-//        temp.addChild(translateGroup);
-//        translateGroup = temp;
-//
-//        t3d = new Transform3D();
-//        t3d.rotZ((float) Math.toRadians(20));
-//        translateGroup.setTransform(t3d);
-
-        // t3d.setScale(3);
-//            Transform3D t3d2 = new Transform3D();
-//            t3d2.rotAxis(new Vector3f(1,0,0), -90);
-//            t3d.add(t3d2);
-//            Transform3D t3d3 = new Transform3D();
-//            t3d3.scaleTranslation(2);
-//            t3d.add(t3d3);
 
 
         Model model = null;
@@ -341,6 +312,14 @@ public class ScenarioLoadingDemo {
         final TransformGroup steeringWheel = (TransformGroup)model.getNamedObject("lsteer");
 
         final TransformGroup mutableGroup = bottomGroup;
+
+
+        final DynamicGameObject object = GameObjectFactory.getInstance().createDynamicObject("jeep_geom", model);
+        object.initializeMovementController();
+        ((BasicMovementController)object.getMovementController()).setDirection(new Vector3f(-1,0,0));
+        ((BasicMovementController)object.getMovementController()).setSpeed(1);
+
+
         Thread mover2 = new Thread() {
 
 
@@ -359,13 +338,6 @@ public class ScenarioLoadingDemo {
                     }
                 }
                 while (rendering) {
-//                    float rotation = (float) Math.toRadians(angle);
-//                    Transform3D t3d = new Transform3D();
-//                    t3d.rotZ(rotation);
-//                    Transform3D t3d2 = new Transform3D();
-//                    t3d2.rotX(rotation);
-//                    t3d.mul(t3d2);
-//                    mutableGroup.setTransform(t3d);
 
                     steeringWheel.setTransform(new Transform().addRotationX(angle).getTransform());
                     for (TransformGroup wheel : wheels) {
@@ -380,7 +352,9 @@ public class ScenarioLoadingDemo {
                     }
 
                     fastAngle = (fastAngle + 10f) % 360;
-                    
+
+                    object.update();
+
                     try {
                         Thread.sleep(25);
                     } catch (InterruptedException e) {
@@ -392,6 +366,10 @@ public class ScenarioLoadingDemo {
         mover2.start();
 
         //todo (pablius) use the new movementcontrollers
+
+
+
+
         /*final MovementController mC = VelocityMovementController.create(tgReference, objectName);
         ((VelocityMovementController)mC).setDirection(new Vector3f(-50, 25, 50));
         ((VelocityMovementController)mC).setSpeed(50);

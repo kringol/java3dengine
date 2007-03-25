@@ -2,9 +2,6 @@ package edu.ua.j3dengine.core.behavior.impl;
 
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.behavior.Behavior;
-import edu.ua.j3dengine.core.movement.CompositeMovementController;
-import edu.ua.j3dengine.core.movement.impl.RotationMovementController;
-import edu.ua.j3dengine.core.movement.impl.VelocityMovementController;
 import static edu.ua.j3dengine.utils.ValidationUtils.validateNotNull;
 
 
