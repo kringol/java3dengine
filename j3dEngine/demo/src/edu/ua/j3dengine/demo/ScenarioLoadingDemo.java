@@ -517,7 +517,7 @@ public class ScenarioLoadingDemo {
     }
 
     private void defineView() {
-        Vector3f viewLocation = new Vector3f(-300, 100,-300);
+        Vector3f viewLocation = new Vector3f(-150, 100,-150);
         Vector3f viewFocus = new Vector3f(1000,0,1000);
         //viewDirection.add(new Vector3f(1,0,1));
         VECTOR_UP_ORIENTATION.normalize();

@@ -66,6 +66,11 @@ public class GameEnvironment {
         return environment;
     }
 
+
+    public Canvas3D getCanvas() {
+        return canvas;
+    }
+
     public Window getWindow() {
         return (Window) canvas.get3DPeer().getWindow();
     }

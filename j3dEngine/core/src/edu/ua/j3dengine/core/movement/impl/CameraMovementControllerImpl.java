@@ -83,4 +83,13 @@ public class CameraMovementControllerImpl extends MovementController implements 
     public void setRotationSpeed(float rotationSpeed) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
+
+
+    public void rotate(float rotationAngle) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public void rotate(Vector3f rotationAxis, float rotationAngle) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

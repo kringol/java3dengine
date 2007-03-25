@@ -6,6 +6,7 @@ import edu.ua.j3dengine.core.movement.AnimatedMovementController;
 import edu.ua.j3dengine.core.movement.BasicMovementController;
 
 import javax.vecmath.Vector3f;
+import javax.vecmath.Tuple3f;
 
 
 public class DefaultMovementController extends MovementController implements BasicMovementController, AnimatedMovementController {
@@ -80,6 +81,15 @@ public class DefaultMovementController extends MovementController implements Bas
         getVelocityController().setDirection(direction);
     }
 
+
+    public void setLocation(Tuple3f location) {
+        getVelocityController().setLocation(location);
+    }
+
+    public Tuple3f getLocation() {
+        return getVelocityController().getLocation();
+    }
+
     public void setRotationAxis(Vector3f rotationAxis) {
         getRotationController().setRotationAxis(rotationAxis);
     }
@@ -95,6 +105,15 @@ public class DefaultMovementController extends MovementController implements Bas
 
     public void setRotationSpeed(float rotationSpeed) {
         getRotationController().setRotationSpeed(rotationSpeed);
+    }
+
+
+    public void rotate(float rotationAngle) {
+        getRotationController().rotate(rotationAngle);
+    }
+
+    public void rotate(Vector3f rotationAxis, float rotationAngle) {
+        getRotationController().rotate(rotationAxis, rotationAngle);
     }
 
     public void changeAnimation(String animationName, boolean loopAnimation) {

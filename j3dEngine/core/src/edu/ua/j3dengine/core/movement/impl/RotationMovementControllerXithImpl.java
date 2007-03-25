@@ -4,6 +4,7 @@ import org.xith3d.scenegraph.Group;
 import org.xith3d.scenegraph.Transform3D;
 
 import javax.vecmath.Vector3f;
+import javax.vecmath.Tuple3f;
 
 import edu.ua.j3dengine.core.DynamicGameObject;
 
@@ -45,7 +46,15 @@ public class RotationMovementControllerXithImpl extends BaseMovementControllerXi
         return transform;
     }
 
-
+    //todo (pablius) method to be tested
+    public void rotate(float rotationAngle){
+        getTargetTransformGroup().getTransform().rotAxis(rotationAxis, (float) Math.toRadians(rotationAngle));
+    }
+    
+    //todo (pablius) method to be tested
+    public void rotate(Vector3f rotationAxis, float rotationAngle){
+        getTargetTransformGroup().getTransform().rotAxis(rotationAxis, (float) Math.toRadians(rotationAngle));
+    }
     /**
      * Sets the rotation speed, measured in degrees/secs.
      * @param rotationSpeed
