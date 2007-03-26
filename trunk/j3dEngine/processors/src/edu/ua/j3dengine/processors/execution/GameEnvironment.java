@@ -6,6 +6,7 @@ import edu.ua.j3dengine.utils.Constants;
 import org.xith3d.render.Canvas3D;
 import org.xith3d.render.Canvas3DFactory;
 import org.xith3d.render.Option;
+import org.xith3d.render.RenderOptions;
 import org.xith3d.render.base.Xith3DEnvironment;
 import org.xith3d.render.config.DisplayMode;
 import org.xith3d.render.config.DisplayModeSelector;
@@ -16,6 +17,7 @@ import org.xith3d.geometry.*;
 
 import javax.vecmath.Vector3f;
 import javax.vecmath.Color3f;
+import javax.vecmath.Point3f;
 import java.awt.*;
 import java.awt.Rectangle;
 
@@ -28,7 +30,7 @@ public class GameEnvironment {
     private Canvas3D canvas;
 
     private static final Vector3f VEC_UP = new Vector3f(0, 1, 0);
-    private static final float DEFAULT_BACK_CLIP_DISTANCE = 100000f;
+    private static final float DEFAULT_BACK_CLIP_DISTANCE = 50000f;
 
 
     public static synchronized GameEnvironment getInstance() {
@@ -55,17 +57,18 @@ public class GameEnvironment {
 
         //load main geometry into scenegraph
         Node node = ((XithGeometry) GameObjectManager.getInstance().getWorld().getGeometry()).getSceneGraphNode();
-        BranchGroup mainBranchGroup = null;
+        BranchGroup branchGroup = null;
         if (Boolean.getBoolean(Constants.TEST_MODE_PROPERTY)){
-            mainBranchGroup = createTestScenario();
-            mainBranchGroup.addChild(node);
+            branchGroup = createTestScenario();
+            branchGroup.addChild(node);
         }else{
-            mainBranchGroup = new BranchGroup(node);
+            branchGroup = new BranchGroup(node);
         }
-        environment.addBranchGraph(mainBranchGroup);
+        environment.addBranchGraph(branchGroup);
         environment.getView().setBackClipDistance(DEFAULT_BACK_CLIP_DISTANCE);
         environment.getView().lookAt(new Vector3f(0, 0, 0), new Vector3f(100, 0, 100), VEC_UP);
         //environment.getView().setFieldOfView(0.5f);
+        environment.checkRenderPreferences();
 
         //set default camera to world
         GameObjectManager.getInstance().setDefaultCamera(environment.getView());
@@ -93,34 +96,52 @@ public class GameEnvironment {
     public BranchGroup createTestScenario(){
         BranchGroup root = new BranchGroup();
         loadSkyBox(root);
-        addAmbientLight(root);
-        addBackground(root);
+        addDirectionalLight(root);
+        //addSpotLight(root);
+        //addAmbientLight(root);
+        //addBackground(root);
         addFloor(root);
         return root;
     }
 
-    private void addFloor(BranchGroup root) {
-        org.xith3d.geometry.Rectangle floor = new org.xith3d.geometry.Rectangle("resources\\textures\\grass.jpg", false, 1000f, 1000f);
+    private void addFloor(Group root) {
+        org.xith3d.geometry.Rectangle floor = new org.xith3d.geometry.Rectangle("resources\\textures\\grass.jpg", true, 10000f, 10000f);
         Material material = new Material(true);
         floor.getAppearance().setMaterial(material);
         TransformGroup tg = new Transform(floor).setTranslationY(0).addRotationX(-90f);
         root.addChild(tg);
     }
 
-    private void addBackground(BranchGroup root) {
+    private void addBackground(Group root) {
         Background background = new Background();
         background.setColor(new Color3f(0.17f, 0.65f, 0.92f));//supposed to be sky color
         root.addChild(background);
     }
 
-    private void addAmbientLight(BranchGroup root) {
+    private void addAmbientLight(Group root) {
         Light light = new AmbientLight(true);
         light.setColor(new Color3f(1,1,1));
         root.addChild(light);
     }
 
+    private void addDirectionalLight(Group root) {
+        Light light = new DirectionalLight(new Color3f(1,1,1), new Vector3f(-1, -5, -1));
+        
+        root.addChild(light);
+    }
 
-    private void loadSkyBox(BranchGroup root) {
+    private void addSpotLight(Group root) {
+        //new Vector3f(-100, 50, -100), new Vector3f(1000, 0, 1000)
+
+        //Light light = new SpotLight(true, new Color3f(1,1,1), new Vector3f(-50, 50, -50), new Vector3f(1,0,0), new Vector3f(0,0,0),(float) Math.toRadians(20), 0);
+        Light light = new PointLight(true, new Color3f(1,1,1), new Point3f(10,0,10), new Point3f(-1,0,0));
+        //Light light = new SpotLight(true);
+        //light.setColor(new Color3f(1,1,1));
+        root.addChild(light);
+    }
+
+
+    private void loadSkyBox(Group root) {
         //Texture texture = TextureLoader.getInstance().getTexture("resources\\images\\Nuages.jpg");
         TextureLoader textureloader = TextureLoader.getInstance();
         Texture top = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_y.jpg");

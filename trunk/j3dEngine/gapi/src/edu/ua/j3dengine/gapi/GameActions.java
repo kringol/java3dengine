@@ -17,6 +17,10 @@ public class GameActions {
     private GameActions() {
     }
 
+    public static void setSpeed(String objectName, float x, float y, float z, float speed) {
+        setSpeed(objectName, new Vector3f(x,y,z), speed);
+    }
+
     public static void setSpeed(String objectName, Vector3f direction, float speed) {
         DynamicGameObject targetObject = getDynamicGameObject(objectName);
         ((BasicMovementController) targetObject.getMovementController()).setSpeed(direction, speed);
@@ -69,6 +73,13 @@ public class GameActions {
 
     public void setMouseExclusiveMode(boolean isExclusive){
         MouseManager.setExclusiveMode(isExclusive);
+    }
+
+    public static void setViewLocation(float x, float y, float z){
+        setViewLocation(new Vector3f(x,y,z));
+    }
+    public static void setViewLocation(Vector3f newLocation){
+        ((BasicMovementController)GameObjectManager.getInstance().getDefaultCamera().getMovementController()).setLocation(newLocation);
     }
 
 }

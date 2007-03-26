@@ -54,7 +54,6 @@ public class SimpleWorldDemo {
         Behavior initB = new SetAnimBehavior(archer);
         DynamicObjectState state1 = new DynamicObjectState("normal_state", initB, null, animatedBehavior);
         archer.addState(state1);
-        //archer.initializeMovementController();
         archer.setGeometry(geom);
         archer.setInitialState(state1.getName());
 
@@ -69,7 +68,7 @@ public class SimpleWorldDemo {
         world.getDefaultCamera().addState(camState);
         world.getDefaultCamera().setCurrentState(camState);
 
-        GameEnvironment.getInstance().getEnvironment().getView().lookAt(new Vector3f(-100, 0, -100), new Vector3f(1000, 0, 1000), new Vector3f(0,1,0));
+        GameEnvironment.getInstance().getEnvironment().getView().lookAt(new Vector3f(-100, 50, -100), new Vector3f(1000, 0, 1000), new Vector3f(0,1,0));
         
 
         startProcessors();
