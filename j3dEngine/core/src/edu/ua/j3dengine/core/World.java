@@ -11,10 +11,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 
-import org.xith3d.scenegraph.BranchGroup;
-import org.xith3d.scenegraph.Group;
-import org.xith3d.scenegraph.Node;
-import org.xith3d.scenegraph.TransformGroup;
+import org.xith3d.scenegraph.*;
 
 @XmlRootElement
 public class World extends DynamicGameObject {
@@ -119,9 +116,14 @@ public class World extends DynamicGameObject {
                 XithGeometry geometryXith = (XithGeometry) ((SpatialObject) gameObject).getGeometry();
                 if (geometryXith.isSeparatedModel()){
                     Node node = geometryXith.getSceneGraphNode();
+
+                    //todo (pablius) ver si esto puede ser implementado con una referencia en vez de hacer el detach
+                    //if the node is part of a separate scenegraph, then it must be detached first (only one parent allowed)
                     if (node.getParent() != null){
                         node.detach();
                     }
+
+                    //insert transform group if this object's geometry needs it.
                     if (geometryXith.getPreTransform() != null){
                         TransformGroup tg = new TransformGroup(geometryXith.getPreTransform());
                         tg.addChild(geometryXith.getSceneGraphNode());
@@ -137,7 +139,7 @@ public class World extends DynamicGameObject {
     //initialization call
     public void initialize(){
         if (this.getGeometry() == null){
-            XithGeometry geom = new GeometryXithImpl("DefaultWorldGeometry", new BranchGroup());
+            XithGeometry geom = new GeometryXithImpl("DefaultWorldGeometry", new TransformGroup());
             setGeometry(geom);
         }
 
