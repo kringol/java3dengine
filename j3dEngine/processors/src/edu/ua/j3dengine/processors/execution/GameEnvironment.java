@@ -49,7 +49,7 @@ public class GameEnvironment {
         //todo (pablius) change this to full screen if possible
         DisplayMode mode = DisplayModeSelector.getImplementation(OpenGLLayer.JOGL_AWT).getBestMode(1024, 768);
 
-        canvas = Canvas3DFactory.createWindowed(OpenGLLayer.JOGL_AWT, mode, "RenderCanvas");
+        canvas = Canvas3DFactory.createWindowed(OpenGLLayer.JOGL_AWT, mode, "j3dEngine");
 
         environment.addCanvas(canvas);
 
