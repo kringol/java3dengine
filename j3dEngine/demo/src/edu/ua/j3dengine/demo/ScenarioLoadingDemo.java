@@ -131,19 +131,19 @@ public class ScenarioLoadingDemo {
     }
 
     private void loadSkyBox2(Group root) {
-            //Texture texture = TextureLoader.getInstance().getTexture("resources\\images\\Nuages.jpg");
-            TextureLoader textureloader = TextureLoader.getInstance();
-            Texture top = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_y.jpg");
-            Texture bottom = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_y.jpg");
-            Texture right = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_x.jpg");
-            Texture left = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_x.jpg");
-            Texture front = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_z.jpg");
-            Texture back = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_z.jpg");
+        //Texture texture = TextureLoader.getInstance().getTexture("resources\\images\\Nuages.jpg");
+        TextureLoader textureloader = TextureLoader.getInstance();
+        Texture top = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_y.jpg");
+        Texture bottom = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_y.jpg");
+        Texture right = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_x.jpg");
+        Texture left = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_x.jpg");
+        Texture front = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_z.jpg");
+        Texture back = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_z.jpg");
 
-            SkyBox background = new SkyBox(front, right, back, left, top, bottom);
+        SkyBox background = new SkyBox(front, right, back, left, top, bottom);
 
-            root.addChild(background);
-        }
+        root.addChild(background);
+    }
 
 
     private void loadModel2(TransformGroup firstTG){
@@ -637,8 +637,8 @@ public class ScenarioLoadingDemo {
 //                "BasicScene");
 
          
-        canvas.setRenderOption(Option.USE_TEXTURES, true);
-        canvas.setRenderOption(Option.USE_LIGHTING, true);
+//        canvas.setRenderOption(Option.USE_TEXTURES, true);
+//        canvas.setRenderOption(Option.USE_LIGHTING, true);
 
         // canvas.setRenderOption(Option.USE_VERTEX_BUFFER_CACHING, true);
         //set window
