@@ -1,12 +1,7 @@
 package edu.ua.j3dengine.utils;
 
-import java.util.Map;
-import java.util.HashMap;
-
 
 public class Utils {
-
-    public static final String SEVERITY_PROPERTY = "j3dengine.log.severity";
 
     private static LogSeverity severity = LogSeverity.DEBUG;
 
@@ -54,7 +49,7 @@ public class Utils {
 
     static{
 
-        String severityProperty = System.getProperty(SEVERITY_PROPERTY, null);
+        String severityProperty = System.getProperty(Constants.SEVERITY_PROPERTY, null);
         LogSeverity severity = LogSeverity.DEBUG;
         if (severityProperty != null){
             try {

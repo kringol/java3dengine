@@ -70,12 +70,7 @@ public class SimpleWorldDemo {
         world.getDefaultCamera().setCurrentState(camState);
 
         GameEnvironment.getInstance().getEnvironment().getView().lookAt(new Vector3f(-100, 0, -100), new Vector3f(1000, 0, 1000), new Vector3f(0,1,0));
-        Light light = new AmbientLight(true);
-        light.setColor(new Color3f(1,1,1));
-        Background background = new Background();
-        background.setColor(new Color3f(0.17f, 0.65f, 0.92f));//supposed to be sky color
-        GameEnvironment.getInstance().getEnvironment().getRootGroup().addChild(light);
-        GameEnvironment.getInstance().getEnvironment().getRootGroup().addChild(background);
+        
 
         startProcessors();
         MouseManager.init(true);
