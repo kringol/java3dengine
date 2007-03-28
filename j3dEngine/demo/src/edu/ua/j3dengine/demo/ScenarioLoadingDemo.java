@@ -287,7 +287,8 @@ public class ScenarioLoadingDemo {
            // model = ResourceManager.getInstance().getModel("resources\\collada\\shuttle\\shuttle.dae");
             //model = ResourceManager.getInstance().getModel("resources\\3ds\\jeep\\jeep1.3ds");
             //model = ResourceManager.getInstance().getModel("resources\\3ds\\3dm-Henry\\3dm-Henry.3ds");
-            model = ResourceManager.getInstance().getModel("resources\\jeep2.ase");
+            //model = ResourceManager.getInstance().getModel("resources\\obj\\ferrari\\ferrari.obj", ResourceManager.ModelFormat.WAVEFRONT);
+            model = ResourceManager.getInstance().getModel("resources/ase/jeep/jeep2.ase");
             model.setShowBounds(false, false);
 
             assert model != null : "Scene should not be null!";
@@ -605,7 +606,7 @@ public class ScenarioLoadingDemo {
         //Canvas3D canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "Canvas");
 
         environment.addCanvas(canvas);
-        canvas.setRenderOption(Option.ENABLE_WIREFRAME_MODE, true);
+        canvas.setRenderOption(Option.ENABLE_WIREFRAME_MODE, false);
 
 //            window = (Window)canvas.get3DPeer().getWindow();
 

@@ -78,9 +78,6 @@ public class GameEnvironment {
 
         //set default camera to world
         GameObjectManager.getInstance().setDefaultCamera(environment.getView());
-
-        environment.getRootGroup().dump();
-
     }
 
 
