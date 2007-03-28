@@ -1,12 +1,9 @@
 package edu.ua.j3dengine.processors.input;
 
-import static edu.ua.j3dengine.utils.Utils.*;
-
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.processors.execution.GameEnvironment;
 import net.jtank.input.MouseAccumulator;
 import net.jtank.input.MouseDevice;
-import net.jtank.input.MouseAdapter;
 import net.jtank.input.awt.AWTMouse;
 
 public class MouseManager {
@@ -15,12 +12,15 @@ public class MouseManager {
     private MouseDevice mouseDevice;
     private MouseAccumulator mouse;
     protected static final long MIN_DELTA_UPDATE_TIME_MILLIS = 10L;
+    protected static final long MIN_DELTA_UPDATE_WHEEL_TIME_MILLIS = 80L;
     private static long elapsedTime = 0;
-    private int x, y;
+    private int dX, dY;
+    private int wheelDelta;
+    private static long elapsedTimeWheel = 0;
 
     private MouseManager(boolean exclusiveMode) {
         mouseDevice = new AWTMouse(GameEnvironment.getInstance().getComponent());
-        mouse = new MouseAccumulator();
+        mouse = new MyMouseListener();
         mouseDevice.registerListener(mouse);
 
         //if true hides and centers the cursor
@@ -36,21 +36,31 @@ public class MouseManager {
         ourInstance.mouseDevice.update();
 
         elapsedTime += GameObjectManager.getInstance().getElapsedTime();
+        elapsedTimeWheel += GameObjectManager.getInstance().getElapsedTime();
 
-        if (elapsedTime > MIN_DELTA_UPDATE_TIME_MILLIS) {
-            if (!isExclusiveMode()){
-                int pX = getX();
-                int pY = getY();
-                ourInstance.mouse.setXAccumulator(pX - ourInstance.x);
-                ourInstance.mouse.setYAccumulator(pY - ourInstance.y);
-                ourInstance.x = pX;
-                ourInstance.y = pY;
-            }else{
-                ourInstance.mouse.clearXAccumulator();
-                ourInstance.mouse.clearYAccumulator();
-            }
+
+        if (elapsedTime >= MIN_DELTA_UPDATE_TIME_MILLIS) {
+
+            updateDeltaMoveX();
+            updateDeltaMoveY();
+
             elapsedTime = 0;
         }
+
+        if (elapsedTimeWheel >= MIN_DELTA_UPDATE_WHEEL_TIME_MILLIS) {
+            ourInstance.wheelDelta = 0;
+            elapsedTimeWheel = 0;
+        }
+    }
+
+    private static void updateDeltaMoveY() {
+        ourInstance.dY = ourInstance.mouse.getYAccumulator();
+        ourInstance.mouse.clearYAccumulator();
+    }
+
+    private static void updateDeltaMoveX() {
+        ourInstance.dX = ourInstance.mouse.getXAccumulator();
+        ourInstance.mouse.clearXAccumulator();
     }
 
 
@@ -74,11 +84,11 @@ public class MouseManager {
     }
 
     public static int getXDelta() {
-        return ourInstance.mouse.getXAccumulator();
+        return ourInstance.dX;
     }
 
     public static int getYDelta() {
-        return ourInstance.mouse.getYAccumulator();
+        return ourInstance.dY;
     }
 
     public static int getX() {
@@ -91,5 +101,18 @@ public class MouseManager {
 
     public static boolean isAt(int x, int y) {
         return (getX() == x && getY() == y);
+    }
+
+    public static int getWheelDelta() {
+        int result = ourInstance.wheelDelta;
+        ourInstance.wheelDelta = 0;
+        return result;
+    }
+
+    private class MyMouseListener extends MouseAccumulator {
+
+        public void onMouseWheelMoved(int i, int i1, int i2) {
+            wheelDelta += i;
+        }
     }
 }
