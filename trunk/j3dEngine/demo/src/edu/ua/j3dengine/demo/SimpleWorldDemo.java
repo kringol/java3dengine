@@ -5,33 +5,27 @@ import edu.ua.j3dengine.core.Camera;
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.World;
 import edu.ua.j3dengine.core.behavior.Behavior;
-import edu.ua.j3dengine.core.behavior.InertBehavior;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
-import edu.ua.j3dengine.core.geometry.impl.GeometryXithImpl;
-import edu.ua.j3dengine.core.geometry.impl.XithGeometry;
-import edu.ua.j3dengine.core.geometry.impl.CameraGeometry;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
 import edu.ua.j3dengine.core.movement.CameraMovementController;
 import edu.ua.j3dengine.core.state.DynamicObjectState;
-import static edu.ua.j3dengine.gapi.GameActions.changeAnimation;
-import static edu.ua.j3dengine.gapi.GameActions.startAnimation;
-import static edu.ua.j3dengine.utils.Utils.*;
+import static edu.ua.j3dengine.gapi.GameActions.*;
+
 import edu.ua.j3dengine.processors.GameLogicProcessor;
 import edu.ua.j3dengine.processors.execution.GameEnvironment;
 import edu.ua.j3dengine.processors.execution.ProcessorLoopThread;
 import edu.ua.j3dengine.processors.input.InputProcessor;
 import edu.ua.j3dengine.processors.input.MouseManager;
 import edu.ua.j3dengine.processors.rendering.RenderingProcessor;
-import org.xith3d.loaders.models.util.precomputed.PrecomputedAnimatedModel;
-import org.xith3d.scenegraph.*;
+import static net.jtank.input.KeyCode.*;
 import org.xith3d.render.Canvas3D;
+import org.xith3d.scenegraph.Transform;
+import org.xith3d.scenegraph.View;
 
-import javax.vecmath.Vector3f;
-import javax.vecmath.Color3f;
-import javax.vecmath.Vector2f;
 import javax.vecmath.Tuple3f;
+import javax.vecmath.Vector3f;
 
 
 public class SimpleWorldDemo {
@@ -50,13 +44,20 @@ public class SimpleWorldDemo {
         final DynamicGameObject archer = new DynamicGameObject("Archer");
         Geometry geom = new ModelAdapterGeometry("resources\\cal3d\\archer\\Archer.cfg", null, true, true);
         //  Geometry geom = new ModelAdapterGeometry("resources\\3ds\\jeep\\jeep1.3ds", null, false);
-        ((ModelAdapterGeometry)geom).setTransform(new Transform().addRotationX(-90).addScale(10).addRotationZ(-90).getTransform());
+        ((ModelAdapterGeometry)geom).setTransform(new Transform().addRotationX(-90).addScale(10).getTransform());
 
-        Behavior initB = new SetAnimBehavior(archer);
-        DynamicObjectState state1 = new DynamicObjectState("normal_state", initB, null, new InertBehavior()); //todo (pablius) remove animbehav -> useless
-        archer.addState(state1);
+        KeyboardMovementBehavior keyboardBehav = new KeyboardMovementBehavior();
+        Behavior initB = new WalkInit(archer);
+        DynamicObjectState walking = new DynamicObjectState("walking_state", initB, null, keyboardBehav);
+        initB = new IdleInit(archer);
+        DynamicObjectState idle = new DynamicObjectState("idle_state", initB, null, keyboardBehav);
+        initB = new AttackInit(archer);
+        DynamicObjectState attack = new DynamicObjectState("attack_state", initB, null, keyboardBehav);
+        archer.addState(walking);
+        archer.addState(idle);
+        archer.addState(attack);
         archer.setGeometry(geom);
-        archer.setInitialState(state1.getName());
+        archer.setInitialState(idle.getName());
 
         //world.addGameObject(archer);
 
@@ -72,7 +73,7 @@ public class SimpleWorldDemo {
         GameEnvironment.getInstance().getEnvironment().getView().lookAt(new Vector3f(-100, 50, -100), new Vector3f(1000, 0, 1000), new Vector3f(0,1,0));
 
         startProcessors();
-        MouseManager.init(true);
+       // MouseManager.init(true);
 
         new Thread("TesterThread"){
 
@@ -123,6 +124,7 @@ public class SimpleWorldDemo {
         private Camera targetCamera;
         private View targetView;
         private double sensitivity;
+        private double wheelSensitivity;
         private CameraMovementController movementController;
 
 
@@ -131,6 +133,7 @@ public class SimpleWorldDemo {
             this.targetView = targetCamera.getGeometry().getView();
             movementController = (CameraMovementController) targetCamera.getMovementController();
             this.sensitivity = 0.2;
+            this.wheelSensitivity = 0.5;
 
             this.viewEuler = new Vector3f(0,0,0);
             this.targetView.getTransform().getEuler(this.viewEuler);
@@ -142,34 +145,54 @@ public class SimpleWorldDemo {
 
 
         public void execute() {
-            //double elapsedTime = GameObjectManager.getInstance().getElapsedSeconds();
+
+            //update rotation
             int dX = MouseManager.getXDelta();
             int dY = MouseManager.getYDelta();
+            int dWheel = MouseManager.getWheelDelta();
 //            float xRotAngle = (float) sensitivity * -dX;
 //            float yRotAngle = (float) sensitivity * -dY;
 //            targetView.getTransform().mul(new Transform().addRotationX(xRotAngle).addRotationY(yRotAngle).getTransform());
 
             // calculate angle
-            viewEuler.y += (TWO_PI * -((float)dX / (float)canvasWidth) * sensitivity);
-            viewEuler.x -= (TWO_PI * -((float)dY / (float)canvasHeight) * sensitivity);
+            if (dX != 0 || dY != 0){
 
-            while (viewEuler.y > TWO_PI){
-                viewEuler.y -= TWO_PI;
+
+                viewEuler.y += (TWO_PI * -((float)dX / (float)canvasWidth) * sensitivity);
+                viewEuler.x -= (TWO_PI * -((float)dY / (float)canvasHeight) * sensitivity);
+
+                while (viewEuler.y > TWO_PI){
+                    viewEuler.y -= TWO_PI;
+                }
+
+                while (viewEuler.y < 0.0f){
+                    viewEuler.y += TWO_PI;
+                }
+
+                if (viewEuler.x < -MAX_ANGLE_UPDOWN){
+                    viewEuler.x = -MAX_ANGLE_UPDOWN;
+                }
+                else if (viewEuler.x > MAX_ANGLE_UPDOWN){
+                    viewEuler.x = MAX_ANGLE_UPDOWN;
+                }
+
+                targetView.getTransform().setEuler(viewEuler);
             }
 
-            while (viewEuler.y < 0.0f){
-                viewEuler.y += TWO_PI;
-            }
+            //update translation
+            float variation = (float) wheelSensitivity * dWheel;
+            if (Math.abs(variation) != 0){
+                Camera camera = GameObjectManager.getInstance().getDefaultCamera();
+                Tuple3f viewLocation = camera.getGeometry().getLocation();
+                Tuple3f viewDirection = camera.getGeometry().getDirection();
 
-            if (viewEuler.x < -MAX_ANGLE_UPDOWN){
-                viewEuler.x = -MAX_ANGLE_UPDOWN;
+                final Vector3f normalizedViewDirection = new Vector3f(viewDirection);
+                normalizedViewDirection.normalize();
+                normalizedViewDirection.scale(variation);
+                viewLocation.add(normalizedViewDirection);
+            
+                setViewLocation(new Vector3f(viewLocation));
             }
-            else if (viewEuler.x > MAX_ANGLE_UPDOWN){
-                viewEuler.x = MAX_ANGLE_UPDOWN;
-            }
-
-            targetView.getTransform().setEuler(viewEuler);
-
         }
     }
 
@@ -247,18 +270,112 @@ public class SimpleWorldDemo {
     }
 
 
-    private static class SetAnimBehavior extends Behavior {
+    private static class WalkInit extends Behavior {
         private DynamicGameObject targetObject;
 
-        public SetAnimBehavior(DynamicGameObject targetObject) {
-            super("SetAnimBehavior");
+        public WalkInit(DynamicGameObject targetObject) {
+            super("WalkInitBehavior");
             this.targetObject = targetObject;
         }
-
 
         public void execute() {
             changeAnimation("Archer", "walk", true);
             startAnimation("Archer");
+        }
+    }
+    private static class AttackInit extends Behavior {
+        private DynamicGameObject targetObject;
+
+        public AttackInit(DynamicGameObject targetObject) {
+            super("AttackInitBehavior");
+            this.targetObject = targetObject;
+        }
+
+        public void execute() {
+            changeAnimation("Archer", "attack", true);
+            startAnimation("Archer");
+        }
+    }
+    private static class IdleInit extends Behavior {
+        private DynamicGameObject targetObject;
+
+        public IdleInit(DynamicGameObject targetObject) {
+            super("IdleInitBehavior");
+            this.targetObject = targetObject;
+        }
+
+        public void execute() {
+            changeAnimation("Archer", "idle", true);
+            startAnimation("Archer");
+        }
+    }
+
+
+
+    private static class KeyboardMovementBehavior extends Behavior {
+        private static final Vector3f INITIAL_DIRECTION = new Vector3f(0,0,1);
+        private static final int SPEED = 50;
+        private boolean firstTime = true;
+
+        public KeyboardMovementBehavior() {
+            super("KeyboardMovementBehavior");
+        }
+
+
+        public void execute() {
+            if (firstTime){ //todo move to initial state
+                setSpeed("Archer", INITIAL_DIRECTION, 0);
+                firstTime = false;
+            }
+
+            if (isKeyPressed(VK_SPACE)){
+                setSpeed("Archer", 0);
+                changeState("Archer", "attack_state");
+            }
+            else
+            if (isKeyPressed(VK_UP) && isKeyPressed(VK_RIGHT)){
+                rotate("Archer", Y_AXIS, -45);
+                setSpeed("Archer", -1, 0, 1, SPEED);
+                changeState("Archer", "walking_state");
+            }else
+            if (isKeyPressed(VK_UP) && isKeyPressed(VK_LEFT)){
+                rotate("Archer", Y_AXIS, 45);
+                setSpeed("Archer", 1, 0, 1, SPEED);
+                changeState("Archer", "walking_state");
+            }else
+            if (isKeyPressed(VK_DOWN) && isKeyPressed(VK_RIGHT)){
+                rotate("Archer", Y_AXIS, -135);
+                setSpeed("Archer", -1, 0, -1, SPEED);
+                changeState("Archer", "walking_state");
+            }else
+            if (isKeyPressed(VK_DOWN) && isKeyPressed(VK_LEFT)){
+                rotate("Archer", Y_AXIS, 135);
+                setSpeed("Archer", 1, 0, -1, SPEED);
+                changeState("Archer", "walking_state");
+            }else
+            if (isKeyPressed(VK_DOWN)){
+                rotate("Archer", Y_AXIS, 180);
+                setSpeed("Archer", 0, 0, -1,SPEED);
+                changeState("Archer", "walking_state");
+            }else
+            if (isKeyPressed(VK_UP)){
+                rotate("Archer", Y_AXIS, 0);
+                setSpeed("Archer", 0, 0, 1,SPEED);
+                changeState("Archer", "walking_state");
+            }else
+            if (isKeyPressed(VK_RIGHT)){
+                rotate("Archer", Y_AXIS, -90);
+                setSpeed("Archer", -1, 0, 0,SPEED);
+                changeState("Archer", "walking_state");
+            }else
+            if (isKeyPressed(VK_LEFT)){
+                rotate("Archer", Y_AXIS, 90);
+                setSpeed("Archer", 1, 0, 0,SPEED);
+                changeState("Archer", "walking_state");
+            }else{
+                setSpeed("Archer", 0);
+                changeState("Archer", "idle_state");
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 package edu.ua.j3dengine.processors.input;
 
 import edu.ua.j3dengine.processors.Processor;
-import static edu.ua.j3dengine.utils.Utils.logDebug;
+import static edu.ua.j3dengine.utils.Utils.*;
 
 
 public class InputProcessor extends Processor {

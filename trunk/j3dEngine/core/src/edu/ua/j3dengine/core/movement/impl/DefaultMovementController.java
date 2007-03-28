@@ -4,6 +4,7 @@ import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.movement.MovementController;
 import edu.ua.j3dengine.core.movement.AnimatedMovementController;
 import edu.ua.j3dengine.core.movement.BasicMovementController;
+import edu.ua.j3dengine.core.movement.Rotation;
 
 import javax.vecmath.Vector3f;
 import javax.vecmath.Tuple3f;
@@ -108,12 +109,8 @@ public class DefaultMovementController extends MovementController implements Bas
     }
 
 
-    public void rotate(float rotationAngle) {
-        getRotationController().rotate(rotationAngle);
-    }
-
-    public void rotate(Vector3f rotationAxis, float rotationAngle) {
-        getRotationController().rotate(rotationAxis, rotationAngle);
+    public void rotate(Rotation axis, float rotationAngle) {
+        getRotationController().rotate(axis, rotationAngle);
     }
 
     public void changeAnimation(String animationName, boolean loopAnimation) {

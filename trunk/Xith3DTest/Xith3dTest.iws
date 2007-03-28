@@ -189,7 +189,7 @@
       <file leaf-file-name="BasicShapesTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="295" column="28" selection-start="9748" selection-end="9748" vertical-scroll-proportion="0.30276817">
+            <state line="348" column="16" selection-start="11448" selection-end="11448" vertical-scroll-proportion="0.41979522">
               <folding />
             </state>
           </provider>
@@ -198,7 +198,7 @@
       <file leaf-file-name="Collections.java" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.6.0/src.zip!/java/util/Collections.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1009" column="0" selection-start="42438" selection-end="42438" vertical-scroll-proportion="0.029411765">
+            <state line="1009" column="0" selection-start="42438" selection-end="42438" vertical-scroll-proportion="0.029010238">
               <folding />
             </state>
           </provider>
@@ -207,7 +207,7 @@
       <file leaf-file-name="MovementController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/MovementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="22" selection-start="680" selection-end="680" vertical-scroll-proportion="0.02866779">
+            <state line="9" column="22" selection-start="214" selection-end="214" vertical-scroll-proportion="-0.5374376">
               <folding />
             </state>
           </provider>
@@ -216,7 +216,7 @@
       <file leaf-file-name="VelocityMovementController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/VelocityMovementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="55" selection-start="202" selection-end="202" vertical-scroll-proportion="0.02866779">
+            <state line="8" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="-1.0366057">
               <folding />
             </state>
           </provider>
@@ -225,7 +225,7 @@
       <file leaf-file-name="RotationMovementController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/RotationMovementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="0.02866779">
+            <state line="8" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="-0.49916804">
               <folding />
             </state>
           </provider>
@@ -234,7 +234,7 @@
       <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="13" selection-start="230" selection-end="920" vertical-scroll-proportion="0.81112987">
+            <state line="34" column="13" selection-start="230" selection-end="920" vertical-scroll-proportion="0.81364393">
               <folding />
             </state>
           </provider>
@@ -243,7 +243,7 @@
       <file leaf-file-name="Node.java" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/lib/xith3d-source.jar!/org/xith3d/scenegraph/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="446" column="25" selection-start="12640" selection-end="12640" vertical-scroll-proportion="0.029411765">
+            <state line="446" column="25" selection-start="12640" selection-end="12640" vertical-scroll-proportion="0.029010238">
               <folding />
             </state>
           </provider>
@@ -252,7 +252,7 @@
       <file leaf-file-name="Transform3D.java" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/lib/xith3d-source.jar!/org/xith3d/scenegraph/Transform3D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="244" column="37" selection-start="7558" selection-end="7558" vertical-scroll-proportion="0.029411765">
+            <state line="244" column="37" selection-start="7558" selection-end="7558" vertical-scroll-proportion="0.029010238">
               <folding />
             </state>
           </provider>
@@ -354,122 +354,6 @@
           <option name="myItemId" value="Xith3dTest" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Libraries" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.LibraryGroupNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Xith3dTest.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Xith3dTest" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Libraries" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.LibraryGroupNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="xith-tk" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Xith3dTest.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Xith3dTest" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Libraries" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.LibraryGroupNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="xith-tk" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar!\org\xith3d" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Xith3dTest.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Xith3dTest" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Libraries" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.LibraryGroupNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="xith-tk" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar!\org\xith3d" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar!\org\xith3d\behaviors" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Xith3dTest.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Xith3dTest" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Libraries" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.LibraryGroupNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="xith-tk" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar!\org\xith3d" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar!\org\xith3d\behaviors" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Pablo\IdeaProjects\java3dengine\Xith3DTest\lib\xith-tk.jar!\org\xith3d\behaviors\impl" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
       </PATH>
       <PATH>
         <PATH_ELEMENT>
@@ -546,7 +430,7 @@
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <showStructure PackagesPane="false" ProjectPane="false" Scope="false" Favorites="false" />
+      <showStructure Favorites="false" PackagesPane="false" Scope="false" ProjectPane="false" />
       <autoscrollToSource ProjectPane="true" />
       <autoscrollFromSource ProjectPane="true" />
       <sortByType />
@@ -580,6 +464,19 @@
   </component>
   <component name="RestoreUpdateTree" />
   <component name="RunManager" selected="Application.Shapes test">
+    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <module name="" />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -595,19 +492,6 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="wholeProject" />
       </option>
-      <method>
-        <option name="Make" value="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <module name="" />
       <method>
         <option name="Make" value="true" />
       </method>
@@ -785,14 +669,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="770" extended-state="0" />
+    <frame x="-4" y="-4" width="1288" height="778" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32160392" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3211382" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6446154" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3276923" order="8" />
@@ -948,56 +832,56 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.6.0/src.zip!/java/util/Collections.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1009" column="0" selection-start="42438" selection-end="42438" vertical-scroll-proportion="0.029411765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/MovementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="22" selection-start="680" selection-end="680" vertical-scroll-proportion="0.02866779">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/VelocityMovementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="55" selection-start="202" selection-end="202" vertical-scroll-proportion="0.02866779">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/RotationMovementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="0.02866779">
+        <state line="1009" column="0" selection-start="42438" selection-end="42438" vertical-scroll-proportion="0.029010238">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="230" selection-end="920" vertical-scroll-proportion="0.81112987">
+        <state line="34" column="13" selection-start="230" selection-end="920" vertical-scroll-proportion="0.81364393">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/xith3d-source.jar!/org/xith3d/scenegraph/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="446" column="25" selection-start="12640" selection-end="12640" vertical-scroll-proportion="0.029411765">
+        <state line="446" column="25" selection-start="12640" selection-end="12640" vertical-scroll-proportion="0.029010238">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/xith3d-source.jar!/org/xith3d/scenegraph/Transform3D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="37" selection-start="7558" selection-end="7558" vertical-scroll-proportion="0.029411765">
+        <state line="244" column="37" selection-start="7558" selection-end="7558" vertical-scroll-proportion="0.029010238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/MovementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="22" selection-start="214" selection-end="214" vertical-scroll-proportion="-0.5374376">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/RotationMovementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="-0.49916804">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/movement/VelocityMovementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="-1.0366057">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/test/xith3d/BasicShapesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="28" selection-start="9748" selection-end="9748" vertical-scroll-proportion="0.30276817">
+        <state line="348" column="16" selection-start="11448" selection-end="11448" vertical-scroll-proportion="0.41979522">
           <folding />
         </state>
       </provider>

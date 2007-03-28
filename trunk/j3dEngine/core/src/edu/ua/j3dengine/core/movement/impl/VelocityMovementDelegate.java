@@ -17,7 +17,7 @@ public class VelocityMovementDelegate {
         Vector3f translationVector = new Vector3f(0,0,0);
 
         if (direction != null && speed != 0) {
-            translationVector = direction;
+            translationVector = new Vector3f(direction);
 
             double deltaSecTime = (elapsedTime / 1000f);
 
