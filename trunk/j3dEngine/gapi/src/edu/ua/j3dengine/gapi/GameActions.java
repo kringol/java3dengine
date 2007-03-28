@@ -10,6 +10,7 @@ import edu.ua.j3dengine.processors.input.KeyboardManager;
 import edu.ua.j3dengine.processors.input.MouseManager;
 
 import javax.vecmath.Vector3f;
+import javax.vecmath.Point3f;
 
 
 public class GameActions {
@@ -34,6 +35,16 @@ public class GameActions {
     public static void setSpeed(String objectName, float speed) {
         DynamicGameObject targetObject = getDynamicGameObject(objectName);
         ((BasicMovementController) targetObject.getMovementController()).setSpeed(speed);
+    }
+
+    public static void setLocation(String objectName, Vector3f location){
+        DynamicGameObject targetObject = getDynamicGameObject(objectName);
+        ((BasicMovementController) targetObject.getMovementController()).setLocation(location);
+    }
+
+    public static Vector3f getLocation(String objectName){
+        DynamicGameObject targetObject = getDynamicGameObject(objectName);
+        return new Vector3f(targetObject.getGeometry().getLocation());
     }
 
     public static void setRotationSpeed(String objectName, Vector3f rotationAxis, float speed) {
@@ -101,5 +112,10 @@ public class GameActions {
     public static void setViewLocation(Vector3f newLocation){
         ((BasicMovementController)GameObjectManager.getInstance().getDefaultCamera().getMovementController()).setLocation(newLocation);
     }
+
+    public static void setViewDirection(Vector3f newFocus){
+        ((BasicMovementController)GameObjectManager.getInstance().getDefaultCamera().getMovementController()).setDirection(newFocus);
+    }
+
 
 }
