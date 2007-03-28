@@ -66,6 +66,13 @@ public class GameEnvironment {
         if (Boolean.getBoolean(Constants.TEST_MODE_PROPERTY)){
             branchGroup = createTestScenario();
             branchGroup.addChild(node);
+            if (Boolean.getBoolean(Constants.WIREFRAME_MODE_PROPERTY)){
+                canvas.setRenderOption(Option.ENABLE_WIREFRAME_MODE, true);
+            }
+            if (Boolean.getBoolean(Constants.SHOW_BOUNDS_PROPERTY)){
+                GameObjectManager.getInstance().getWorld().setShowBounds(true);
+            }
+
         }else{
             branchGroup = new BranchGroup(node);
         }
