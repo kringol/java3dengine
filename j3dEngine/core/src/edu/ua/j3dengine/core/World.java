@@ -21,6 +21,7 @@ public class World extends DynamicGameObject {
     private long initialSystemTime;
     private long elapsedTime;
     private long gameTime;
+    private boolean showBounds = false;
 
 
     @XmlElementWrapper
@@ -134,6 +135,13 @@ public class World extends DynamicGameObject {
         if (node.getParent() != null){
             node.removeFromParentGroup();
         }
+        if (isShowBounds()){
+            if (node instanceof GroupNode){
+                ((GroupNode)node).setShowBounds(true, true);
+            }else{
+                node.setShowBounds(true);
+            }
+        }
 
         ((Group)((XithGeometry)this.getGeometry()).getSceneGraphNode()).addChild(node);
     }
@@ -189,6 +197,15 @@ public class World extends DynamicGameObject {
 
     public long getGameTime() {
         return gameTime;
+    }
+
+
+    public boolean isShowBounds() {
+        return showBounds;
+    }
+
+    public void setShowBounds(boolean showBounds) {
+        this.showBounds = showBounds;
     }
 
     @Override

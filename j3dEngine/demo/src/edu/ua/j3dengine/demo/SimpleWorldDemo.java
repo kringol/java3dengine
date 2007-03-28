@@ -43,6 +43,10 @@ public class SimpleWorldDemo {
             System.exit(-1);
         }
 
+         //initialize
+        GameEnvironment.getInstance();
+        
+
         DynamicGameObject jeep = new DynamicGameObject("jeep");
         Geometry jeepG = new ModelAdapterGeometry("resources/3ds/jeep/jeep1.3ds", null);
        // Geometry jeepG = new ModelAdapterGeometry("resources/ase/jeep/jeep2.ase", null);
@@ -77,8 +81,7 @@ public class SimpleWorldDemo {
 
         //world.addGameObject(archer);//todo (pablius) do not add object here
 
-        //initialize
-        GameEnvironment.getInstance();
+
 
         Behavior cameraBehav = new MouseCameraBehavior(world.getDefaultCamera());
         Behavior cameraBehav2 = new FollowerCamera();
