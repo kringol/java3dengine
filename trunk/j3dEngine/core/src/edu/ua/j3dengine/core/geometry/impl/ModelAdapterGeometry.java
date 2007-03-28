@@ -35,15 +35,18 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
     @XmlElement
     private String modelObjectName;
 
+    @XmlAttribute
+    private boolean loadLater = false;
+
 
     public ModelAdapterGeometry() {
     }
 
     public ModelAdapterGeometry(String modelFilePath, String modelObjectName) {
-        this(modelFilePath, modelObjectName, false);
+        this(modelFilePath, modelObjectName, false, false);
     }
 
-    public ModelAdapterGeometry(String modelFilePath, String modelObjectName, boolean isPrecomputedModel) {
+    public ModelAdapterGeometry(String modelFilePath, String modelObjectName, boolean isPrecomputedModel, boolean loadLater) {
         if (modelFilePath == null){
             setSeparatedModel(false);
         }else{
@@ -54,6 +57,7 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
         }
         this.modelObjectName = modelObjectName;
         this.precomputedModel = isPrecomputedModel;
+        this.loadLater = loadLater;
     }
 
 
@@ -79,6 +83,14 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
         this.separatedModel = separatedModel;
     }
 
+
+    public boolean loadLater() {
+        return this.loadLater;
+    }
+
+    protected void setLoadLater(boolean loadLater) {
+        this.loadLater = loadLater;
+    }
 
     public Transform3D getPreTransform() {
         return getTransform();

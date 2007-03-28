@@ -1,10 +1,8 @@
 package edu.ua.j3dengine.core.geometry;
 
-import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
-
 import javax.vecmath.Tuple3f;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 @XmlJavaTypeAdapter(Geometry.GeometryAdapter.class)

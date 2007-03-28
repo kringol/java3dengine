@@ -5,6 +5,7 @@ import edu.ua.j3dengine.core.Camera;
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.World;
 import edu.ua.j3dengine.core.behavior.Behavior;
+import edu.ua.j3dengine.core.behavior.InertBehavior;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 import edu.ua.j3dengine.core.geometry.impl.GeometryXithImpl;
@@ -46,18 +47,18 @@ public class SimpleWorldDemo {
             System.exit(-1);
         }
 
-        DynamicGameObject archer = new DynamicGameObject("Archer");
-        Geometry geom = new ModelAdapterGeometry("resources\\cal3d\\archer\\Archer.cfg", null, true);
+        final DynamicGameObject archer = new DynamicGameObject("Archer");
+        Geometry geom = new ModelAdapterGeometry("resources\\cal3d\\archer\\Archer.cfg", null, true, true);
+        //  Geometry geom = new ModelAdapterGeometry("resources\\3ds\\jeep\\jeep1.3ds", null, false);
         ((ModelAdapterGeometry)geom).setTransform(new Transform().addRotationX(-90).addScale(10).addRotationZ(-90).getTransform());
-        
-        Behavior animatedBehavior = new AnimBehavior(archer);
+
         Behavior initB = new SetAnimBehavior(archer);
-        DynamicObjectState state1 = new DynamicObjectState("normal_state", initB, null, animatedBehavior);
+        DynamicObjectState state1 = new DynamicObjectState("normal_state", initB, null, new InertBehavior()); //todo (pablius) remove animbehav -> useless
         archer.addState(state1);
         archer.setGeometry(geom);
         archer.setInitialState(state1.getName());
 
-        world.addGameObject(archer);
+        //world.addGameObject(archer);
 
         //initialize
         GameEnvironment.getInstance();
@@ -69,11 +70,26 @@ public class SimpleWorldDemo {
         world.getDefaultCamera().setCurrentState(camState);
 
         GameEnvironment.getInstance().getEnvironment().getView().lookAt(new Vector3f(-100, 50, -100), new Vector3f(1000, 0, 1000), new Vector3f(0,1,0));
-        
 
         startProcessors();
         MouseManager.init(true);
 
+        new Thread("TesterThread"){
+
+            @Override
+            public void run() {
+                System.out.println("Thread is running");
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                World world = GameObjectManager.getInstance().getWorld();
+                world.addGameObject(archer);
+                System.out.println("Archer added");
+                GameEnvironment.getInstance().getEnvironment().getRootGroup().dump();
+            }
+        }.start();
 
 
         /*
@@ -192,28 +208,42 @@ public class SimpleWorldDemo {
     }
 
     private static void startProcessors() {
-        RenderingProcessor renderProcessor = new RenderingProcessor();
-        InputProcessor inputProcessor = new InputProcessor();
-        GameLogicProcessor logicProcessor = new GameLogicProcessor();
 
-        ThreadGroup group = new ThreadGroup("ProcessingGroup");
-        ProcessorLoopThread thread = ProcessorLoopThread.create(group,
-                "MainLoopThread",
-                Thread.MAX_PRIORITY,
-                inputProcessor,
-                logicProcessor,
-                renderProcessor);
+        new Thread("Processors starter"){
 
-        thread.start();
+            @Override
+            public void run() {
 
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    //ignore
+                }
 
-        try {
-            Thread.sleep(60000);
-        } catch (InterruptedException e) {
-            //ignore
-        }
-        //group.interrupt();
-        thread.deactivate();
+                RenderingProcessor renderProcessor = new RenderingProcessor();
+                InputProcessor inputProcessor = new InputProcessor();
+                GameLogicProcessor logicProcessor = new GameLogicProcessor();
+
+                ThreadGroup group = new ThreadGroup("ProcessingGroup");
+                ProcessorLoopThread thread = ProcessorLoopThread.create(group,
+                        "MainLoopThread",
+                        Thread.MAX_PRIORITY,
+                        inputProcessor,
+                        logicProcessor,
+                        renderProcessor);
+
+                thread.start();
+
+                try {
+                    Thread.sleep(60000);
+                } catch (InterruptedException e) {
+                    //ignore
+                }
+                //group.interrupt();
+                thread.deactivate();
+            }
+        }.start();
+
     }
 
 
@@ -229,45 +259,7 @@ public class SimpleWorldDemo {
         public void execute() {
             changeAnimation("Archer", "walk", true);
             startAnimation("Archer");
-//            PrecomputedAnimatedModel animated = (PrecomputedAnimatedModel) ((XithGeometry) targetObject.getGeometry()).getSceneGraphNode();
-//            Animation anim = animated.getAnimations().get("walk");
-//            assert anim != null;
-//            animated.play(anim, true);
         }
     }
 
-    private static class AnimBehavior extends Behavior {
-
-        private DynamicGameObject targetObject;
-        PrecomputedAnimatedModel animated;
-
-        public AnimBehavior(DynamicGameObject targetObject) {
-            super("AnimBehavior");
-            this.targetObject = targetObject;
-
-        }
-
-
-        public void execute() {
-
-//            if (animated == null) {
-//                animated = (PrecomputedAnimatedModel) ((XithGeometry) targetObject.getGeometry()).getSceneGraphNode();
-//            }
-//            animated.executeOperation(GameObjectManager.getInstance().getGameTime(), GameObjectManager.getInstance().getElapsedTime());
-
-
-
-
-//            logDebug("executing anim behavior");
-//
-//            int xDelta = MouseManager.getXDelta();
-//            int yDelta = MouseManager.getYDelta();
-//            if (xDelta != 0 || yDelta != 0){
-//                logDebug("\n------\nxDelta = " + xDelta + ", yDelta = " + yDelta + "\n--------");
-//            }
-//            boolean pressed = KeyboardManager.isKeyPressed(KeyCode.VK_SPACE);
-//            logDebug("pressed:"+pressed);
-
-        }
-    }
 }

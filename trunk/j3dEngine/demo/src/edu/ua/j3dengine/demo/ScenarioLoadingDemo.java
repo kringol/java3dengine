@@ -81,9 +81,9 @@ public class ScenarioLoadingDemo {
 
         defineView();
 
-        //defineBackground(bg);
+        defineBackground(bg);
         //loadSkyBox(bg);
-        loadSkyBox2(bg);
+        //loadSkyBox2(bg);
 
         setAmbientLight(bg);
 
@@ -288,7 +288,7 @@ public class ScenarioLoadingDemo {
             //model = ResourceManager.getInstance().getModel("resources\\3ds\\jeep\\jeep1.3ds");
             //model = ResourceManager.getInstance().getModel("resources\\3ds\\3dm-Henry\\3dm-Henry.3ds");
             model = ResourceManager.getInstance().getModel("resources\\jeep2.ase");
-            model.setShowBounds(true, true);
+            model.setShowBounds(false, false);
 
             assert model != null : "Scene should not be null!";
 
@@ -512,12 +512,13 @@ public class ScenarioLoadingDemo {
 
     private void defineBackground(BranchGroup bg) {
         Background background = new Background();
-        background.setColor(new Color3f(0.17f, 0.65f, 0.92f));//supposed to be sky color
+       // background.setColor(new Color3f(0.17f, 0.65f, 0.92f));//supposed to be sky color
+         background.setColor(new Color3f(1,1,1));
         bg.addChild(background);
     }
 
     private void defineView() {
-        Vector3f viewLocation = new Vector3f(-150, 100,-150);
+        Vector3f viewLocation = new Vector3f(-180, 100,-180);
         Vector3f viewFocus = new Vector3f(1000,0,1000);
         //viewDirection.add(new Vector3f(1,0,1));
         VECTOR_UP_ORIENTATION.normalize();
@@ -604,6 +605,7 @@ public class ScenarioLoadingDemo {
         //Canvas3D canvas = Canvas3DWrapper.createStandalone(CanvasPeer.OpenGLLayer.JOGL_AWT, Canvas3DWrapper.Resolution.RES_1024X768, Canvas3DWrapper.ColorDepth.B16, "Canvas");
 
         environment.addCanvas(canvas);
+        canvas.setRenderOption(Option.ENABLE_WIREFRAME_MODE, true);
 
 //            window = (Window)canvas.get3DPeer().getWindow();
 

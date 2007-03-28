@@ -108,6 +108,7 @@ public class ResourceManager {
     public static enum ModelFormat {
         CAL3D{
             public ModelLoader getLoader() {
+                //it is necessary to invert the texture V coords for the textures to load correctly (maybe not in every model?)
                 return new Cal3dLoader(Cal3dLoader.LOADER_INVERT_V_COORD);
             }
 

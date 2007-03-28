@@ -22,10 +22,10 @@
     <orderEntry type="library" name="isorelax" level="project" />
     <orderEntry type="library" name="istack-commons-runtime" level="project" />
     <orderEntry type="library" name="istack-commons-tools" level="project" />
+    <orderEntry type="library" name="jsr173_1.0_api" level="project" />
     <orderEntry type="library" name="jaxb-api" level="project" />
     <orderEntry type="library" name="jaxb-impl" level="project" />
     <orderEntry type="library" name="jaxb-xjc" level="project" />
-    <orderEntry type="library" name="jsr173_1.0_api" level="project" />
     <orderEntry type="library" name="msv" level="project" />
     <orderEntry type="library" name="relaxngDatatype" level="project" />
     <orderEntry type="library" name="resolver" level="project" />
@@ -35,6 +35,7 @@
     <orderEntry type="library" name="xsom" level="project" />
     <orderEntry type="library" name="whoola_collada_jaxb" level="project" />
     <orderEntry type="library" name="gluegen-rt" level="project" />
+    <orderEntry type="library" name="jaxb1-impl" level="project" />
     <orderEntryProperties />
   </component>
 </module>
