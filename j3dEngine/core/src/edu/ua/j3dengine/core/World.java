@@ -26,9 +26,13 @@ public class World extends DynamicGameObject {
     @XmlElementWrapper
     private Map<String, GameObject> worldObjects;
 
+    /**
+     * Created for fast access to cameras.
+     */
     private Map<String, Camera> cameras;//todo (pablius) serializar las camaras!
 
     public static final String DEFAULT_CAMERA = "DEFAULT_CAMERA";
+
     /**
      * Created for fast access to dynamic objects.
      */
@@ -115,25 +119,30 @@ public class World extends DynamicGameObject {
             if (((SpatialObject) gameObject).getGeometry() instanceof XithGeometry){
                 XithGeometry geometryXith = (XithGeometry) ((SpatialObject) gameObject).getGeometry();
                 if (geometryXith.isSeparatedModel()){
-                    Node node = geometryXith.getSceneGraphNode();
-
-                    //todo (pablius) ver si esto puede ser implementado con una referencia en vez de hacer el detach
-                    //if the node is part of a separate scenegraph, then it must be detached first (only one parent allowed)
-                    if (node.getParent() != null){
-                        node.detach();
-                    }
-
-                    //insert transform group if this object's geometry needs it.
-                    if (geometryXith.getPreTransform() != null){
-                        TransformGroup tg = new TransformGroup(geometryXith.getPreTransform());
-                        tg.addChild(geometryXith.getSceneGraphNode());
-                        node = tg;
-                    }
-
-                    ((Group)((XithGeometry)this.getGeometry()).getSceneGraphNode()).addChild(node);
+                    attachSeparatedModelGeometry(geometryXith);
                 }
             }
         }
+    }
+
+
+    public void attachSeparatedModelGeometry(XithGeometry geometryXith) {
+        Node node = geometryXith.getSceneGraphNode();
+
+        //todo (pablius) ver si esto puede ser implementado con un link en vez de hacer el detach
+        //if the node is part of a separate scenegraph, then it must be detached first (only one parent allowed)
+        if (node.getParent() != null){
+            node.removeFromParentGroup();
+        }
+
+        //insert transform group if this object's geometry needs it.
+        if (geometryXith.getPreTransform() != null){
+            TransformGroup tg = new TransformGroup(geometryXith.getPreTransform());
+            tg.addChild(node);
+            node = tg;
+        }
+
+        ((Group)((XithGeometry)this.getGeometry()).getSceneGraphNode()).addChild(node);
     }
 
     //initialization call

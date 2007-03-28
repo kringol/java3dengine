@@ -23,8 +23,8 @@ public class Utils {
             GroupNode parent = node.getParent();
             if (parent != null){
                 node.removeFromParentGroup();
-                tg.addChild(node);
                 parent.addChild(tg);
+                tg.addChild(node);
             }else{
                 throw new IllegalArgumentException("Node cannot be root.");
             }
@@ -36,7 +36,7 @@ public class Utils {
         return insertTransformGroup(node, null);
     }
 
-    private static TransformGroup insertTransformGroup(GroupNode parentGroup, TransformGroup newTG){
+    @Deprecated private static TransformGroup insertTransformGroup(GroupNode parentGroup, TransformGroup newTG){
 
         TransformGroup tg = newTG != null ? newTG : new TransformGroup();
 
@@ -57,7 +57,7 @@ public class Utils {
         return tg;
     }
 
-    private static TransformGroup insertTransformGroup(GroupNode parentGroup){
+    @Deprecated private static TransformGroup insertTransformGroup(GroupNode parentGroup){
         return insertTransformGroup(parentGroup, null);
     }
 }

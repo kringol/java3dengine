@@ -40,4 +40,9 @@ public class GeometryXithImpl extends BaseGeometry implements XithGeometry {
     public Transform3D getPreTransform() {
         return null;
     }
+
+
+    public boolean loadLater() {
+        return false;
+    }
 }
