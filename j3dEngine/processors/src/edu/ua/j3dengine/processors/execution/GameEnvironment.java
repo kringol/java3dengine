@@ -117,10 +117,10 @@ public class GameEnvironment {
 //        tg2 = new TransformGroup();tg.addChild(tg2);tg2.addChild(model);
 //
 
-        addDirectionalLight(root);
+       // addDirectionalLight(root);
 
         //addSpotLight(root);
-        //addAmbientLight(root);
+        addAmbientLight(root);
         //addBackground(root);
         addFloor(root);
         return root;

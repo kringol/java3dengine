@@ -12,7 +12,7 @@ public class MouseManager {
     private MouseDevice mouseDevice;
     private MouseAccumulator mouse;
     protected static final long MIN_DELTA_UPDATE_TIME_MILLIS = 10L;
-    protected static final long MIN_DELTA_UPDATE_WHEEL_TIME_MILLIS = 80L;
+    protected static final long MIN_DELTA_UPDATE_WHEEL_TIME_MILLIS = 200L;
     private static long elapsedTime = 0;
     private int dX, dY;
     private int wheelDelta;
@@ -105,7 +105,7 @@ public class MouseManager {
 
     public static int getWheelDelta() {
         int result = ourInstance.wheelDelta;
-        ourInstance.wheelDelta = 0;
+        //ourInstance.wheelDelta = 0;
         return result;
     }
 

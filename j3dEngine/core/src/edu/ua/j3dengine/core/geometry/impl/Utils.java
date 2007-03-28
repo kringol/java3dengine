@@ -12,10 +12,13 @@ import java.util.ArrayList;
 
 
 public class Utils {
-    public static TransformGroup insertTransformGroup(Node node, TransformGroup newTG){
+    public static TransformGroup insertTransformGroup(Node node, TransformGroup newTG, String transformGroupName){
         validateNotNull(node);
         
         TransformGroup tg = newTG != null ? newTG : new TransformGroup();
+        if (transformGroupName != null){
+            tg.setName(transformGroupName);
+        }
 //
 //        if (node instanceof GroupNode){
 //            return insertTransformGroup((GroupNode)node, tg);
@@ -32,8 +35,12 @@ public class Utils {
 
         return tg;
     }
+    public static TransformGroup insertTransformGroup(Node node, String transformGroupName){
+        return insertTransformGroup(node, null,transformGroupName);
+    }
+
     public static TransformGroup insertTransformGroup(Node node){
-        return insertTransformGroup(node, null);
+        return insertTransformGroup(node, null,null);
     }
 
     @Deprecated private static TransformGroup insertTransformGroup(GroupNode parentGroup, TransformGroup newTG){
@@ -58,6 +65,6 @@ public class Utils {
     }
 
     @Deprecated private static TransformGroup insertTransformGroup(GroupNode parentGroup){
-        return insertTransformGroup(parentGroup, null);
+        return insertTransformGroup(parentGroup, null,null);
     }
 }

@@ -40,9 +40,10 @@ public class VelocityMovementControllerXithImpl extends BaseMovementControllerXi
             translationVector.y += direction.y * delta;
             translationVector.z += direction.z * delta;*/
             Tuple3f translationVector = velocityDelegate.calculateTranslationVector(elapsedMillis);
-            transform.getTranslation().add(translationVector);
-
-            //transform.setTranslation(translationVector);
+//            Tuple3f currentTranslation = transform.getTranslation();
+//            translationVector.add(currentTranslation);
+            //todo (pablius) verificar que esto funciona
+            transform.mul(new Transform().setTranslation(translationVector).getTransform());//setTranslation(translationVector);
         }
 
         return transform;

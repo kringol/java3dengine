@@ -5,6 +5,7 @@ import edu.ua.j3dengine.core.GameObject;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
 import edu.ua.j3dengine.core.movement.AnimatedMovementController;
 import edu.ua.j3dengine.core.movement.BasicMovementController;
+import edu.ua.j3dengine.core.movement.Rotation;
 import edu.ua.j3dengine.processors.input.KeyboardManager;
 import edu.ua.j3dengine.processors.input.MouseManager;
 
@@ -16,6 +17,10 @@ public class GameActions {
 
     private GameActions() {
     }
+
+    public static final Rotation X_AXIS = Rotation.X_AXIS;
+    public static final Rotation Y_AXIS = Rotation.Y_AXIS;
+    public static final Rotation Z_AXIS = Rotation.Z_AXIS;
 
     public static void setSpeed(String objectName, float x, float y, float z, float speed) {
         setSpeed(objectName, new Vector3f(x,y,z), speed);
@@ -41,6 +46,12 @@ public class GameActions {
         ((BasicMovementController) targetObject.getMovementController()).setRotationSpeed(speed);
     }
 
+
+    public static void rotate(String objectName, Rotation axis, float rotationAngle) {
+        DynamicGameObject targetObject = getDynamicGameObject(objectName);
+        ((BasicMovementController)targetObject.getMovementController()).rotate(axis, rotationAngle);
+    }
+
     public static void changeAnimation(String objectName, String animationName, boolean loopAnimation) {
         DynamicGameObject targetObject = getDynamicGameObject(objectName);
         ((AnimatedMovementController) targetObject.getMovementController()).changeAnimation(animationName, loopAnimation);
@@ -57,6 +68,15 @@ public class GameActions {
         ((AnimatedMovementController) targetObject.getMovementController()).stopAnimation();
     }
 
+    public static void changeState(String objectName, String stateName){
+        DynamicGameObject targetObject = getDynamicGameObject(objectName);
+        targetObject.setCurrentState(targetObject.getState(stateName));
+    }
+
+    public static String getState(String objectName){
+        DynamicGameObject targetObject = getDynamicGameObject(objectName);
+        return targetObject.getCurrentState().getName();
+    }
 
     public static boolean isKeyPressed(int key) {
         return KeyboardManager.isKeyPressed(key);

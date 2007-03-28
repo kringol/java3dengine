@@ -11,6 +11,7 @@ import javax.vecmath.Tuple3f;
 public class GeometryXithImpl extends BaseGeometry implements XithGeometry {
 
     private Node node;
+    private Node movementReferenceNode;
 
 
     private GeometryXithImpl() {
@@ -26,6 +27,14 @@ public class GeometryXithImpl extends BaseGeometry implements XithGeometry {
         return node.getLocalToVworld().getTranslation();
     }
 
+
+    public Node getMovementReferenceNode() {
+        return movementReferenceNode != null ? movementReferenceNode : node;
+    }
+
+    public void setMovementReferenceNode(Node movementReferenceNode) {
+        this.movementReferenceNode = movementReferenceNode;
+    }
 
     public Node getSceneGraphNode() {
         return node;

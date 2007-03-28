@@ -145,12 +145,26 @@ public class ModelAdapterGeometry extends BaseGeometry implements XithGeometry{
             }
             assert object instanceof Node;
 
+            TransformGroup mvmtReference = null;
+            if (getPreTransform() != null){
+                mvmtReference = new TransformGroup(getPreTransform());
+                mvmtReference.addChild((Node)object);
+            }
             adapteeGeometry = new GeometryXithImpl(modelObjectName, (Node)object);
+            if (mvmtReference != null){
+                ((GeometryXithImpl)adapteeGeometry).setMovementReferenceNode(mvmtReference);
+            }
+
         }
         return adapteeGeometry;
     }
 
     public Tuple3f getLocation() {
         return getAdapteeGeometry().getLocation();
+    }
+
+
+    public Node getMovementReferenceNode() {
+        return getAdapteeGeometry().getMovementReferenceNode();
     }
 }

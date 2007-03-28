@@ -4,6 +4,7 @@ import static edu.ua.j3dengine.utils.ValidationUtils.*;
 
 import edu.ua.j3dengine.core.movement.CameraMovementController;
 import edu.ua.j3dengine.core.movement.MovementController;
+import edu.ua.j3dengine.core.movement.Rotation;
 import edu.ua.j3dengine.core.Camera;
 
 import javax.vecmath.Tuple3f;
@@ -85,11 +86,7 @@ public class CameraMovementControllerImpl extends MovementController implements 
     }
 
 
-    public void rotate(float rotationAngle) {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    public void rotate(Vector3f rotationAxis, float rotationAngle) {
+    public void rotate(Rotation axis, float rotationAngle) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 }

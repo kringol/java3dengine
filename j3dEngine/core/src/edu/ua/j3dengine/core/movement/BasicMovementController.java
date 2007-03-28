@@ -26,7 +26,5 @@ public interface BasicMovementController {
 
     Tuple3f getLocation();
 
-    void rotate(float rotationAngle);
-
-    void rotate(Vector3f rotationAxis, float rotationAngle);
+    void rotate(Rotation axis, float rotationAngle);
 }
