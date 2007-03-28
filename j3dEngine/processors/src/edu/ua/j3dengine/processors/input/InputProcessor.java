@@ -20,8 +20,12 @@ public class InputProcessor extends Processor {
         MouseManager.update();
         int x = MouseManager.getXDelta();
         int y = MouseManager.getYDelta();
+        int w = MouseManager.getWheelDelta();
         if (x != 0 || y != 0) {
             logDebug("MouseDelta: " + x + "," + y);
+        }
+        if (w != 0) {
+            logDebug("MouseWheelDelta: " + w);
         }
     }
 
