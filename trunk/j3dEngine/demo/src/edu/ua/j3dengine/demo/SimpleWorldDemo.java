@@ -5,6 +5,7 @@ import edu.ua.j3dengine.core.Camera;
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.World;
 import edu.ua.j3dengine.core.behavior.Behavior;
+import edu.ua.j3dengine.core.behavior.InertBehavior;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
@@ -40,6 +41,17 @@ public class SimpleWorldDemo {
             e.printStackTrace();
             System.exit(-1);
         }
+
+        DynamicGameObject jeep = new DynamicGameObject("jeep");
+        Geometry jeepG = new ModelAdapterGeometry("resources\\3ds\\jeep\\jeep1.3ds", null);
+       // Geometry jeepG = new ModelAdapterGeometry("resources\\jeep2.ase", null);
+        ((ModelAdapterGeometry)jeepG).setTransform(new Transform().addRotationX(-90).addScale(10).getTransform());
+        DynamicObjectState state = new DynamicObjectState("quiet", null, null, new InertBehavior());
+        jeep.setGeometry(jeepG);
+        jeep.addState(state);
+        jeep.setInitialState(state.getName());
+        world.addGameObject(jeep);
+
 
         final DynamicGameObject archer = new DynamicGameObject("Archer");
         Geometry geom = new ModelAdapterGeometry("resources\\cal3d\\archer\\Archer.cfg", null, true, true);
@@ -91,30 +103,11 @@ public class SimpleWorldDemo {
                 GameEnvironment.getInstance().getEnvironment().getRootGroup().dump();
             }
         }.start();
-
-
-        /*
-//        final World world = World.create("SampleWorld");
-//        try {
-//            GameObjectManager.getInstance().loadWorld(world);
-//        } catch (WorldInitializationException e) {
-//            e.printStackTrace();
-//        }
-//        final DynamicGameObject object = GameObjectFactory.getInstance().createDynamicObject("jeep_geom", model);
-//        world.addGameObject(object);
-//        object.initializeMovementController();
-//        ((BasicMovementController)object.getMovementController()).setDirection(new Vector3f(-1,0,0));
-//        ((BasicMovementController)object.getMovementController()).setSpeed(1);
-
-        
-         */
     }
 
     private static class MouseCameraBehavior extends Behavior {
 
         private static final float TWO_PI = (2.0f * (float)Math.PI);
-//        private static final Vector3f XAXIS = new Vector3f(1,0,0);
-//        private static final Vector3f YAXIS = new Vector3f(0,1,0);
         private static final float MAX_ANGLE_UPDOWN = (float)Math.toRadians( 80.0 );
 
         private int canvasWidth;

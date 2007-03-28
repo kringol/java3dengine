@@ -47,12 +47,7 @@ public class RotationMovementControllerXithImpl extends BaseMovementControllerXi
         return transform;
     }
 
-//    //todo (pablius) method to be tested
-//    public void rotate(float rotationAngle){
-//        getTargetTransformGroup().getTransform().rotAxis(rotationAxis, (float) Math.toRadians(rotationAngle));
-//    }
-    
-    //todo (pablius) method to be tested
+
     public void rotate(Rotation axis, float rotationAngle){
         float radAngle = (float) Math.toRadians(rotationAngle);
         switch(axis){

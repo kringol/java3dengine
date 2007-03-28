@@ -9,16 +9,18 @@ public class Utils {
     private Utils() {
     }
 
-    public static void logDebug(String msg){
+    public static boolean logDebug(String msg){
         if (severity.weight() <= LogSeverity.DEBUG.weight()){
             System.out.println("[DEBUG]: "+msg);
         }
+        return true;
     }
 
-    public static void logInfo(String msg){
+    public static boolean logInfo(String msg){
         if (severity.weight() <= LogSeverity.INFO.weight()){
             System.out.println("[INFO]: "+msg);
         }
+        return true;
     }
 
 

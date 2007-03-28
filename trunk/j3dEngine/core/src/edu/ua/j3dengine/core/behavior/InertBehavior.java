@@ -18,6 +18,5 @@ public class InertBehavior extends Behavior {
 
     public void execute() {
         //do nothing! (it's inert)
-        logDebug("InertBehavior executed.");
     }
 }
