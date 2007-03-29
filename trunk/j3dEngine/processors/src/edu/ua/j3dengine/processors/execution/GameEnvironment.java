@@ -131,7 +131,7 @@ public class GameEnvironment {
     }
 
     private void addFloor(Group root) {
-        org.xith3d.geometry.Rectangle floor = new org.xith3d.geometry.Rectangle("resources\\textures\\grass.jpg", false, 20000f, 20000f);
+        org.xith3d.geometry.Rectangle floor = new org.xith3d.geometry.Rectangle("resources\\textures\\america.jpg", false, 20000f, 20000f);
         //org.xith3d.geometry.Rectangle floor = new org.xith3d.geometry.Rectangle(new Color4f(0,1,0,0),20000f, 20000f);
         Color3f black = new Color3f(0, 0, 0);
         //Material material = new Material(black,black, new Color3f(0,1,0), new Color3f(1,1,1), 20.0f);
