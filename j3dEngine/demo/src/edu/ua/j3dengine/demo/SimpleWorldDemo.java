@@ -66,7 +66,7 @@ public class SimpleWorldDemo {
         Geometry geom = new ModelAdapterGeometry("resources\\cal3d\\archer\\Archer.cfg", null, true, true);
         ((ModelAdapterGeometry)geom).setTransform(new Transform().addRotationX(-90).addScale(10).getTransform());
 
-        KeyboardMovementBehavior keyboardBehav = new KeyboardMovementBehavior();
+        KeyboardFreeMovementBehavior keyboardBehav = new KeyboardFreeMovementBehavior();
         Behavior initB = new WalkInit(archer);
         DynamicObjectState walking = new DynamicObjectState("walking_state", initB, null, keyboardBehav);
         initB = new IdleInit(archer);
@@ -366,15 +366,93 @@ public class SimpleWorldDemo {
         }
 
         public void execute() {
-
-            Matrix3f matrix = new Matrix3f();
-            matrix.setIdentity();
-            matrix.setColumn(2, direction);
-            matrix.rotY((float)Math.toRadians(angle));
-            matrix.getColumn(2, direction);
+            rotateVector(direction, Y_AXIS, angle);
             setSpeed("jeep", direction, 200);
             rotate("jeep", Y_AXIS, angle-180);
             angle = (float)(angle - 0.1) % 360;
+        }
+    }
+
+    private static class KeyboardFreeMovementBehavior extends Behavior {
+        private static final Vector3f INITIAL_DIRECTION = new Vector3f(0,0,1);
+
+        private static final int SPEED = 50;
+        private boolean firstTime = true;
+        private Vector3f direction = new Vector3f(INITIAL_DIRECTION);
+        private float angle = 0;
+        private boolean forward = true;
+        private static final int ROTATION = 3;
+
+        public KeyboardFreeMovementBehavior() {
+            super("KeyboardFreeMovementBehavior");
+        }
+
+
+        public void execute() {
+            if (firstTime){ //todo move to initial state
+                setSpeed("Archer", direction, 0);
+                firstTime = false;
+            }
+            float speed = SPEED;
+
+            if (isKeyPressed(VK_SHIFT)){
+                speed *= 5;
+            }
+            if (isKeyPressed(VK_SPACE)){
+                setSpeed("Archer", 0);
+                changeState("Archer", "attack_state");
+            }
+            else{
+                if (isKeyPressed(VK_UP) && isKeyPressed(VK_DOWN)){
+                //do nothing
+                }else
+                if (isKeyPressed(VK_UP)){
+                    if (!forward){
+                        angle = (angle + 180) % 360;
+                        rotateVector(direction, Y_AXIS, angle);
+                        forward = true;
+                    }
+                    if (!getState("Archer").equals("walking_state")){
+                        changeState("Archer", "walking_state");
+                    }
+                    setSpeed("Archer", direction, speed);
+                }else if (isKeyPressed(VK_DOWN)){
+                    if (forward){
+                        angle = (angle + 180) % 360;
+                        rotateVector(direction, Y_AXIS, angle);
+                        forward = false;
+                    }
+                    if (!getState("Archer").equals("walking_state")){
+                        changeState("Archer", "walking_state");
+                    }
+                    setSpeed("Archer", direction, speed);
+                }else{
+                    if (!forward){
+                        angle = (angle + 180) % 360;
+                        rotateVector(direction, Y_AXIS, angle);
+                        forward = true;
+                    }
+                    setSpeed("Archer", 0);
+                    changeState("Archer", "idle_state");
+                }
+
+                if (isKeyPressed(VK_RIGHT) && isKeyPressed(VK_LEFT)){
+                    //do nothing
+                }else
+                if (isKeyPressed(VK_RIGHT)){
+                    angle = (angle - ROTATION) % 360;
+                    rotateVector(direction, Y_AXIS, angle);
+                    float archerRot = forward ? angle : (angle + 180) % 360;
+                    rotate("Archer", Y_AXIS, archerRot);
+                }else
+                if (isKeyPressed(VK_LEFT)){
+                    angle = (angle + ROTATION) % 360;
+                    rotateVector(direction, Y_AXIS, angle);
+                    float archerRot = forward ? angle : (angle + 180) % 360;
+                    rotate("Archer", Y_AXIS, archerRot);
+                }
+            }
+
         }
     }
 
