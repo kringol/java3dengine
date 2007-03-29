@@ -11,6 +11,7 @@ import edu.ua.j3dengine.processors.input.MouseManager;
 
 import javax.vecmath.Vector3f;
 import javax.vecmath.Point3f;
+import javax.vecmath.Matrix3f;
 
 
 public class GameActions {
@@ -115,6 +116,27 @@ public class GameActions {
 
     public static void setViewDirection(Vector3f newFocus){
         ((BasicMovementController)GameObjectManager.getInstance().getDefaultCamera().getMovementController()).setDirection(newFocus);
+    }
+
+    public static Vector3f rotateVector(Vector3f vector, Rotation axis, float angle){
+        Matrix3f matrix = new Matrix3f();
+        matrix.setIdentity();
+        matrix.setColumn(2, vector);
+
+        switch(axis){
+            case X_AXIS:
+                matrix.rotX((float)Math.toRadians(angle));
+            break;
+            case Y_AXIS:
+                matrix.rotY((float)Math.toRadians(angle));
+            break;
+            case Z_AXIS:
+                matrix.rotZ((float)Math.toRadians(angle));
+            break;
+        }
+
+        matrix.getColumn(2, vector);
+        return vector;
     }
 
 
