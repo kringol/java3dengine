@@ -64,6 +64,7 @@ public class ProcessorLoopThread extends Thread {
         while (active) {
             for (Processor processor : processors) {
                 processor.execute();
+                Thread.yield(); //let other thread execute
             }
         }
         logDebug("'" + getName() + "' processor Loop has finished its execution.");

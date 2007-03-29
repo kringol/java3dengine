@@ -14,8 +14,8 @@ public class MouseManager {
     protected static final long MIN_DELTA_UPDATE_TIME_MILLIS = 10L;
     protected static final long MIN_DELTA_UPDATE_WHEEL_TIME_MILLIS = 200L;
     private static long elapsedTime = 0;
-    private int dX, dY;
-    private int wheelDelta;
+    volatile private int dX, dY;
+    volatile private int wheelDelta;
     private static long elapsedTimeWheel = 0;
 
     private MouseManager(boolean exclusiveMode) {
