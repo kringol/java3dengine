@@ -22,8 +22,11 @@ import javax.vecmath.Vector3f;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3f;
 import javax.vecmath.Color4f;
+import javax.xml.bind.JAXBException;
 import java.awt.*;
 import java.awt.Rectangle;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 
 public class GameEnvironment {
@@ -185,6 +188,19 @@ public class GameEnvironment {
 
         SkyBox background = new SkyBox(front, right, back, left, top, bottom);
         root.addChild(background);
+    }
+
+    public void loadAndStartProcessors() {
+        try {
+            java.util.List<ProcessorLoopThread> list = ProcessorLoopBuilder.buildProcessorLoops();
+            for (ProcessorLoopThread processorLoopThread : list) {
+                processorLoopThread.start();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
     }
 
 }

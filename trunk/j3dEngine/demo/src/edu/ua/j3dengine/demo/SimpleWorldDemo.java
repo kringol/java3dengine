@@ -274,40 +274,42 @@ public class SimpleWorldDemo {
 
     private static void startProcessors() {
 
-        new Thread("Processors starter"){
+        GameEnvironment.getInstance().loadAndStartProcessors();
 
-            @Override
-            public void run() {
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    //ignore
-                }
-
-                RenderingProcessor renderProcessor = new RenderingProcessor();
-                InputProcessor inputProcessor = new InputProcessor();
-                GameLogicProcessor logicProcessor = new GameLogicProcessor();
-
-                ThreadGroup group = new ThreadGroup("ProcessingGroup");
-                ProcessorLoopThread thread = ProcessorLoopThread.create(group,
-                        "MainLoopThread",
-                        Thread.MAX_PRIORITY,
-                        inputProcessor,
-                        logicProcessor,
-                        renderProcessor);
-
-                thread.start();
-
-                try {
-                    Thread.sleep(120000);
-                } catch (InterruptedException e) {
-                    //ignore
-                }
-                //group.interrupt();
-                thread.deactivate();
-            }
-        }.start();
+//        new Thread("Processors starter"){
+//
+//            @Override
+//            public void run() {
+//
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    //ignore
+//                }
+//
+//                RenderingProcessor renderProcessor = new RenderingProcessor();
+//                InputProcessor inputProcessor = new InputProcessor();
+//                GameLogicProcessor logicProcessor = new GameLogicProcessor();
+//
+//                ThreadGroup group = new ThreadGroup("ProcessingGroup");
+//                ProcessorLoopThread thread = ProcessorLoopThread.create(group,
+//                        "MainLoopThread",
+//                        Thread.MAX_PRIORITY,
+//                        inputProcessor,
+//                        logicProcessor,
+//                        renderProcessor);
+//
+//                thread.start();
+//
+//                try {
+//                    Thread.sleep(120000);
+//                } catch (InterruptedException e) {
+//                    //ignore
+//                }
+//                //group.interrupt();
+//                thread.deactivate();
+//            }
+//        }.start();
 
     }
 
