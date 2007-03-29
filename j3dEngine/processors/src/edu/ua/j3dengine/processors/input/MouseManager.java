@@ -8,7 +8,7 @@ import net.jtank.input.awt.AWTMouse;
 
 public class MouseManager {
 
-    private static MouseManager ourInstance;
+    private static MouseManager ourInstance = new MouseManager(false);
     private MouseDevice mouseDevice;
     private MouseAccumulator mouse;
     protected static final long MIN_DELTA_UPDATE_TIME_MILLIS = 10L;
