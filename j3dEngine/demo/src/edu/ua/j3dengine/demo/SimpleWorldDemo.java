@@ -5,7 +5,6 @@ import edu.ua.j3dengine.core.Camera;
 import edu.ua.j3dengine.core.DynamicGameObject;
 import edu.ua.j3dengine.core.World;
 import edu.ua.j3dengine.core.behavior.Behavior;
-import edu.ua.j3dengine.core.behavior.InertBehavior;
 import edu.ua.j3dengine.core.geometry.Geometry;
 import edu.ua.j3dengine.core.geometry.impl.ModelAdapterGeometry;
 import edu.ua.j3dengine.core.mgmt.GameObjectManager;
@@ -13,13 +12,8 @@ import edu.ua.j3dengine.core.mgmt.WorldInitializationException;
 import edu.ua.j3dengine.core.movement.CameraMovementController;
 import edu.ua.j3dengine.core.state.DynamicObjectState;
 import static edu.ua.j3dengine.gapi.GameActions.*;
-
-import edu.ua.j3dengine.processors.GameLogicProcessor;
 import edu.ua.j3dengine.processors.execution.GameEnvironment;
-import edu.ua.j3dengine.processors.execution.ProcessorLoopThread;
-import edu.ua.j3dengine.processors.input.InputProcessor;
 import edu.ua.j3dengine.processors.input.MouseManager;
-import edu.ua.j3dengine.processors.rendering.RenderingProcessor;
 import static net.jtank.input.KeyCode.*;
 import org.xith3d.render.Canvas3D;
 import org.xith3d.scenegraph.Transform;
@@ -27,7 +21,6 @@ import org.xith3d.scenegraph.View;
 
 import javax.vecmath.Tuple3f;
 import javax.vecmath.Vector3f;
-import javax.vecmath.Matrix3f;
 
 
 public class SimpleWorldDemo {
@@ -43,18 +36,18 @@ public class SimpleWorldDemo {
             System.exit(-1);
         }
 
-         //initialize
+        //initialize
         GameEnvironment.getInstance();
-        
+
 
         DynamicGameObject jeep = new DynamicGameObject("jeep");
         Geometry jeepG = new ModelAdapterGeometry("resources/3ds/jeep/jeep1.3ds", null);
-       // Geometry jeepG = new ModelAdapterGeometry("resources/ase/jeep/jeep2.ase", null);
+        // Geometry jeepG = new ModelAdapterGeometry("resources/ase/jeep/jeep2.ase", null);
         //Geometry jeepG = new ModelAdapterGeometry("resources\\obj\\drazisunhawk\\drazisunhawk.obj", null);
         //Geometry jeepG = new ModelAdapterGeometry("resources/3ds/drazinsunhawk/Drazisunhawk1.1.3ds", null);
-      //   Geometry jeepG = new ModelAdapterGeometry("resources/obj/narn.obj", null);
+        //   Geometry jeepG = new ModelAdapterGeometry("resources/obj/narn.obj", null);
 
-        ((ModelAdapterGeometry)jeepG).setTransform(new Transform().addRotationX(-90).addScale(10).getTransform());
+        ((ModelAdapterGeometry) jeepG).setTransform(new Transform().addRotationX(-90).addScale(10).getTransform());
         DynamicObjectState state = new DynamicObjectState("quiet", null, null, new NPCBehavior());
         jeep.setGeometry(jeepG);
         jeep.addState(state);
@@ -64,7 +57,7 @@ public class SimpleWorldDemo {
 
         final DynamicGameObject archer = new DynamicGameObject("Archer");
         Geometry geom = new ModelAdapterGeometry("resources\\cal3d\\archer\\Archer.cfg", null, true, true);
-        ((ModelAdapterGeometry)geom).setTransform(new Transform().addRotationX(-90).addScale(10).getTransform());
+        ((ModelAdapterGeometry) geom).setTransform(new Transform().addRotationX(-90).addScale(10).getTransform());
 
         KeyboardFreeMovementBehavior keyboardBehav = new KeyboardFreeMovementBehavior();
         Behavior initB = new WalkInit(archer);
@@ -82,7 +75,6 @@ public class SimpleWorldDemo {
         //world.addGameObject(archer);//todo (pablius) do not add object here
 
 
-
         Behavior cameraBehav = new MouseCameraBehavior(world.getDefaultCamera());
         Behavior cameraBehav2 = new FollowerCamera();
         Behavior cameraBehav3 = new SetPosCamera();
@@ -93,12 +85,12 @@ public class SimpleWorldDemo {
         world.getDefaultCamera().addState(camState2);
         world.getDefaultCamera().setInitialState(camState.getName());
 
-        GameEnvironment.getInstance().getEnvironment().getView().lookAt(new Vector3f(-100, 50, -100), new Vector3f(1000, 0, 1000), new Vector3f(0,1,0));
+        GameEnvironment.getInstance().getEnvironment().getView().lookAt(new Vector3f(-100, 50, -100), new Vector3f(1000, 0, 1000), new Vector3f(0, 1, 0));
 
         startProcessors();
-       // MouseManager.init(true);
+        // MouseManager.init(true);
 
-        new Thread("TesterThread"){
+        new Thread("TesterThread") {
 
             @Override
             public void run() {
@@ -110,7 +102,7 @@ public class SimpleWorldDemo {
                 }
                 World world = GameObjectManager.getInstance().getWorld();
                 world.addGameObject(archer);
-                
+
                 //System.out.println("Archer added");
                 GameEnvironment.getInstance().getEnvironment().getRootGroup().dump();
             }
@@ -124,7 +116,7 @@ public class SimpleWorldDemo {
             Vector3f camLocation = new Vector3f(location);
             camLocation.add(new Vector3f(-100, 60, -100));
             setViewLocation(camLocation);
-            location.add(new Vector3f(0,40,0));
+            location.add(new Vector3f(0, 40, 0));
             setViewDirection(location);
 
         }
@@ -136,16 +128,17 @@ public class SimpleWorldDemo {
             Vector3f location = getLocation("Archer");
             location.add(new Vector3f(-100, 60, -100));
             setViewLocation(location);
-            if (isKeyPressed(VK_F2)){
+            if (isKeyPressed(VK_F2)) {
                 changeState(World.DEFAULT_CAMERA, "mouse");
             }
-            
+
         }
     }
+
     private static class MouseCameraBehavior extends Behavior {
 
-        private static final float TWO_PI = (2.0f * (float)Math.PI);
-        private static final float MAX_ANGLE_UPDOWN = (float)Math.toRadians( 80.0 );
+        private static final float TWO_PI = (2.0f * (float) Math.PI);
+        private static final float MAX_ANGLE_UPDOWN = (float) Math.toRadians(80.0);
 
         private int canvasWidth;
         private int canvasHeight;
@@ -165,7 +158,7 @@ public class SimpleWorldDemo {
             this.sensitivity = 0.2;
             this.wheelSensitivity = 0.5;
 
-            this.viewEuler = new Vector3f(0,0,0);
+            this.viewEuler = new Vector3f(0, 0, 0);
             this.targetView.getTransform().getEuler(this.viewEuler);
 
             Canvas3D canvas = GameEnvironment.getInstance().getCanvas();
@@ -176,7 +169,6 @@ public class SimpleWorldDemo {
 
         public void execute() {
 
-
             //update rotation
             int dX = MouseManager.getXDelta();
             int dY = MouseManager.getYDelta();
@@ -185,27 +177,24 @@ public class SimpleWorldDemo {
 //            float yRotAngle = (float) sensitivity * -dY;
 //            targetView.getTransform().mul(new Transform().addRotationX(xRotAngle).addRotationY(yRotAngle).getTransform());
 
-
-
             // calculate angle
-            if (dX != 0 || dY != 0){
+            if (dX != 0 || dY != 0) {
 
 
-                viewEuler.y += (TWO_PI * -((float)dX / (float)canvasWidth) * sensitivity);
-                viewEuler.x -= (TWO_PI * -((float)dY / (float)canvasHeight) * sensitivity);
+                viewEuler.y += (TWO_PI * -((float) dX / (float) canvasWidth) * sensitivity);
+                viewEuler.x -= (TWO_PI * -((float) dY / (float) canvasHeight) * sensitivity);
 
-                while (viewEuler.y > TWO_PI){
+                while (viewEuler.y > TWO_PI) {
                     viewEuler.y -= TWO_PI;
                 }
 
-                while (viewEuler.y < 0.0f){
+                while (viewEuler.y < 0.0f) {
                     viewEuler.y += TWO_PI;
                 }
 
-                if (viewEuler.x < -MAX_ANGLE_UPDOWN){
+                if (viewEuler.x < -MAX_ANGLE_UPDOWN) {
                     viewEuler.x = -MAX_ANGLE_UPDOWN;
-                }
-                else if (viewEuler.x > MAX_ANGLE_UPDOWN){
+                } else if (viewEuler.x > MAX_ANGLE_UPDOWN) {
                     viewEuler.x = MAX_ANGLE_UPDOWN;
                 }
 
@@ -214,9 +203,9 @@ public class SimpleWorldDemo {
 
             //update translation
             float variation = (float) wheelSensitivity * dWheel;
-            if (Math.abs(variation) != 0){
+            if (Math.abs(variation) != 0) {
 
-                if (isKeyPressed(VK_CONTROL)){
+                if (isKeyPressed(VK_CONTROL)) {
                     variation *= 10;
                 }
 
@@ -228,11 +217,11 @@ public class SimpleWorldDemo {
                 normalizedViewDirection.normalize();
                 normalizedViewDirection.scale(variation);
                 viewLocation.add(normalizedViewDirection);
-            
+
                 setViewLocation(new Vector3f(viewLocation));
             }
 
-            if (isKeyPressed(VK_F2)){
+            if (isKeyPressed(VK_F2)) {
                 changeState(World.DEFAULT_CAMERA, "follow");
             }
         }
@@ -276,41 +265,6 @@ public class SimpleWorldDemo {
 
         GameEnvironment.getInstance().loadAndStartProcessors();
 
-//        new Thread("Processors starter"){
-//
-//            @Override
-//            public void run() {
-//
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    //ignore
-//                }
-//
-//                RenderingProcessor renderProcessor = new RenderingProcessor();
-//                InputProcessor inputProcessor = new InputProcessor();
-//                GameLogicProcessor logicProcessor = new GameLogicProcessor();
-//
-//                ThreadGroup group = new ThreadGroup("ProcessingGroup");
-//                ProcessorLoopThread thread = ProcessorLoopThread.create(group,
-//                        "MainLoopThread",
-//                        Thread.MAX_PRIORITY,
-//                        inputProcessor,
-//                        logicProcessor,
-//                        renderProcessor);
-//
-//                thread.start();
-//
-//                try {
-//                    Thread.sleep(120000);
-//                } catch (InterruptedException e) {
-//                    //ignore
-//                }
-//                //group.interrupt();
-//                thread.deactivate();
-//            }
-//        }.start();
-
     }
 
 
@@ -327,6 +281,7 @@ public class SimpleWorldDemo {
             startAnimation("Archer");
         }
     }
+
     private static class AttackInit extends Behavior {
         private DynamicGameObject targetObject;
 
@@ -340,6 +295,7 @@ public class SimpleWorldDemo {
             startAnimation("Archer");
         }
     }
+
     private static class IdleInit extends Behavior {
         private DynamicGameObject targetObject;
 
@@ -356,7 +312,7 @@ public class SimpleWorldDemo {
 
 
     private static class NPCBehavior extends Behavior {
-        private static final Vector3f INITIAL_DIRECTION = new Vector3f(0,0,-1);
+        private static final Vector3f INITIAL_DIRECTION = new Vector3f(0, 0, -1);
         private Vector3f direction = new Vector3f(INITIAL_DIRECTION);
         private static final int SPEED = 50;
         private boolean firstTime = true;
@@ -370,13 +326,13 @@ public class SimpleWorldDemo {
         public void execute() {
             rotateVector(direction, Y_AXIS, angle);
             setSpeed("jeep", direction, 200);
-            rotate("jeep", Y_AXIS, angle-180);
-            angle = (float)(angle - 0.1) % 360;
+            rotate("jeep", Y_AXIS, angle - 180);
+            angle = (float) (angle - 0.1) % 360;
         }
     }
 
     private static class KeyboardFreeMovementBehavior extends Behavior {
-        private static final Vector3f INITIAL_DIRECTION = new Vector3f(0,0,1);
+        private static final Vector3f INITIAL_DIRECTION = new Vector3f(0, 0, 1);
 
         private static final int SPEED = 50;
         private boolean firstTime = true;
@@ -391,45 +347,43 @@ public class SimpleWorldDemo {
 
 
         public void execute() {
-            if (firstTime){ //todo move to initial state
+            if (firstTime) { //todo move to initial state
                 setSpeed("Archer", direction, 0);
                 firstTime = false;
             }
             float speed = SPEED;
 
-            if (isKeyPressed(VK_SHIFT)){
+            if (isKeyPressed(VK_SHIFT)) {
                 speed *= 5;
             }
-            if (isKeyPressed(VK_SPACE)){
+            if (isKeyPressed(VK_SPACE)) {
                 setSpeed("Archer", 0);
                 changeState("Archer", "attack_state");
-            }
-            else{
-                if (isKeyPressed(VK_UP) && isKeyPressed(VK_DOWN)){
-                //do nothing
-                }else
-                if (isKeyPressed(VK_UP)){
-                    if (!forward){
+            } else {
+                if (isKeyPressed(VK_UP) && isKeyPressed(VK_DOWN)) {
+                    //do nothing
+                } else if (isKeyPressed(VK_UP)) {
+                    if (!forward) {
                         angle = (angle + 180) % 360;
                         rotateVector(direction, Y_AXIS, angle);
                         forward = true;
                     }
-                    if (!getState("Archer").equals("walking_state")){
+                    if (!getState("Archer").equals("walking_state")) {
                         changeState("Archer", "walking_state");
                     }
                     setSpeed("Archer", direction, speed);
-                }else if (isKeyPressed(VK_DOWN)){
-                    if (forward){
+                } else if (isKeyPressed(VK_DOWN)) {
+                    if (forward) {
                         angle = (angle + 180) % 360;
                         rotateVector(direction, Y_AXIS, angle);
                         forward = false;
                     }
-                    if (!getState("Archer").equals("walking_state")){
+                    if (!getState("Archer").equals("walking_state")) {
                         changeState("Archer", "walking_state");
                     }
                     setSpeed("Archer", direction, speed);
-                }else{
-                    if (!forward){
+                } else {
+                    if (!forward) {
                         angle = (angle + 180) % 360;
                         rotateVector(direction, Y_AXIS, angle);
                         forward = true;
@@ -438,16 +392,14 @@ public class SimpleWorldDemo {
                     changeState("Archer", "idle_state");
                 }
 
-                if (isKeyPressed(VK_RIGHT) && isKeyPressed(VK_LEFT)){
+                if (isKeyPressed(VK_RIGHT) && isKeyPressed(VK_LEFT)) {
                     //do nothing
-                }else
-                if (isKeyPressed(VK_RIGHT)){
+                } else if (isKeyPressed(VK_RIGHT)) {
                     angle = (angle - ROTATION) % 360;
                     rotateVector(direction, Y_AXIS, angle);
                     float archerRot = forward ? angle : (angle + 180) % 360;
                     rotate("Archer", Y_AXIS, archerRot);
-                }else
-                if (isKeyPressed(VK_LEFT)){
+                } else if (isKeyPressed(VK_LEFT)) {
                     angle = (angle + ROTATION) % 360;
                     rotateVector(direction, Y_AXIS, angle);
                     float archerRot = forward ? angle : (angle + 180) % 360;
@@ -459,7 +411,7 @@ public class SimpleWorldDemo {
     }
 
     private static class KeyboardMovementBehavior extends Behavior {
-        private static final Vector3f INITIAL_DIRECTION = new Vector3f(0,0,1);
+        private static final Vector3f INITIAL_DIRECTION = new Vector3f(0, 0, 1);
         private static final int SPEED = 50;
         private boolean firstTime = true;
 
@@ -469,60 +421,51 @@ public class SimpleWorldDemo {
 
 
         public void execute() {
-            if (firstTime){ //todo move to initial state
+            if (firstTime) { //todo move to initial state
                 setSpeed("Archer", INITIAL_DIRECTION, 0);
                 firstTime = false;
             }
             int speed = SPEED;
-            if (isKeyPressed(VK_SHIFT)){
+            if (isKeyPressed(VK_SHIFT)) {
                 speed *= 10;
             }
-            if (isKeyPressed(VK_SPACE)){
+            if (isKeyPressed(VK_SPACE)) {
                 setSpeed("Archer", 0);
                 changeState("Archer", "attack_state");
-            }
-            else
-            if (isKeyPressed(VK_UP) && isKeyPressed(VK_RIGHT)){
+            } else if (isKeyPressed(VK_UP) && isKeyPressed(VK_RIGHT)) {
 
                 rotate("Archer", Y_AXIS, -45);
                 setSpeed("Archer", -1, 0, 1, speed);
                 changeState("Archer", "walking_state");
-            }else
-            if (isKeyPressed(VK_UP) && isKeyPressed(VK_LEFT)){
+            } else if (isKeyPressed(VK_UP) && isKeyPressed(VK_LEFT)) {
                 rotate("Archer", Y_AXIS, 45);
                 setSpeed("Archer", 1, 0, 1, speed);
                 changeState("Archer", "walking_state");
-            }else
-            if (isKeyPressed(VK_DOWN) && isKeyPressed(VK_RIGHT)){
+            } else if (isKeyPressed(VK_DOWN) && isKeyPressed(VK_RIGHT)) {
                 rotate("Archer", Y_AXIS, -135);
                 setSpeed("Archer", -1, 0, -1, speed);
                 changeState("Archer", "walking_state");
-            }else
-            if (isKeyPressed(VK_DOWN) && isKeyPressed(VK_LEFT)){
+            } else if (isKeyPressed(VK_DOWN) && isKeyPressed(VK_LEFT)) {
                 rotate("Archer", Y_AXIS, 135);
                 setSpeed("Archer", 1, 0, -1, speed);
                 changeState("Archer", "walking_state");
-            }else
-            if (isKeyPressed(VK_DOWN)){
+            } else if (isKeyPressed(VK_DOWN)) {
                 rotate("Archer", Y_AXIS, 180);
-                setSpeed("Archer", 0, 0, -1,speed);
+                setSpeed("Archer", 0, 0, -1, speed);
                 changeState("Archer", "walking_state");
-            }else
-            if (isKeyPressed(VK_UP)){
+            } else if (isKeyPressed(VK_UP)) {
                 rotate("Archer", Y_AXIS, 0);
-                setSpeed("Archer", 0, 0, 1,speed);
+                setSpeed("Archer", 0, 0, 1, speed);
                 changeState("Archer", "walking_state");
-            }else
-            if (isKeyPressed(VK_RIGHT)){
+            } else if (isKeyPressed(VK_RIGHT)) {
                 rotate("Archer", Y_AXIS, -90);
-                setSpeed("Archer", -1, 0, 0,speed);
+                setSpeed("Archer", -1, 0, 0, speed);
                 changeState("Archer", "walking_state");
-            }else
-            if (isKeyPressed(VK_LEFT)){
+            } else if (isKeyPressed(VK_LEFT)) {
                 rotate("Archer", Y_AXIS, 90);
-                setSpeed("Archer", 1, 0, 0,speed);
+                setSpeed("Archer", 1, 0, 0, speed);
                 changeState("Archer", "walking_state");
-            }else{
+            } else {
                 setSpeed("Archer", 0);
                 changeState("Archer", "idle_state");
             }
