@@ -38,7 +38,7 @@ public class GameEnvironment {
 
     private static final Vector3f VEC_UP = new Vector3f(0, 1, 0);
     private static final float DEFAULT_BACK_CLIP_DISTANCE = 50000f;
-    private static final float DEFAULT_FIELD_OF_VIEW = 0.5f;
+    private static final float DEFAULT_FIELD_OF_VIEW = 0.55f;
 
 
     public static synchronized GameEnvironment getInstance() {
@@ -177,7 +177,6 @@ public class GameEnvironment {
 
 
     private void loadSkyBox(Group root) {
-        //Texture texture = TextureLoader.getInstance().getTexture("resources\\images\\Nuages.jpg");
         TextureLoader textureloader = TextureLoader.getInstance();
         Texture top = textureloader.getTexture("resources\\skyboxes\\skymatter\\pos_y.jpg");
         Texture bottom = textureloader.getTexture("resources\\skyboxes\\skymatter\\neg_y.jpg");
@@ -191,16 +190,27 @@ public class GameEnvironment {
     }
 
     public void loadAndStartProcessors() {
-        try {
-            java.util.List<ProcessorLoopThread> list = ProcessorLoopBuilder.buildProcessorLoops();
-            for (ProcessorLoopThread processorLoopThread : list) {
-                processorLoopThread.start();
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    //ignore
+                }
+                try {
+                    java.util.List<ProcessorLoopThread> list = ProcessorLoopBuilder.buildProcessorLoops();
+                    for (ProcessorLoopThread processorLoopThread : list) {
+                        processorLoopThread.start();
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
+        }.start();
+
     }
 
 }

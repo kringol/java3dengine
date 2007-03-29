@@ -314,8 +314,6 @@ public class SimpleWorldDemo {
     private static class NPCBehavior extends Behavior {
         private static final Vector3f INITIAL_DIRECTION = new Vector3f(0, 0, -1);
         private Vector3f direction = new Vector3f(INITIAL_DIRECTION);
-        private static final int SPEED = 50;
-        private boolean firstTime = true;
 
         private float angle = 180;
 
