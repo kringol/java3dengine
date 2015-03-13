@@ -1,0 +1,1 @@
+The purpose of this project is to create a 3D engine (game oriented) based on java, using opensource frameworks, such as xith3d, jogl, etc.
